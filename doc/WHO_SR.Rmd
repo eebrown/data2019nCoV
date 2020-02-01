@@ -20,7 +20,7 @@ library(data2019nCoV)
 
 # WHO Situation Report Data
 
-This data was manually extracted from the WHO situation reports (https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) and stored in `raw-data/WHO_SR.csv', which is loaded as the data frame `WHO_SR` in this package.
+This data was manually extracted from the WHO situation reports (https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) and stored in `raw-data/WHO_SR.csv`, which is loaded as the data frame `WHO_SR` in this package.
 
 ## Plot example
 

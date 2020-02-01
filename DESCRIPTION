@@ -1,13 +1,16 @@
 Package: data2019nCoV
 Title: Data on the 2019 Novel Coronavirus Outbreak
-Version: 0.1.1
+Version: 0.12.0
 Authors@R: 
     person(given = "Eric",
            family = "Brown",
            role = c("aut", "cre"),
            email = "eb@ericebrown.com",
            comment = c(ORCID = "0000-0002-1575-2606"))
-Description: Data about the 2019 novel coronavirus outbreak.
+Description: Data about the 2019 novel coronavirus outbreak. Currently,
+    the package consists of data from the World Health Organization (WHO)
+    Situation Reports, as available online: 
+    <https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports>.
 Depends: R (>= 3.6.0)
 License: CC0
 Encoding: UTF-8
