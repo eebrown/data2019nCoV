@@ -1,0 +1,46 @@
+---
+title: "WHO_SR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{WHO_SR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(data2019nCoV)
+```
+
+# WHO Situation Report Data
+
+This data was manually extracted from the WHO situation reports (https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) and stored in `raw-data/WHO_SR.csv', which is loaded as the data frame `WHO_SR` in this package.
+
+## Plot example
+
+```{r}
+plot(WHO_SR$Date, WHO_SR$Global.confirmed, main = "Global 2019-CoV Confirmed Cases",
+                                           xlab = "Date",
+                                           ylab = "Confirmed Cases")
+```
+
+### Log examples
+
+```{r}
+plot(WHO_SR$Date, WHO_SR$China.deaths,     main = "2019-CoV Deaths (Logarithmic)",
+                                           xlab = "Date",
+                                           ylab = "Deaths",
+                                           log = "y")
+
+plot(WHO_SR$Date, WHO_SR$Global.confirmed, main = "Global 2019-CoV Confirmed Cases (Logarithmic)",
+                                           xlab = "Date",
+                                           ylab = "Confirmed Cases",
+                                           log = "y")
+
+```

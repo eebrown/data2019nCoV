@@ -1,4 +1,4 @@
-SituationReport,Date,China,Japan ,RepublicofKorea,VietNam ,Singapore ,Australia,Malaysia,Cambodia,Philippines,Thailand,Nepal ,SriLanka ,India,UnitedStatesofAmerica ,Canada,Finland,France,Germany ,Italy,UnitedArabEmirates ,Sum,,Global-confirmed,China-suspected,China-severe,China-deaths,China-critical,Cases-nonChina,Countries-nonChina,Cases-nonChina-WuhanTravel,RA-China,Regional,Global,HealthCareWorkers
+SituationReport,Date,China,Japan ,RepublicofKorea,VietNam ,Singapore ,Australia,Malaysia,Cambodia,Philippines,Thailand,Nepal ,SriLanka ,India,UnitedStatesofAmerica ,Canada,Finland,France,Germany ,Italy,UnitedArabEmirates ,Sum,,Global-confirmed,China-suspected,China-severe,China-deaths,China-critical,Cases-nonChina,Countries-nonChina,Cases-nonChina-WuhanTravel,RA-China,RA-Regional,RA-Global,HealthCareWorkers
 1,2020-01-20,278,1,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,282,,282,,51,6,12,,,4,,,,
 2,2020-01-21,309,1,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,313,,314,,51,6,12,4,,4,,,,16
 3,2020-01-23,571,1,1,0,0,0,0,0,0,4,0,0,0,1,0,0,0,0,0,0,578,,581,,95,17,,,,,Very High,High,High,

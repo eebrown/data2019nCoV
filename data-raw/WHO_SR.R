@@ -5,7 +5,7 @@
 
 
 WHO_SR <- read.csv("data-raw/WHO_SR.csv")
-WHO_SR$Date <- as.Date(WHO$Date)
+WHO_SR$Date <- as.Date(WHO_SR$Date)
 
 
 usethis::use_data(WHO_SR, overwrite = TRUE)
