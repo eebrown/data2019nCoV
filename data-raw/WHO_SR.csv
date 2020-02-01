@@ -1,0 +1,12 @@
+SituationReport,Date,China,Japan ,RepublicofKorea,VietNam ,Singapore ,Australia,Malaysia,Cambodia,Philippines,Thailand,Nepal ,SriLanka ,India,UnitedStatesofAmerica ,Canada,Finland,France,Germany ,Italy,UnitedArabEmirates ,Sum,,Global-confirmed,China-suspected,China-severe,China-deaths,China-critical,Cases-nonChina,Countries-nonChina,Cases-nonChina-WuhanTravel,RA-China,Regional,Global,HealthCareWorkers
+1,2020-01-20,278,1,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,282,,282,,51,6,12,,,4,,,,
+2,2020-01-21,309,1,1,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,313,,314,,51,6,12,4,,4,,,,16
+3,2020-01-23,571,1,1,0,0,0,0,0,0,4,0,0,0,1,0,0,0,0,0,0,578,,581,,95,17,,,,,Very High,High,High,
+4,2020-01-24,830,1,2,2,1,0,0,0,0,4,0,0,0,1,0,0,0,0,0,0,841,,846,,177,25,,11,6,10,Very High,High,High,
+5,2020-01-25,1297,3,2,2,3,3,0,0,0,4,1,0,0,2,0,0,3,0,0,0,1320,,1320,1965,237,41,,,,,Very High,High,High,
+6,2020-01-26,1985,3,2,2,4,4,3,0,0,5,1,0,0,2,0,0,3,0,0,0,2014,,2014,NA,324,56,,,,,Very High,High,High,
+7,2020-01-27,2761,4,4,2,4,4,4,0,0,5,1,0,0,5,1,0,3,0,0,0,2798,,2798,5794,461,80,,37,11,,Very High,High,High,
+8,2020-01-28,4537,6,4,2,7,5,4,1,0,14,1,1,0,5,2,0,3,1,0,0,4593,,4593,6973,976,106,,56,14,,Very High,High,High,
+9,2020-01-29,5997,7,4,2,7,7,4,1,0,14,1,1,0,5,3,0,4,4,0,4,6065,,6065,9239,1239,132,,68,15,,Very High,High,High,
+10,2020-01-30,7736,11,4,2,10,7,7,1,1,14,1,1,1,5,3,1,5,4,0,4,7818,,7818,12167,1370,170,,82,18,,Very High,High,High,
+11,2020-01-31,9720,14,11,5,13,9,8,1,1,14,1,1,1,6,3,1,6,5,2,4,9826,,9826,15238,1527,213,,106,19,,Very High,High,High,

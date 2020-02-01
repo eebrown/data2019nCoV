@@ -1,0 +1,15 @@
+Package: data2019nCoV
+Title: Data on the 2019 Novel Coronavirus Outbreak
+Version: 0.1.0
+Authors@R: 
+    person(given = "Eric",
+           family = "Brown",
+           role = c("aut", "cre"),
+           email = "eb@ericebrown.com",
+           comment = c(ORCID = "0000-0002-1575-2606"))
+Description: Data about the 2019 novel coronavirus outbreak.
+Depends: R (>= 3.6.0)
+License: CC0
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
