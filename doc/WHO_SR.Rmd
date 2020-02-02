@@ -22,6 +22,8 @@ library(dplyr)
 library(ggplot2)
 ```
 
+This vignette briefly demonstrates the use of data from the R package data2019nCoV, available on [GitHub](https://github.com/eebrown/data2019nCoV). Be sure to reinstall the package to use the latest data, via `devtools::install_github("eebrown/data2019nCoV")`. 
+
 This data was manually extracted from the WHO [situation reports]( https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) and stored in `raw-data/WHO_SR.csv`, which is loaded as the data frame `WHO_SR` in this package.
 
 ## Plot example

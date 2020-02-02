@@ -1,10 +1,10 @@
 # data2019nCoV R Package
 
-This is a simple R package to store data about the 2019-2020 novel coronavirus outbreak. Currently, it contains the data extracted from the World Health Organization (WHO) situation reports (https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) stored in an object, `WHO_SR`.
+This is a simple R package to store data about the 2019-2020 novel coronavirus outbreak. Currently, it contains the data extracted from the World Health Organization (WHO) [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) stored in an object, `WHO_SR`.
 
 The package can be installed via `devtools::install_github("eebrown/data2019nCoV")`.
 
-More information can be found in the [vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/WHO_SR.html). 
+More information and plotted examples can be found in the [vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/WHO_SR.html). 
 
 ## Contributions
 
