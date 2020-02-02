@@ -1,6 +1,6 @@
 Package: data2019nCoV
 Title: Data on the 2019 Novel Coronavirus Outbreak
-Version: 0.12.1
+Version: 0.12.2
 Authors@R: 
     person(given = "Eric",
            family = "Brown",
@@ -18,5 +18,8 @@ LazyData: true
 RoxygenNote: 7.0.2
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    tidyr,
+    dplyr,
+    ggplot2
 VignetteBuilder: knitr

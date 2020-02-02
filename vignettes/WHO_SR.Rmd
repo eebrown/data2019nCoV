@@ -16,22 +16,35 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(data2019nCoV)
+
+library(tidyr)
+library(dplyr)
+library(ggplot2)
 ```
 
 This data was manually extracted from the WHO [situation reports]( https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) and stored in `raw-data/WHO_SR.csv`, which is loaded as the data frame `WHO_SR` in this package.
 
 ## Plot example
 
-```{r, fig.width=6}
+```{r, fig.width=6, fig.height=6}
 plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
      main = "Global 2019-CoV Confirmed Cases",
      xlab = "Date",
      ylab = "Confirmed Cases")
+
+gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia, Malaysia, Cambodia, Philippines, Thailand, Nepal, SriLanka, India, UnitedStatesofAmerica, Canada, Finland, France, Germany, Italy, UnitedArabEmirates) %>%
+  ggplot(aes(x=Date, y=value, colour=key)) +
+  geom_line() +
+  theme(legend.position="bottom") +
+  labs(title = "Confirmed Cases Outside of China",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
 ```
 
 ### Log examples
 
-```{r, fig.width=6}
+```{r, fig.width=6, fig.height=6}
 plot(WHO_SR$Date, WHO_SR$China.deaths,
      main = "2019-CoV Deaths (Logarithmic)",
      xlab = "Date",
