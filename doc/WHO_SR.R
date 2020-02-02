@@ -17,7 +17,9 @@ plot(WHO_SR$Date, WHO_SR$Global.confirmed,
      xlab = "Date",
      ylab = "Confirmed Cases")
 
-gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia, Malaysia, Cambodia, Philippines, Thailand, Nepal, SriLanka, India, UnitedStatesofAmerica, Canada, Finland, France, Germany, Italy, UnitedArabEmirates) %>%
+gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia, Malaysia, 
+       Cambodia, Philippines, Thailand, Nepal, SriLanka, India, UnitedStatesofAmerica, 
+       Canada, Finland, France, Germany, Italy, UnitedArabEmirates) %>%
   ggplot(aes(x=Date, y=value, colour=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -28,7 +30,7 @@ gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 plot(WHO_SR$Date, WHO_SR$China.deaths,
-     main = "2019-CoV Deaths (Logarithmic)",
+     main = "2019-CoV Deaths in China (Logarithmic)",
      xlab = "Date",
      ylab = "Deaths",
      log = "y")

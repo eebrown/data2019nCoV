@@ -50,7 +50,7 @@ gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia
 
 ```{r, fig.width=6, fig.height=6}
 plot(WHO_SR$Date, WHO_SR$China.deaths,
-     main = "2019-CoV Deaths (Logarithmic)",
+     main = "2019-CoV Deaths in China (Logarithmic)",
      xlab = "Date",
      ylab = "Deaths",
      log = "y")
