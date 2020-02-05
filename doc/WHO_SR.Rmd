@@ -37,7 +37,7 @@ plot(WHO_SR$Date, WHO_SR$Global.confirmed,
 gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia, Malaysia, 
        Cambodia, Philippines, Thailand, Nepal, SriLanka, India, UnitedStatesofAmerica, 
        Canada, Finland, France, Germany, Italy, UnitedArabEmirates) %>%
-  ggplot(aes(x=Date, y=value, colour=key)) +
+  ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
   labs(title = "Confirmed Cases Outside of China",
