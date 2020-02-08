@@ -26,9 +26,7 @@ This vignette briefly demonstrates the use of data from the R package data2019nC
 
 This data was manually extracted from the WHO [situation reports]( https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) and stored in `raw-data/WHO_SR.csv`, which is loaded as the data frame `WHO_SR` in this package.
 
-## Plot example
-
-### Global Cases and Models
+## Global Cases and Models
 
 ```{r, fig.width=6, fig.height=6}
 
@@ -90,7 +88,7 @@ summary(quad)
 
 ```
 
-### Cases by region
+## Cases by Region
 
 ```{r, fig.width=6, fig.height=6}
 gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia, Malaysia, 
@@ -129,9 +127,15 @@ gather(WHO_SR, key, value, UnitedStatesofAmerica,
   theme(legend.title = element_blank())
 ```
 
-### Log examples
+## Deaths
 
 ```{r, fig.width=6, fig.height=6}
+plot(WHO_SR$Date, WHO_SR$China.deaths,
+     main = "2019-CoV Deaths in China",
+     xlab = "Date",
+     ylab = "Deaths",
+     type = "b")
+
 plot(WHO_SR$Date, WHO_SR$China.deaths,
      main = "2019-CoV Deaths in China (Logarithmic)",
      xlab = "Date",
@@ -139,8 +143,4 @@ plot(WHO_SR$Date, WHO_SR$China.deaths,
      log = "y",
      type = "b")
 
-
-
 ```
-
-

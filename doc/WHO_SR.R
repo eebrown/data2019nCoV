@@ -108,12 +108,16 @@ gather(WHO_SR, key, value, UnitedStatesofAmerica,
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 plot(WHO_SR$Date, WHO_SR$China.deaths,
+     main = "2019-CoV Deaths in China",
+     xlab = "Date",
+     ylab = "Deaths",
+     type = "b")
+
+plot(WHO_SR$Date, WHO_SR$China.deaths,
      main = "2019-CoV Deaths in China (Logarithmic)",
      xlab = "Date",
      ylab = "Deaths",
      log = "y",
      type = "b")
-
-
 
 
