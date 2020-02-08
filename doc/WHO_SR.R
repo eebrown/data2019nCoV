@@ -83,6 +83,29 @@ gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
 
+# Western Pacific and Southeast Asia
+gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia, Malaysia, 
+       Cambodia, Philippines, Thailand, Nepal, SriLanka, India, InternationalConveyance) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="bottom") +
+  labs(title = "Western Pacific and Southeast Asia (Excluding China)",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
+
+# Americas, Europe, Middle East
+gather(WHO_SR, key, value, UnitedStatesofAmerica, 
+       Canada, Finland, France, Germany, Italy, RussianFederation, Spain, Sweden, 
+       UnitedKingdom, Belgium, UnitedArabEmirates) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="bottom") +
+  labs(title = "Americas, Europe, and Middle East",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
+
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 plot(WHO_SR$Date, WHO_SR$China.deaths,
      main = "2019-CoV Deaths in China (Logarithmic)",
