@@ -28,26 +28,26 @@ This data was manually extracted from the WHO [situation reports]( https://www.w
 
 ## Plot example
 
+### Global Cases and Models
+
 ```{r, fig.width=6, fig.height=6}
+
+# Global Cases
 plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
      main = "Global 2019-CoV Confirmed Cases",
      xlab = "Date",
      ylab = "Confirmed Cases",
      type = "b")
 
+# Global Case - Logarithmic
 plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
-     main = "Global 2019-CoV Confirmed Cases with Quadratic Fit",
+     main = "Global 2019-CoV Confirmed Cases (Logarithmic)",
      xlab = "Date",
      ylab = "Confirmed Cases",
+     log = "y",
      type = "b")
-date_numeric <- as.numeric(WHO_SR$Date - as.Date("2020-01-20"))
-date_numeric2 <- date_numeric^2
-quad <- lm(WHO_SR$Global.confirmed ~ date_numeric + date_numeric2)
-quad_predict <- predict(quad, list(date_numeric, date_numeric2))
-lines(WHO_SR$Date, quad_predict, col="green")
 
-summary(quad)
-
+# Change in Cases Between Reports
 change_cases <- c(WHO_SR$Global.confirmed, NA) - c(NA, WHO_SR$Global.confirmed)
 change_cases <- change_cases[-1]
 change_cases <- change_cases[-length(change_cases)]
@@ -57,6 +57,42 @@ plot(WHO_SR$Date[-1], change_cases,
      xlab = "Date",
      type = "b")
 
+# Models
+
+date_numeric <- as.numeric(WHO_SR$Date - as.Date("2020-01-20"))
+date_numeric2 <- date_numeric^2
+
+# Exponential Model
+plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
+     main = "Global 2019-CoV Confirmed Cases with Exponential Model",
+     xlab = "Date",
+     ylab = "Confirmed Cases",
+     type = "b")
+
+expmod <- lm(log(WHO_SR$Global.confirmed) ~ WHO_SR$Date)
+exp_predict <- exp(predict(expmod, list(date_numeric)))
+lines(WHO_SR$Date, exp_predict, col="green") 
+                              
+summary(expmod)
+
+# Quadratic Model
+plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
+     main = "Global 2019-CoV Confirmed Cases with Quadratic Model",
+     xlab = "Date",
+     ylab = "Confirmed Cases",
+     type = "b")
+
+quad <- lm(WHO_SR$Global.confirmed ~ date_numeric + date_numeric2)
+quad_predict <- predict(quad, list(date_numeric, date_numeric2))
+lines(WHO_SR$Date, quad_predict, col="green")
+
+summary(quad)
+
+```
+
+### Cases by region
+
+```{r, fig.width=6, fig.height=6}
 gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia, Malaysia, 
        Cambodia, Philippines, Thailand, Nepal, SriLanka, India, UnitedStatesofAmerica, 
        Canada, Finland, France, Germany, Italy, RussianFederation, Spain, Sweden, 
@@ -80,12 +116,7 @@ plot(WHO_SR$Date, WHO_SR$China.deaths,
      log = "y",
      type = "b")
 
-plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
-     main = "Global 2019-CoV Confirmed Cases (Logarithmic)",
-     xlab = "Date",
-     ylab = "Confirmed Cases",
-     log = "y",
-     type = "b")
+
 
 ```
 
