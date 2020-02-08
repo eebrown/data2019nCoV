@@ -35,6 +35,19 @@ plot(WHO_SR$Date, WHO_SR$Global.confirmed,
      ylab = "Confirmed Cases",
      type = "b")
 
+plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
+     main = "Global 2019-CoV Confirmed Cases with Quadratic Fit",
+     xlab = "Date",
+     ylab = "Confirmed Cases",
+     type = "b")
+date_numeric <- as.numeric(WHO_SR$Date - as.Date("2020-01-20"))
+date_numeric2 <- date_numeric^2
+quad <- lm(WHO_SR$Global.confirmed ~ date_numeric + date_numeric2)
+quad_predict <- predict(quad, list(date_numeric, date_numeric2))
+lines(WHO_SR$Date, quad_predict, col="green")
+
+summary(quad)
+
 change_cases <- c(WHO_SR$Global.confirmed, NA) - c(NA, WHO_SR$Global.confirmed)
 change_cases <- change_cases[-1]
 change_cases <- change_cases[-length(change_cases)]
