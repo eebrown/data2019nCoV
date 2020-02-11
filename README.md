@@ -1,6 +1,6 @@
 # data2019nCoV R Package
 
-This is a simple R package to store data about the 2019-2020 novel coronavirus outbreak. Currently, it contains the data extracted from the World Health Organization (WHO) [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-02-10 (Situation Reports # 1-21).
+This is a simple R package to store data about the 2019-2020 novel coronavirus outbreak. Currently, it contains the data extracted from the World Health Organization (WHO) [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-02-11 (Situation Reports # 1-22).
 
 Once the package is installed and loaded, the data is available in a data.frame object, `WHO_SR`. 
 

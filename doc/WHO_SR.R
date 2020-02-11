@@ -120,4 +120,9 @@ plot(WHO_SR$Date, WHO_SR$China.deaths,
      log = "y",
      type = "b")
 
+plot(WHO_SR$Date, WHO_SR$China.deaths / WHO_SR$China,
+     main = "Deaths / Cases in China",
+     xlab = "Date",
+     ylab = "Deaths / Confirmed Cases",
+     type = "b")
 
