@@ -44,15 +44,9 @@ date_numeric <- as.numeric(WHO_SR$Date - as.Date("2020-01-20"))
 date_numeric2 <- date_numeric^2
 
 # Exponential Model
-plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
-     main = "Global 2019-CoV Confirmed Cases with Exponential Model",
-     xlab = "Date",
-     ylab = "Confirmed Cases",
-     type = "b")
-
 expmod <- lm(log(WHO_SR$Global.confirmed) ~ WHO_SR$Date)
 exp_predict <- exp(predict(expmod, list(date_numeric)))
-lines(WHO_SR$Date, exp_predict, col="green") 
+
                               
 summary(expmod)
 
@@ -64,10 +58,18 @@ plot(WHO_SR$Date, WHO_SR$Global.confirmed,
      type = "b")
 
 quad <- lm(WHO_SR$Global.confirmed ~ date_numeric + date_numeric2)
-quad_predict <- predict(quad, list(date_numeric, date_numeric2))
-lines(WHO_SR$Date, quad_predict, col="green")
+quad_predict <- predict(quad, list(date_numeric))
+
 
 summary(quad)
+
+plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
+     main = "Global 2019-CoV Confirmed Cases",
+     xlab = "Date",
+     ylab = "Confirmed Cases",
+     type = "b")
+lines(WHO_SR$Date, exp_predict, col="green") 
+lines(WHO_SR$Date, quad_predict, col="blue")
 
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
@@ -120,9 +122,9 @@ plot(WHO_SR$Date, WHO_SR$China.deaths,
      log = "y",
      type = "b")
 
-plot(WHO_SR$Date, WHO_SR$China.deaths / WHO_SR$China,
+plot(WHO_SR$Date, (WHO_SR$China.deaths / WHO_SR$China)*100,
      main = "Deaths / Cases in China",
      xlab = "Date",
-     ylab = "Deaths / Confirmed Cases",
+     ylab = "Deaths / Confirmed Cases (%)",
      type = "b")
 
