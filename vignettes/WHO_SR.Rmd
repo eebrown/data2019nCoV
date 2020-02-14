@@ -37,14 +37,6 @@ plot(WHO_SR$Date, WHO_SR$Global.confirmed,
      ylab = "Confirmed Cases",
      type = "b")
 
-# Global Case - Logarithmic
-plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
-     main = "Global 2019-CoV Confirmed Cases (Logarithmic)",
-     xlab = "Date",
-     ylab = "Confirmed Cases",
-     log = "y",
-     type = "b")
-
 # Change in Cases Between Reports
 change_cases <- c(WHO_SR$Global.confirmed, NA) - c(NA, WHO_SR$Global.confirmed)
 change_cases <- change_cases[-1]
@@ -64,15 +56,7 @@ date_numeric2 <- date_numeric^2
 expmod <- lm(log(WHO_SR$Global.confirmed) ~ WHO_SR$Date)
 exp_predict <- exp(predict(expmod, list(date_numeric)))
 
-                              
 summary(expmod)
-
-# Quadratic Model
-plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
-     main = "Global 2019-CoV Confirmed Cases with Quadratic Model",
-     xlab = "Date",
-     ylab = "Confirmed Cases",
-     type = "b")
 
 quad <- lm(WHO_SR$Global.confirmed ~ date_numeric + date_numeric2)
 quad_predict <- predict(quad, list(date_numeric))
