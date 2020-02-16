@@ -111,6 +111,18 @@ gather(WHO_SR, key, value, UnitedStatesofAmerica,
        x = "Date", 
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
+
+# Outbreaks Outside of China
+gather(WHO_SR, key, value, Japan, Singapore, InternationalConveyance) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="bottom") +
+  labs(title = "Outbreaks Outside of China",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
+
+
 ```
 
 ## Deaths
