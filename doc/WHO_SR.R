@@ -24,36 +24,21 @@ plot(WHO_SR$Date, WHO_SR$Global.confirmed,
 change_cases <- c(WHO_SR$Global.confirmed, NA) - c(NA, WHO_SR$Global.confirmed)
 change_cases <- change_cases[-1]
 change_cases <- change_cases[-length(change_cases)]
+
+# Remove the change introduced with SR 27, when the definition was expanded.
+change_cases[27] <- NA
+
 plot(WHO_SR$Date[-1], change_cases,
      main = "Change in Global Cases by Date",
      ylab = "New Confirmed Cases",
      xlab = "Date",
      type = "b")
 
-# Models
-
-date_numeric <- as.numeric(WHO_SR$Date - as.Date("2020-01-20"))
-date_numeric2 <- date_numeric^2
-
-# Exponential Model
-expmod <- lm(log(WHO_SR$Global.confirmed) ~ WHO_SR$Date)
-exp_predict <- exp(predict(expmod, list(date_numeric)))
-
-summary(expmod)
-
-quad <- lm(WHO_SR$Global.confirmed ~ date_numeric + date_numeric2)
-quad_predict <- predict(quad, list(date_numeric))
-
-
-summary(quad)
-
 plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
      main = "Global 2019-CoV Confirmed Cases",
      xlab = "Date",
      ylab = "Confirmed Cases",
      type = "b")
-lines(WHO_SR$Date, exp_predict, col="green") 
-lines(WHO_SR$Date, quad_predict, col="blue")
 
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
