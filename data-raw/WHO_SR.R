@@ -34,6 +34,7 @@ existing <- c("SituationReport","Date",
 
               "Global.confirmed","China.suspected","China.severe",
               "China.deaths", "Philippines.deaths", "Japan.deaths",
+              "France.deaths",
 
               "China.critical","Hubei.clinicaldx",
               "Cases.nonChina","Countries.nonChina","Deaths.nonChina",
@@ -69,6 +70,7 @@ new <- c("situation_report","date",
 
          "cases_global","suspected_chn","severe_chn",
          "deaths_chn", "deaths_phl", "deaths_jpn",
+         "deaths_fra",
 
          "critical_chn","clinical_chn_hubei",
          "cases_outside_chn","countries_outside_chn","deaths_outside_chn",
