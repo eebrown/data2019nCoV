@@ -108,6 +108,23 @@ gather(WHO_SR, key, value, Japan, Singapore, InternationalConveyance) %>%
   theme(legend.title = element_blank())
 
 
+# Chinese Provinces
+gather(WHO_SR, key, value, 
+       China.Guangdong, China.Beijing, China.Shanghai, China.Chongqing,        
+       China.Zhejiang, China.Jiangxi, China.Sichuan, China.Tianjin, China.Henan,
+       China.Hunan, China.Shandong, China.Yunnan, China.Taiwan, China.Taipei, 
+       China.HongKongSAR, China.Macao, China.Unspecified, China.Anhui, China.Jiangsu,   
+       China.Fujian, China.Shaanxi, China.Guangxi, China.Hebei, China.Heilongjiang,
+       China.Liaoning, China.Hainan, China.Shanxi, China.Gansu, China.Guizhou, China.Ningxia,
+       China.InnerMongolia, China.Xinjiang, China.Jilin, China.Qinghai, China.Xizang) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="bottom") +
+  labs(title = "Cases by Chinese Province, excluding Hubei",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
+
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 plot(WHO_SR$Date, WHO_SR$China.deaths,
