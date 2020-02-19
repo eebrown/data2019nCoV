@@ -51,10 +51,30 @@ plot(WHO_SR$Date[-1], change_cases,
      xlab = "Date",
      type = "b")
 
-plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
-     main = "Global 2019-CoV Confirmed Cases",
+exchina <- (WHO_SR$Japan + WHO_SR$RepublicofKorea + WHO_SR$VietNam + 
+        WHO_SR$Singapore + WHO_SR$Australia + WHO_SR$Malaysia +
+        WHO_SR$Cambodia + WHO_SR$Philippines + WHO_SR$Thailand +
+        WHO_SR$Nepal + WHO_SR$SriLanka + WHO_SR$India + 
+        WHO_SR$UnitedStatesofAmerica + WHO_SR$Canada + WHO_SR$Finland +
+        WHO_SR$France + WHO_SR$Germany + WHO_SR$Italy + WHO_SR$RussianFederation +
+        WHO_SR$Spain + WHO_SR$Sweden + WHO_SR$UnitedKingdom + WHO_SR$Belgium +
+        WHO_SR$UnitedArabEmirates + WHO_SR$Egypt + WHO_SR$InternationalConveyance)
+
+plot(WHO_SR$Date, exchina,
+     main = "SARS-CoV-2 Confirmed Cases Excluding China",
      xlab = "Date",
      ylab = "Confirmed Cases",
+     type = "b")
+
+# Change in Cases Between Reports - Excluding China
+change_cases_nochn <- c(exchina, NA) - c(NA, exchina)
+change_cases_nochn <- change_cases_nochn[-1]
+change_cases_nochn <- change_cases_nochn[-length(change_cases_nochn)]
+
+plot(WHO_SR$Date[-1], change_cases_nochn,
+     main = "Change in Global Cases, Excluding China, by Date",
+     ylab = "New Confirmed Cases",
+     xlab = "Date",
      type = "b")
 
 ```
@@ -131,4 +151,22 @@ plot(WHO_SR$Date, (WHO_SR$China.deaths / WHO_SR$China)*100,
      xlab = "Date",
      ylab = "Deaths / Confirmed Cases (%)",
      type = "b")
+
+# Change in Cases Between Reports
+change_deaths <- c(WHO_SR$China.deaths, NA) - c(NA, WHO_SR$China.deaths)
+change_deaths <- change_deaths[-1]
+change_deaths <- change_deaths[-length(change_deaths)]
+plot(WHO_SR$Date[-1], change_deaths,
+     main = "Change in Deaths in China by Date",
+     ylab = "New Deaths",
+     xlab = "Date",
+     type = "b")
+
+plot(WHO_SR$Date, 
+     (WHO_SR$France.deaths + WHO_SR$Philippines.deaths + WHO_SR$Japan.deaths),
+     main = "SARS-CoV-2 Deaths outside of China",
+     xlab = "Date",
+     ylab = "Deaths",
+     type = "b")
+
 ```
