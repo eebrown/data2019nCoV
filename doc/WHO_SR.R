@@ -41,7 +41,8 @@ exchina <- (WHO_SR$Japan + WHO_SR$RepublicofKorea + WHO_SR$VietNam +
         WHO_SR$UnitedStatesofAmerica + WHO_SR$Canada + WHO_SR$Finland +
         WHO_SR$France + WHO_SR$Germany + WHO_SR$Italy + WHO_SR$RussianFederation +
         WHO_SR$Spain + WHO_SR$Sweden + WHO_SR$UnitedKingdom + WHO_SR$Belgium +
-        WHO_SR$UnitedArabEmirates + WHO_SR$Egypt + WHO_SR$InternationalConveyance)
+        WHO_SR$UnitedArabEmirates + WHO_SR$Egypt + WHO_SR$InternationalConveyance +
+        WHO_SR$Iran)
 
 plot(WHO_SR$Date, exchina,
      main = "SARS-CoV-2 Confirmed Cases Excluding China",
@@ -65,7 +66,7 @@ plot(WHO_SR$Date[-1], change_cases_nochn,
 gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia, Malaysia, 
        Cambodia, Philippines, Thailand, Nepal, SriLanka, India, UnitedStatesofAmerica, 
        Canada, Finland, France, Germany, Italy, RussianFederation, Spain, Sweden, 
-       UnitedKingdom, Belgium, UnitedArabEmirates, InternationalConveyance) %>%
+       UnitedKingdom, Belgium, UnitedArabEmirates, InternationalConveyance, Iran) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -88,7 +89,7 @@ gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia
 # Americas, Europe, Middle East
 gather(WHO_SR, key, value, UnitedStatesofAmerica, 
        Canada, Finland, France, Germany, Italy, RussianFederation, Spain, Sweden, 
-       UnitedKingdom, Belgium, UnitedArabEmirates) %>%
+       UnitedKingdom, Belgium, UnitedArabEmirates, Iran) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -98,7 +99,8 @@ gather(WHO_SR, key, value, UnitedStatesofAmerica,
   theme(legend.title = element_blank())
 
 # Outbreaks Outside of China
-gather(WHO_SR, key, value, Japan, Singapore, InternationalConveyance) %>%
+gather(WHO_SR, key, value, 
+       Japan, Singapore, InternationalConveyance, RepublicofKorea) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -157,7 +159,9 @@ plot(WHO_SR$Date[-1], change_deaths,
      type = "b")
 
 plot(WHO_SR$Date, 
-     (WHO_SR$France.deaths + WHO_SR$Philippines.deaths + WHO_SR$Japan.deaths),
+     (WHO_SR$France.deaths + WHO_SR$Philippines.deaths + WHO_SR$Japan.deaths +
+        WHO_SR$InternationalConveyance.deaths + WHO_SR$RepublicofKorea.deaths +
+        WHO_SR$Iran.deaths),
      main = "SARS-CoV-2 Deaths outside of China",
      xlab = "Date",
      ylab = "Deaths",
