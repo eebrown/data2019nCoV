@@ -66,7 +66,8 @@ plot(WHO_SR$Date[-1], change_cases_nochn,
 gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia, Malaysia, 
        Cambodia, Philippines, Thailand, Nepal, SriLanka, India, UnitedStatesofAmerica, 
        Canada, Finland, France, Germany, Italy, RussianFederation, Spain, Sweden, 
-       UnitedKingdom, Belgium, UnitedArabEmirates, InternationalConveyance, Iran) %>%
+       UnitedKingdom, Belgium, UnitedArabEmirates, InternationalConveyance, Iran,
+       Israel, Lebanon) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -89,7 +90,7 @@ gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia
 # Americas, Europe, Middle East
 gather(WHO_SR, key, value, UnitedStatesofAmerica, 
        Canada, Finland, France, Germany, Italy, RussianFederation, Spain, Sweden, 
-       UnitedKingdom, Belgium, UnitedArabEmirates, Iran) %>%
+       UnitedKingdom, Belgium, UnitedArabEmirates, Iran, Israel, Lebanon) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -100,7 +101,7 @@ gather(WHO_SR, key, value, UnitedStatesofAmerica,
 
 # Outbreaks Outside of China
 gather(WHO_SR, key, value, 
-       Japan, Singapore, InternationalConveyance, RepublicofKorea, Iran) %>%
+       Japan, Singapore, InternationalConveyance, RepublicofKorea, Iran, Italy) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
