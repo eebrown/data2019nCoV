@@ -100,7 +100,7 @@ gather(WHO_SR, key, value, UnitedStatesofAmerica,
 
 # Outbreaks Outside of China
 gather(WHO_SR, key, value, 
-       Japan, Singapore, InternationalConveyance, RepublicofKorea) %>%
+       Japan, Singapore, InternationalConveyance, RepublicofKorea, Iran) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -144,6 +144,12 @@ plot(WHO_SR$Date, WHO_SR$China.deaths,
 
 plot(WHO_SR$Date, (WHO_SR$China.deaths / WHO_SR$China)*100,
      main = "Deaths / Cases in China",
+     xlab = "Date",
+     ylab = "Deaths / Confirmed Cases (%)",
+     type = "b")
+
+plot(WHO_SR$Date, (WHO_SR$Deaths.nonChina / WHO_SR$Cases.nonChina)*100,
+     main = "Deaths / Cases (Outside China)",
      xlab = "Date",
      ylab = "Deaths / Confirmed Cases (%)",
      type = "b")
