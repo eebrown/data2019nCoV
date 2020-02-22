@@ -44,14 +44,14 @@ exchina <- (WHO_SR$Japan + WHO_SR$RepublicofKorea + WHO_SR$VietNam +
         WHO_SR$UnitedArabEmirates + WHO_SR$Egypt + WHO_SR$InternationalConveyance +
         WHO_SR$Iran)
 
-plot(WHO_SR$Date, exchina,
+plot(WHO_SR$Date, WHO_SR$Cases.nonChina,
      main = "SARS-CoV-2 Confirmed Cases Excluding China",
      xlab = "Date",
      ylab = "Confirmed Cases",
      type = "b")
 
 # Change in Cases Between Reports - Excluding China
-change_cases_nochn <- c(exchina, NA) - c(NA, exchina)
+change_cases_nochn <- c(WHO_SR$Cases.nonChina, NA) - c(NA, WHO_SR$Cases.nonChina)
 change_cases_nochn <- change_cases_nochn[-1]
 change_cases_nochn <- change_cases_nochn[-length(change_cases_nochn)]
 
@@ -62,7 +62,7 @@ plot(WHO_SR$Date[-1], change_cases_nochn,
      type = "b")
 
 
-## ---- fig.width=6, fig.height=6-----------------------------------------------
+## ---- fig.width=7, fig.height=7-----------------------------------------------
 gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia, Malaysia, 
        Cambodia, Philippines, Thailand, Nepal, SriLanka, India, UnitedStatesofAmerica, 
        Canada, Finland, France, Germany, Italy, RussianFederation, Spain, Sweden, 
