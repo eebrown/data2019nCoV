@@ -87,7 +87,7 @@ gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia
        Cambodia, Philippines, Thailand, Nepal, SriLanka, India, UnitedStatesofAmerica, 
        Canada, Finland, France, Germany, Italy, RussianFederation, Spain, Sweden, 
        UnitedKingdom, Belgium, UnitedArabEmirates, InternationalConveyance, Iran,
-       Israel, Lebanon) %>%
+       Israel, Lebanon, Kuwait, Afghanistan, Bahrain, Iraq, Oman) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -107,14 +107,25 @@ gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
 
-# Americas, Europe, Middle East
+# Americas, Europe
 gather(WHO_SR, key, value, UnitedStatesofAmerica, 
-       Canada, Finland, France, Germany, Italy, RussianFederation, Spain, Sweden, 
-       UnitedKingdom, Belgium, UnitedArabEmirates, Iran, Israel, Lebanon) %>%
+       Canada, Finland, France, Germany, Italy, Spain, Sweden, 
+       UnitedKingdom, Belgium) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
-  labs(title = "Americas, Europe, and Middle East",
+  labs(title = "Americas and Europe",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
+
+# Middle East
+gather(WHO_SR, key, value, UnitedArabEmirates, Iran, Israel, Lebanon,
+       Kuwait, Afghanistan, Bahrain, Iraq, Oman) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="bottom") +
+  labs(title = "Middle East",
        x = "Date", 
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
