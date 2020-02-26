@@ -34,16 +34,6 @@ plot(WHO_SR$Date[-1], change_cases,
      xlab = "Date",
      type = "b")
 
-exchina <- (WHO_SR$Japan + WHO_SR$RepublicofKorea + WHO_SR$VietNam + 
-        WHO_SR$Singapore + WHO_SR$Australia + WHO_SR$Malaysia +
-        WHO_SR$Cambodia + WHO_SR$Philippines + WHO_SR$Thailand +
-        WHO_SR$Nepal + WHO_SR$SriLanka + WHO_SR$India + 
-        WHO_SR$UnitedStatesofAmerica + WHO_SR$Canada + WHO_SR$Finland +
-        WHO_SR$France + WHO_SR$Germany + WHO_SR$Italy + WHO_SR$RussianFederation +
-        WHO_SR$Spain + WHO_SR$Sweden + WHO_SR$UnitedKingdom + WHO_SR$Belgium +
-        WHO_SR$UnitedArabEmirates + WHO_SR$Egypt + WHO_SR$InternationalConveyance +
-        WHO_SR$Iran)
-
 plot(WHO_SR$Date, WHO_SR$Cases.nonChina,
      main = "SARS-CoV-2 Confirmed Cases Excluding China",
      xlab = "Date",
@@ -67,7 +57,8 @@ gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia
        Cambodia, Philippines, Thailand, Nepal, SriLanka, India, UnitedStatesofAmerica, 
        Canada, Finland, France, Germany, Italy, RussianFederation, Spain, Sweden, 
        UnitedKingdom, Belgium, UnitedArabEmirates, InternationalConveyance, Iran,
-       Israel, Lebanon, Kuwait, Afghanistan, Bahrain, Iraq, Oman) %>%
+       Israel, Lebanon, Kuwait, Afghanistan, Bahrain, Iraq, Oman, Switzerland, Croatia,
+       Austria, Algeria) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -90,7 +81,7 @@ gather(WHO_SR, key, value, Japan, RepublicofKorea, VietNam, Singapore, Australia
 # Americas, Europe
 gather(WHO_SR, key, value, UnitedStatesofAmerica, 
        Canada, Finland, France, Germany, Italy, Spain, Sweden, 
-       UnitedKingdom, Belgium) %>%
+       UnitedKingdom, Belgium, Austria, Croatia, Switzerland) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -99,9 +90,9 @@ gather(WHO_SR, key, value, UnitedStatesofAmerica,
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
 
-# Middle East
+# Middle East and Africa
 gather(WHO_SR, key, value, UnitedArabEmirates, Iran, Israel, Lebanon,
-       Kuwait, Afghanistan, Bahrain, Iraq, Oman) %>%
+       Kuwait, Afghanistan, Bahrain, Iraq, Oman, Egypt, Algeria) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +

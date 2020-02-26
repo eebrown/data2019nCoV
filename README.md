@@ -1,21 +1,22 @@
 # data2019nCoV R Package
 
-This is a simple R package to store data about the 2019-2020 novel coronavirus, COVID-19, outbreak. Currently, it contains the data extracted from the World Health Organization (WHO) [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-02-25 (Situation Reports # 1-36).
+This is a simple R package to store data about the 2019-2020 novel coronavirus, COVID-19, outbreak. Currently, it contains the data extracted from the World Health Organization (WHO) [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-02-26 (Situation Reports # 1-37).
+
+There is no guarantee as to the accuracy of the transcribed data or graphs in the vignette. Please file an issue if any errors (discrepancies with the WHO reports) are noticed.
 
 Plots of the data can be found in the [vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/WHO_SR.html). 
 
-Once the package is installed and loaded, the data is available in a data.frame object, `WHO_SR`. 
+## Usage
 
 The package can be installed via `devtools::install_github("eebrown/data2019nCoV")`. Be sure to reinstall to obtain the latest version as new data is released (including the errata periodically reported by WHO).
 
+Once the package is installed and loaded, the data is available in a data.frame object, `WHO_SR`. 
 
-## Contributions
-
-Contributions are welcome in the form of corrections and the contribution of new datasets, provided they are publicly available, verifiable, and from a reputable source.
+Although it may be less up-to-date, the data from this package will also appear in the package [`outbreaks`](https://github.com/reconhub/outbreaks), with variable names consistent with that package's norms.
 
 ### Data Structure
 
-Raw/transcribed data are stored as `.csv` files in the `/data-raw` directory, e.g. `/data-raw/WHO_SR.csv`. The scripts to convert the raw data into an R object are in a corresponding `.R` file in that directory (e.g. `/data-raw/WHO_SR.R`). That is, a `.csv` file is what is updated, and then the corresponding `.R` file's scripts should be run to generate the data object for the package.
+Raw/transcribed data are stored as `.csv` files in the `/data-raw` directory, e.g. `/data-raw/WHO_SR.csv`. The scripts that converted the raw data into an R object are in a corresponding `.R` file in that directory (e.g. `/data-raw/WHO_SR.R`).
 
 ## Licence
 
