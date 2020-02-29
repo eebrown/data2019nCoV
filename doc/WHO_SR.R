@@ -60,12 +60,12 @@ gather(WHO_SR, key, value,
        
        Thailand, India, Nepal, SriLanka, 
        
-       UnitedStatesofAmerica, Canada, Brazil, 
+       UnitedStatesofAmerica, Canada, Brazil, Mexico,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
-       Belarus, Lithuania, Netherlands,
+       Belarus, Lithuania, Netherlands, SanMarino,
        
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt,
@@ -97,12 +97,12 @@ gather(WHO_SR, key, value,
 
 # Americas, Europe
 gather(WHO_SR, key, value, 
-       UnitedStatesofAmerica, Canada, Brazil, 
+       UnitedStatesofAmerica, Canada, Brazil, Mexico,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
-       Belarus, Lithuania, Netherlands
+       Belarus, Lithuania, Netherlands, SanMarino
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
