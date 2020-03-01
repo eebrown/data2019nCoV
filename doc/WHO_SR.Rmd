@@ -80,15 +80,15 @@ gather(WHO_SR, key, value,
        
        Thailand, India, Nepal, SriLanka, 
        
-       UnitedStatesofAmerica, Canada, Brazil, Mexico,
+       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
-       Belarus, Lithuania, Netherlands, SanMarino,
+       Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
        
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt,
+       Afghanistan, Egypt, Qatar,
        
        Algeria, Nigeria,
        
@@ -115,20 +115,31 @@ gather(WHO_SR, key, value,
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
 
-# Americas, Europe
+# Europe
 gather(WHO_SR, key, value, 
-       UnitedStatesofAmerica, Canada, Brazil, Mexico,
-       
+
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
-       Belarus, Lithuania, Netherlands, SanMarino
+       Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
-  labs(title = "Americas and Europe",
+  labs(title = "Europe",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
+
+# Americas
+gather(WHO_SR, key, value, 
+       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador
+       ) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="bottom") +
+  labs(title = "Americas",
        x = "Date", 
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
@@ -137,7 +148,7 @@ gather(WHO_SR, key, value,
 gather(WHO_SR, key, value, 
        
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt,
+       Afghanistan, Egypt, Qatar,
        
        Algeria, Nigeria
        
@@ -157,6 +168,20 @@ gather(WHO_SR, key, value,
   geom_line() +
   theme(legend.position="bottom") +
   labs(title = "Outbreaks Outside of China",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
+
+# Southern Hemisphere
+gather(WHO_SR, key, value, 
+       
+       Australia, NewZealand,
+       
+       Brazil, Ecuador) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="bottom") +
+  labs(title = "Confirmed Cases in Southern Hemisphere",
        x = "Date", 
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
@@ -229,3 +254,4 @@ plot(WHO_SR$Date,
      type = "b")
 
 ```
+
