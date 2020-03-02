@@ -78,14 +78,15 @@ gather(WHO_SR, key, value,
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand,
        
-       Thailand, India, Nepal, SriLanka, 
+       Thailand, India, Nepal, SriLanka, Indonesia,
        
-       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador,
+       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
        Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
+       Czechia, Iceland, Armenia, Luxembourg,
        
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar,
@@ -106,7 +107,7 @@ gather(WHO_SR, key, value,
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand,
        
-       Thailand, India, Nepal, SriLanka) %>%
+       Thailand, India, Nepal, SriLanka, Indonesia) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -121,7 +122,8 @@ gather(WHO_SR, key, value,
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
-       Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco
+       Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
+       Czechia, Iceland, Armenia, Luxembourg
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -134,7 +136,7 @@ gather(WHO_SR, key, value,
 
 # Americas
 gather(WHO_SR, key, value, 
-       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador
+       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
@@ -163,7 +165,7 @@ gather(WHO_SR, key, value,
 
 # Outbreaks Outside of China
 gather(WHO_SR, key, value, 
-       Japan, Singapore, InternationalConveyance, RepublicofKorea, Iran, Italy) %>%
+       Japan, Singapore, InternationalConveyance, RepublicofKorea, Iran, Italy, Germany) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -188,7 +190,7 @@ gather(WHO_SR, key, value,
 
 
 # Chinese Provinces
-gather(WHO_SR, key, value, 
+gather(WHO_SR, key, value, China.Hubei,
        China.Guangdong, China.Beijing, China.Shanghai, China.Chongqing,        
        China.Zhejiang, China.Jiangxi, China.Sichuan, China.Tianjin, China.Henan,
        China.Hunan, China.Shandong, China.Yunnan, China.Taiwan, China.Taipei, 
@@ -198,8 +200,9 @@ gather(WHO_SR, key, value,
        China.InnerMongolia, China.Xinjiang, China.Jilin, China.Qinghai, China.Xizang) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
+  scale_y_log10() +
   theme(legend.position="bottom") +
-  labs(title = "Cases by Chinese Province, excluding Hubei",
+  labs(title = "Cases by Chinese Province, Logarithmic Scale",
        x = "Date", 
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
