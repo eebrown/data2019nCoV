@@ -66,12 +66,12 @@ gather(WHO_SR, key, value,
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
        Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
-       Czechia, Iceland, Armenia, Luxembourg,
+       Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt, Qatar,
+       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
        
-       Algeria, Nigeria,
+       Algeria, Nigeria, Senegal,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -103,7 +103,7 @@ gather(WHO_SR, key, value,
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
        Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
-       Czechia, Iceland, Armenia, Luxembourg
+       Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -132,7 +132,7 @@ gather(WHO_SR, key, value,
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar,
        
-       Algeria, Nigeria
+       Algeria, Nigeria, Senegal
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -145,7 +145,8 @@ gather(WHO_SR, key, value,
 
 # Outbreaks Outside of China
 gather(WHO_SR, key, value, 
-       Japan, Singapore, InternationalConveyance, RepublicofKorea, Iran, Italy, Germany) %>%
+       Japan, Singapore, InternationalConveyance, RepublicofKorea, 
+       Iran, Italy, Germany, France, Spain) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
