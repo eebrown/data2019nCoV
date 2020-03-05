@@ -20,12 +20,17 @@ plot(WHO_SR$Date, WHO_SR$Global.confirmed,
      ylab = "Confirmed Cases",
      type = "b")
 
-# Change in Cases Between Reports
-change_cases <- c(WHO_SR$Global.confirmed, NA) - c(NA, WHO_SR$Global.confirmed)
-change_cases <- change_cases[-1]
-change_cases <- change_cases[-length(change_cases)]
+## ---- fig.width=6, fig.height=6-----------------------------------------------
+# A function to calculate the daily change
+daily_change <- function(series) {
+  change <- c(series, NA) - c(NA, series)
+  change <- change[-1]
+  change <- change[-length(change)]
+  return(change)
+}
 
 # Remove the change introduced with SR 27, when the definition was expanded.
+change_cases <- daily_change(WHO_SR$Global.confirmed)
 change_cases[27] <- NA
 
 plot(WHO_SR$Date[-1], change_cases,
@@ -41,11 +46,7 @@ plot(WHO_SR$Date, WHO_SR$Cases.nonChina,
      type = "b")
 
 # Change in Cases Between Reports - Excluding China
-change_cases_nochn <- c(WHO_SR$Cases.nonChina, NA) - c(NA, WHO_SR$Cases.nonChina)
-change_cases_nochn <- change_cases_nochn[-1]
-change_cases_nochn <- change_cases_nochn[-length(change_cases_nochn)]
-
-plot(WHO_SR$Date[-1], change_cases_nochn,
+plot(WHO_SR$Date[-1], daily_change(WHO_SR$Cases.nonChina),
      main = "Change in Global Cases, Excluding China, by Date",
      ylab = "New Confirmed Cases",
      xlab = "Date",
@@ -61,12 +62,14 @@ gather(WHO_SR, key, value,
        Thailand, India, Nepal, SriLanka, Indonesia,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
+       Argentina, Chile,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
        Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
+       Poland, Ukraine,
        
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
@@ -76,7 +79,7 @@ gather(WHO_SR, key, value,
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
-  theme(legend.position="bottom") +
+  theme(legend.position="none") +
   labs(title = "Confirmed Cases Outside of China",
        x = "Date", 
        y = "Confirmed Cases") +
@@ -103,7 +106,8 @@ gather(WHO_SR, key, value,
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
        Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
-       Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia
+       Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
+       Poland, Ukraine
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -116,7 +120,8 @@ gather(WHO_SR, key, value,
 
 # Americas
 gather(WHO_SR, key, value, 
-       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic
+       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
+       Argentina, Chile
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
@@ -143,24 +148,14 @@ gather(WHO_SR, key, value,
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
 
-# Outbreaks Outside of China
-gather(WHO_SR, key, value, 
-       Japan, Singapore, InternationalConveyance, RepublicofKorea, 
-       Iran, Italy, Germany, France, Spain) %>%
-  ggplot(aes(x=Date, y=value, col=key)) +
-  geom_line() +
-  theme(legend.position="bottom") +
-  labs(title = "Outbreaks Outside of China",
-       x = "Date", 
-       y = "Confirmed Cases") +
-  theme(legend.title = element_blank())
+
 
 # Southern Hemisphere
 gather(WHO_SR, key, value, 
        
        Australia, NewZealand,
        
-       Brazil, Ecuador) %>%
+       Brazil, Ecuador, Argentina, Chile) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -190,6 +185,40 @@ gather(WHO_SR, key, value, China.Hubei,
 
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
+# Outbreaks Outside of China
+gather(WHO_SR, key, value, 
+       Japan, Singapore, InternationalConveyance, RepublicofKorea, 
+       Iran, Italy, Germany, France, Spain) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="bottom") +
+  labs(title = "Outbreaks Outside of China",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
+
+
+## ---- fig.width=6, fig.height=12----------------------------------------------
+outbreaks <- list(Korea = WHO_SR$RepublicofKorea, 
+                  Iran = WHO_SR$Iran,
+                  Italy = WHO_SR$Italy,
+                  France = WHO_SR$France,
+                  Germany = WHO_SR$Germany,
+                  USA = WHO_SR$UnitedStatesofAmerica)
+
+par(mfrow=c(3,2))
+
+for (i in 1:length(outbreaks)) {
+  
+ plot(WHO_SR$Date[-1], daily_change(outbreaks[[i]]),
+      main = names(outbreaks)[[i]],
+      ylab = "Daily Cases",
+      xlab = "Date",
+      type = "l",
+      ylim = c(0,900))
+}
+
+## ---- fig.width=6, fig.height=6-----------------------------------------------
 plot(WHO_SR$Date, WHO_SR$China.deaths,
      main = "2019-CoV Deaths in China",
      xlab = "Date",
@@ -201,18 +230,6 @@ plot(WHO_SR$Date, WHO_SR$China.deaths,
      xlab = "Date",
      ylab = "Deaths",
      log = "y",
-     type = "b")
-
-plot(WHO_SR$Date, (WHO_SR$China.deaths / WHO_SR$China)*100,
-     main = "Deaths / Cases in China",
-     xlab = "Date",
-     ylab = "Deaths / Confirmed Cases (%)",
-     type = "b")
-
-plot(WHO_SR$Date, (WHO_SR$Deaths.nonChina / WHO_SR$Cases.nonChina)*100,
-     main = "Deaths / Cases (Outside China)",
-     xlab = "Date",
-     ylab = "Deaths / Confirmed Cases (%)",
      type = "b")
 
 # Change in Cases Between Reports
@@ -233,5 +250,17 @@ plot(WHO_SR$Date,
      xlab = "Date",
      ylab = "Deaths",
      type = "b")
+
+## ---- fig.width=6, fig.height=6-----------------------------------------------
+
+matplot(as.Date(WHO_SR$Date), cbind((WHO_SR$China.deaths / WHO_SR$China)*100, 
+                           (WHO_SR$Deaths.nonChina / WHO_SR$Cases.nonChina)*100),
+     main = "Case Fatality Rate",
+     xlab = "Date",
+     ylab = "Deaths / Confirmed Cases (%)",
+     type = "l",
+     col = c("red", "green"),
+     ylim = c(0,4))
+legend(x="top", legend = c("China", "Outside of China"), col = c("red", "green"), pch=18)
 
 
