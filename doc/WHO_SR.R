@@ -10,6 +10,7 @@ library(data2019nCoV)
 library(tidyr)
 library(dplyr)
 library(ggplot2)
+library(scales)
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 
@@ -74,7 +75,7 @@ gather(WHO_SR, key, value,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
-       OccupiedPalistinianTerritory,
+       OccupiedPalestinianTerritory,
        
        Algeria, Nigeria, Senegal,
        
@@ -137,7 +138,7 @@ gather(WHO_SR, key, value,
 gather(WHO_SR, key, value, 
        
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt, Qatar, OccupiedPalistinianTerritory,
+       Afghanistan, Egypt, Qatar, OccupiedPalestinianTerritory,
        
        Algeria, Nigeria, Senegal
        
@@ -178,7 +179,7 @@ gather(WHO_SR, key, value, China.Hubei,
        China.InnerMongolia, China.Xinjiang, China.Jilin, China.Qinghai, China.Xizang) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
-  scale_y_log10() +
+  scale_y_continuous(trans = 'log10', labels = comma) +
   theme(legend.position="bottom") +
   labs(title = "Cases by Chinese Province, Logarithmic Scale",
        x = "Date", 
@@ -187,17 +188,18 @@ gather(WHO_SR, key, value, China.Hubei,
 
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
-# Outbreaks Outside of China
+# Major Outbreaks
+
 gather(WHO_SR, key, value, 
-       Japan, Singapore, InternationalConveyance, RepublicofKorea, 
-       Iran, Italy, Germany, France, Spain) %>%
+       China, Japan, Singapore, InternationalConveyance, RepublicofKorea, 
+       Iran, Italy, Germany, France, Spain, UnitedStatesofAmerica) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
-  theme(legend.position="bottom") +
-  labs(title = "Outbreaks Outside of China",
+  theme(legend.position="bottom", legend.title = element_blank()) +
+  scale_y_continuous(trans = 'log10', labels = comma) +
+  labs(title = "Outbreaks",
        x = "Date", 
-       y = "Confirmed Cases") +
-  theme(legend.title = element_blank())
+       y = "Confirmed Cases") 
 
 
 ## ---- fig.width=6, fig.height=12----------------------------------------------

@@ -1,6 +1,6 @@
 Package: data2019nCoV
 Title: Data on the COVID-19 Outbreak
-Version: 0.45.1
+Version: 0.45.2
 Authors@R: 
     person(given = "Eric",
            family = "Brown",
@@ -21,5 +21,6 @@ Suggests:
     rmarkdown,
     tidyr,
     dplyr,
-    ggplot2
+    ggplot2,
+    scales
 VignetteBuilder: knitr
