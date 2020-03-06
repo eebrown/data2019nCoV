@@ -60,7 +60,7 @@ gather(WHO_SR, key, value,
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand,
        
-       Thailand, India, Nepal, SriLanka, Indonesia,
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile,
@@ -71,13 +71,13 @@ gather(WHO_SR, key, value,
        Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
-       Gibraltar,
+       Gibraltar, Serbia,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
        OccupiedPalestinianTerritory,
        
-       Algeria, Nigeria, Senegal,
+       Algeria, Nigeria, Senegal, Cameroon, SouthAfrica,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -93,7 +93,7 @@ gather(WHO_SR, key, value,
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand,
        
-       Thailand, India, Nepal, SriLanka, Indonesia) %>%
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -110,7 +110,8 @@ gather(WHO_SR, key, value,
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
        Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
-       Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, Gibraltar
+       Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, Gibraltar,
+       Serbia
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -140,7 +141,7 @@ gather(WHO_SR, key, value,
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, OccupiedPalestinianTerritory,
        
-       Algeria, Nigeria, Senegal
+       Algeria, Nigeria, Senegal, Cameroon, SouthAfrica
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -158,7 +159,9 @@ gather(WHO_SR, key, value,
        
        Australia, NewZealand,
        
-       Brazil, Ecuador, Argentina, Chile) %>%
+       Brazil, Ecuador, Argentina, Chile,
+       
+       SouthAfrica) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +

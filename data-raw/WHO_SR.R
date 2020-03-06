@@ -39,12 +39,15 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_mys = Malaysia,
     cases_khm = Cambodia,
     cases_nzl = NewZealand,
+
     cases_phl = Philippines,
     cases_tha = Thailand,
     cases_npl = Nepal,
     cases_lka = SriLanka,
     cases_ind = India,
     cases_idn = Indonesia,
+    cases_btn = Bhutan,
+
     cases_usa = UnitedStatesofAmerica,
     cases_can = Canada,
     cases_bra = Brazil,
@@ -97,6 +100,7 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_swe = Sweden,
     cases_gbr = UnitedKingdom,
     cases_bel = Belgium,
+    cases_srb = Serbia,
 
     cases_are = UnitedArabEmirates,
     cases_egy = Egypt,
@@ -118,6 +122,8 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_dza = Algeria,
     cases_nga = Nigeria,
     cases_sen = Senegal,
+    cases_cmr = Cameroon,
+    cases_zaf = SouthAfrica,
 
     cases_internationconveyance = InternationalConveyance,
 
@@ -137,6 +143,8 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     deaths_tha = Thailand.deaths,
     deaths_usa = UnitedStatesofAmerica.deaths,
     deaths_irq = Iraq.deaths,
+    deaths_esp = Spain.deaths,
+    deaths_che = Switzerland.deaths,
     deaths_internationalconveyance = InternationalConveyance.deaths,
 
     critical_chn = China.critical,
@@ -228,4 +236,6 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
   )
 
 save(sarscov2_who_2019, file = "sarscov2_who_2019.RData", version = 2)
+
+usethis::use_data(sarscov2_who_2019, overwrite = TRUE)
 
