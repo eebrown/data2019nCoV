@@ -63,7 +63,7 @@ gather(WHO_SR, key, value,
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
-       Argentina, Chile,
+       Argentina, Chile, Colombia, Peru,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -71,13 +71,13 @@ gather(WHO_SR, key, value,
        Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
-       Gibraltar, Serbia,
+       Gibraltar, Serbia, Slovakia, HolySee,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
        OccupiedPalestinianTerritory,
        
-       Algeria, Nigeria, Senegal, Cameroon, SouthAfrica,
+       Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -110,8 +110,8 @@ gather(WHO_SR, key, value,
        Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
        Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
-       Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, Gibraltar,
-       Serbia
+       Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
+       Gibraltar, Serbia, Slovakia, HolySee
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -125,7 +125,7 @@ gather(WHO_SR, key, value,
 # Americas
 gather(WHO_SR, key, value, 
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
-       Argentina, Chile
+       Argentina, Chile, Colombia, Peru
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
@@ -159,7 +159,7 @@ gather(WHO_SR, key, value,
        
        Australia, NewZealand,
        
-       Brazil, Ecuador, Argentina, Chile,
+       Brazil, Ecuador, Argentina, Chile, Peru, Colombia,
        
        SouthAfrica) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -183,7 +183,6 @@ gather(WHO_SR, key, value, China.Hubei,
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   scale_y_continuous(trans = 'log10', labels = comma) +
-  theme(legend.position="bottom") +
   labs(title = "Cases by Chinese Province, Logarithmic Scale",
        x = "Date", 
        y = "Confirmed Cases") +
@@ -198,14 +197,14 @@ gather(WHO_SR, key, value,
        Iran, Italy, Germany, France, Spain, UnitedStatesofAmerica) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
-  theme(legend.position="bottom", legend.title = element_blank()) +
+  theme(legend.position="right", legend.title = element_blank()) +
   scale_y_continuous(trans = 'log10', labels = comma) +
   labs(title = "Outbreaks",
        x = "Date", 
        y = "Confirmed Cases") 
 
 
-## ---- fig.width=6, fig.height=12----------------------------------------------
+## ---- fig.width=6, fig.height=14----------------------------------------------
 outbreaks <- list(Korea = WHO_SR$RepublicofKorea, 
                   Iran = WHO_SR$Iran,
                   Italy = WHO_SR$Italy,
@@ -222,7 +221,7 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,900))
+      ylim = c(0,1200))
 }
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
