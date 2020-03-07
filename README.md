@@ -16,6 +16,10 @@ The package can be installed via `devtools::install_github("eebrown/data2019nCoV
 
 Once the package is installed and loaded, the data is available in a data.frame object, `WHO_SR`. This package uses plain lanugage variable names. The data is also available in the object `sarscov2_who_2019`, which uses more systematic variable names. The latter object also appears in the package [`outbreaks`](https://github.com/reconhub/outbreaks), though may be slightly less updated.
 
+### Wiki
+
+If you use the data for a project, please consider adding the project link to the [wiki](https://github.com/eebrown/data2019nCoV/wiki). If you verify the data (confirm it to be equivalent to the WHO Situation Reports), please also consider noting that on the wiki. The purpose is to facilitate data analysis in this rapidly evolving pandemic. 
+
 ### Data Structure
 
 Raw/transcribed data are stored as `.csv` files in the `/data-raw` directory, e.g. `/data-raw/WHO_SR.csv`. The scripts that converted the raw data into an R object are in a corresponding `.R` file in that directory (e.g. `/data-raw/WHO_SR.R`).
