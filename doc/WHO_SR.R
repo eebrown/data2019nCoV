@@ -60,10 +60,10 @@ gather(WHO_SR, key, value,
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand,
        
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan,
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
-       Argentina, Chile, Colombia, Peru,
+       Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -71,7 +71,8 @@ gather(WHO_SR, key, value,
        Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
-       Gibraltar, Serbia, Slovakia, HolySee,
+       Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
+       FaroeIslands,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
@@ -93,7 +94,7 @@ gather(WHO_SR, key, value,
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand,
        
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan) %>%
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -111,7 +112,8 @@ gather(WHO_SR, key, value,
        Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
-       Gibraltar, Serbia, Slovakia, HolySee
+       Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
+       FaroeIslands
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -125,7 +127,7 @@ gather(WHO_SR, key, value,
 # Americas
 gather(WHO_SR, key, value, 
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
-       Argentina, Chile, Colombia, Peru
+       Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
@@ -239,20 +241,21 @@ plot(WHO_SR$Date, WHO_SR$China.deaths,
      type = "b")
 
 # Change in Cases Between Reports
-change_deaths <- c(WHO_SR$China.deaths, NA) - c(NA, WHO_SR$China.deaths)
-change_deaths <- change_deaths[-1]
-change_deaths <- change_deaths[-length(change_deaths)]
-plot(WHO_SR$Date[-1], change_deaths,
+plot(WHO_SR$Date[-1], daily_change(WHO_SR$China.deaths),
      main = "Change in Deaths in China by Date",
      ylab = "New Deaths",
      xlab = "Date",
      type = "b")
 
 plot(WHO_SR$Date, 
-     (WHO_SR$France.deaths + WHO_SR$Philippines.deaths + WHO_SR$Japan.deaths +
-        WHO_SR$InternationalConveyance.deaths + WHO_SR$RepublicofKorea.deaths +
-        WHO_SR$Iran.deaths),
-     main = "SARS-CoV-2 Deaths outside of China",
+     WHO_SR$Deaths.nonChina,
+     main = "SARS-CoV-2 Deaths Outside of China",
+     xlab = "Date",
+     ylab = "Deaths",
+     type = "b")
+
+plot(WHO_SR$Date[-1], daily_change(WHO_SR$Deaths.nonChina),
+     main = "Change in Deaths Outside of China by Date",
      xlab = "Date",
      ylab = "Deaths",
      type = "b")
