@@ -58,12 +58,14 @@ plot(WHO_SR$Date[-1], daily_change(WHO_SR$Cases.nonChina),
 gather(WHO_SR, key, value, 
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
-       Philippines, Cambodia, NewZealand,
+       Philippines, Cambodia, NewZealand, BruneiDarussalam,
+       Mongolia,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
+       Panama, 
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -72,7 +74,7 @@ gather(WHO_SR, key, value,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
        Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
-       FaroeIslands,
+       FaroeIslands, Cyprus, Guernsey,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
@@ -92,7 +94,8 @@ gather(WHO_SR, key, value,
 # Western Pacific and Southeast Asia
 gather(WHO_SR, key, value, 
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
-       Philippines, Cambodia, NewZealand,
+       Philippines, Cambodia, NewZealand, BruneiDarussalam,
+       Mongolia,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -113,7 +116,7 @@ gather(WHO_SR, key, value,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
        Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
-       FaroeIslands
+       FaroeIslands, Cyprus, Guernsey
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -126,8 +129,11 @@ gather(WHO_SR, key, value,
 
 # Americas
 gather(WHO_SR, key, value, 
+       
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
-       Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique
+       Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
+       Panama
+       
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
@@ -263,13 +269,14 @@ plot(WHO_SR$Date[-1], daily_change(WHO_SR$Deaths.nonChina),
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 
 matplot(as.Date(WHO_SR$Date), cbind((WHO_SR$China.deaths / WHO_SR$China)*100, 
-                           (WHO_SR$Deaths.nonChina / WHO_SR$Cases.nonChina)*100),
+                           (WHO_SR$Deaths.nonChina / WHO_SR$Cases.nonChina)*100,
+                           (WHO_SR$RepublicofKorea.deaths / WHO_SR$RepublicofKorea)*100),
      main = "Case Fatality Rate",
      xlab = "Date",
      ylab = "Deaths / Confirmed Cases (%)",
      type = "l",
-     col = c("red", "green"),
+     col = c("red", "green", "blue"),
      ylim = c(0,4))
-legend(x="top", legend = c("China", "Outside of China"), col = c("red", "green"), pch=18)
+legend(x="top", legend = c("China", "Outside of China", "Korea"), col = c("red", "green", "blue"), pch=18)
 
 
