@@ -69,6 +69,8 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_mtq = Martinique,
     cases_pry = Paraguay,
     cases_pan = Panama,
+    cases_bol = Bolivia,
+    cases_jam = Jamaica,
 
     cases_fin = Finland,
     cases_hrv = Croatia,
@@ -145,6 +147,8 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_cmr = Cameroon,
     cases_zaf = SouthAfrica,
     cases_tgo = Togo,
+    cases_bfa = BurkinaFaso,
+    cases_cod = DemocraticRepublicoftheCongo,
 
     cases_internationconveyance = InternationalConveyance,
 
@@ -172,6 +176,11 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     deaths_arg = Argentina.deaths,
     deaths_egy = Egypt.deaths,
     deaths_deu = Germany.deaths,
+    deaths_idn = Indonesia.deaths,
+    deaths_lbn = Lebanon.deaths,
+    deaths_mar = Morocco.deaths,
+    deaths_pan = Panama.deaths,
+    deaths_can = Canada.deaths,
     deaths_internationalconveyance = InternationalConveyance.deaths,
 
     critical_chn = China.critical,
@@ -262,9 +271,9 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     deaths_chn_xizang = China.Xizang.deaths
   )
 
-save(sarscov2_who_2019, file = "sarscov2_who_2019.RData", version = 2)
-
 usethis::use_data(sarscov2_who_2019, overwrite = TRUE)
 
 devtools::document()
 devtools::check()
+
+save(sarscov2_who_2019, file = "sarscov2_who_2019.RData", version = 2)
