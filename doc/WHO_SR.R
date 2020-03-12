@@ -206,9 +206,13 @@ gather(WHO_SR, key, value, China.Hubei,
 # Major Outbreaks
 
 gather(WHO_SR, key, value, 
-       China, Japan, Singapore, InternationalConveyance, RepublicofKorea, 
-       Iran, Italy, Germany, France, Spain, UnitedStatesofAmerica, Sweden, Belgium,
-       Norway, Switzerland, Netherlands) %>%
+       China, Japan, RepublicofKorea, 
+       Iran, 
+       Italy, Germany, France, Spain, UnitedKingdom, 
+       Sweden, Belgium, Denmark, Switzerland, 
+       Norway, Switzerland, Netherlands,
+       UnitedStatesofAmerica
+       ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="right", legend.title = element_blank()) +
