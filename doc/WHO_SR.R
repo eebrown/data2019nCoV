@@ -63,11 +63,12 @@ gather(WHO_SR, key, value,
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
        Mongolia,
        
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives,
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
+       Reunion,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
-       Panama, Bolivia, Jamaica,
+       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -96,11 +97,15 @@ gather(WHO_SR, key, value,
 
 # Western Pacific and Southeast Asia
 gather(WHO_SR, key, value, 
+       
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
        Mongolia,
        
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives) %>%
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives,
+       Reunion
+       
+       ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
@@ -135,7 +140,7 @@ gather(WHO_SR, key, value,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
-       Panama, Bolivia, Jamaica
+       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -207,7 +212,7 @@ gather(WHO_SR, key, value, China.Hubei,
 
 gather(WHO_SR, key, value, 
        China, Japan, RepublicofKorea, 
-       Iran, 
+       Iran, Austria, Qatar, 
        Italy, Germany, France, Spain, UnitedKingdom, 
        Sweden, Belgium, Denmark, Switzerland, 
        Norway, Switzerland, Netherlands,
@@ -222,7 +227,7 @@ gather(WHO_SR, key, value,
        y = "Confirmed Cases") 
 
 
-## ---- fig.width=6, fig.height=14----------------------------------------------
+## ---- fig.width=6, fig.height=20----------------------------------------------
 outbreaks <- list(Korea = WHO_SR$RepublicofKorea, 
                   Iran = WHO_SR$Iran,
                   Italy = WHO_SR$Italy,
@@ -239,7 +244,7 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,2000))
+      ylim = c(0,3000))
 }
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
@@ -289,7 +294,7 @@ matplot(as.Date(WHO_SR$Date), cbind( ((WHO_SR$China.deaths + WHO_SR$Deaths.nonCh
      ylab = "Deaths / Confirmed Cases (%)",
      type = "l",
      col = c("black", "red",   "blue",  "green", "magenta"),
-     ylim = c(0,10))
+     ylim = c(0,8))
 legend(x="top", 
        legend = c("World", "China", "Korea", "Italy", "USA"), 
        col =    c("black", "red",   "blue",  "green", "magenta"), 
