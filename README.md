@@ -2,13 +2,25 @@
 
 # data2019nCoV R Package
 
-This is a simple R package to store data about the 2019-2020 novel coronavirus, COVID-19, outbreak. Currently, it contains the data extracted from the World Health Organization (WHO) [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-03-13 (Situation Reports # 1-53).
+This is a simple R package to store data about the 2019-2020 outbreak of the novel coronavirus, SARS-CoV-2, causing COVID-19.
 
 There is no guarantee as to the accuracy of the transcribed data or graphs in the vignette. Please file an issue if any errors (discrepancies with the WHO reports) are noticed.
 
+Currently, this package contains 2 datasets. 
+
+## 1. World Health Organization (WHO)
+
+`WHO_SR`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-03-13 (Situation Reports # 1-53).
+
+## 2. Ontario Ministry of Health Cumulative Cases
+
+`ON_cumulative`: The source of this data is the official Ontario Government's website (https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the Internet Archive (https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus). It has been updated up to 2020-03-13.
+
 ## Demo
 
-Plots of the data can be found in the [vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/WHO_SR.html). 
+Plots of the WHO data can be found in the [WHO SR vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/WHO_SR.html). 
+
+Plots of the Ontario data can be found in the [ON vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/ON_cumulative.html)
 
 ## Usage
 
