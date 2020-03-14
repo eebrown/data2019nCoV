@@ -289,7 +289,7 @@ gather(WHO_SR, key, value,
        Brazil, Ecuador, Argentina, Chile, Peru, Colombia,
        DemocraticRepublicoftheCongo, Bolivia,
        
-       SouthAfrica) %>%
+       SouthAfrica, Reunion, Gabon, Kenya) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
