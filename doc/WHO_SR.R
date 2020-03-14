@@ -178,7 +178,7 @@ gather(WHO_SR, key, value,
   theme(legend.title = element_blank())
 
 
-## -----------------------------------------------------------------------------
+## ---- fig.width=7, fig.height=7-----------------------------------------------
 # Western Pacific and Southeast Asia
 gather(WHO_SR, key, value, 
        
