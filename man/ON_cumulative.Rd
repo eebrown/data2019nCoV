@@ -3,7 +3,7 @@
 \docType{data}
 \name{ON_cumulative}
 \alias{ON_cumulative}
-\title{Ontario Ministry of Health Coronavirus Data}
+\title{Ontario Ministry of Health Coronavirus Cumulative Case Totals}
 \format{A data frame where each row represents a new Situation Report
  \describe{
     \item{URL}{Internet Archive snapshot of URL for source data}
