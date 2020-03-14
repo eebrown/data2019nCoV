@@ -8,19 +8,19 @@ There is no guarantee as to the accuracy of the transcribed data or graphs in th
 
 Currently, this package contains 2 datasets. 
 
-## 1. World Health Organization (WHO)
+### 1. World Health Organization (WHO)
 
 `WHO_SR`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-03-13 (Situation Reports # 1-53).
 
-## 2. Ontario Ministry of Health Cumulative Cases
+### 2. Ontario Ministry of Health Cumulative Cases
 
-`ON_cumulative`: The source of this data is the official Ontario Government's website (https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the Internet Archive (https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus). It has been updated up to 2020-03-13.
+`ON_cumulative`: The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus). It has been updated up to 2020-03-13.
 
 ## Demo
 
 Plots of the WHO data can be found in the [WHO SR vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/WHO_SR.html). 
 
-Plots of the Ontario data can be found in the [ON vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/ON_cumulative.html)
+Plots of the Ontario data can be found in the [ON vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/ON_cumulative.html).
 
 ## Usage
 
