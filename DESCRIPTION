@@ -1,6 +1,6 @@
 Package: data2019nCoV
 Title: Data on the COVID-19 Outbreak
-Version: 0.53.0
+Version: 0.53.1
 Authors@R: 
     person(given = "Eric",
            family = "Brown",
@@ -11,7 +11,7 @@ Description: Data about the COVID-19 (2019 novel coronavirus) outbreak.
     Currently, the package consists of data from the World Health Organization
     (WHO) Situation Reports, as available online: 
     <https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports>.
-Depends: R (>= 3.6.0)
+Depends: R (>= 3.4.0)
 License: CC0
 Encoding: UTF-8
 LazyData: true
