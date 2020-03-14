@@ -201,7 +201,7 @@ gather(WHO_SR, key, value, China.Hubei,
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   scale_y_continuous(trans = 'log10', labels = comma) +
-  labs(title = "Cases by Chinese Province, Logarithmic Scale",
+  labs(title = "Cases by Chinese Province (Semilogarithmic)",
        x = "Date", 
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
@@ -222,7 +222,7 @@ gather(WHO_SR, key, value,
   geom_line() +
   theme(legend.position="right", legend.title = element_blank()) +
   scale_y_continuous(trans = 'log10', labels = comma) +
-  labs(title = "Outbreaks",
+  labs(title = "Major COVID-19 Outbreaks (Semilogarithmic)",
        x = "Date", 
        y = "Confirmed Cases") 
 
@@ -233,9 +233,11 @@ outbreaks <- list(Korea = WHO_SR$RepublicofKorea,
                   Italy = WHO_SR$Italy,
                   France = WHO_SR$France,
                   Germany = WHO_SR$Germany,
-                  USA = WHO_SR$UnitedStatesofAmerica)
+                  USA = WHO_SR$UnitedStatesofAmerica,
+                  Spain = WHO_SR$Spain,
+                  Switzerland = WHO_SR$Switzerland)
 
-par(mfrow=c(3,2))
+par(mfrow=c(4,2))
 
 for (i in 1:length(outbreaks)) {
   
@@ -249,13 +251,13 @@ for (i in 1:length(outbreaks)) {
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 plot(WHO_SR$Date, WHO_SR$China.deaths,
-     main = "2019-CoV Deaths in China",
+     main = "Cumulative COVID-19 Deaths in China",
      xlab = "Date",
      ylab = "Deaths",
      type = "b")
 
 plot(WHO_SR$Date, WHO_SR$China.deaths,
-     main = "2019-CoV Deaths in China (Logarithmic)",
+     main = "Cumulative COVID-19 Deaths in China (Semilogarithmic)",
      xlab = "Date",
      ylab = "Deaths",
      log = "y",
@@ -270,15 +272,15 @@ plot(WHO_SR$Date[-1], daily_change(WHO_SR$China.deaths),
 
 plot(WHO_SR$Date, 
      WHO_SR$Deaths.nonChina,
-     main = "SARS-CoV-2 Deaths Outside of China",
+     main = "Cumulative COVID-19 Deaths Outside of China",
      xlab = "Date",
      ylab = "Deaths",
      type = "b")
 
 plot(WHO_SR$Date[-1], daily_change(WHO_SR$Deaths.nonChina),
-     main = "Change in Deaths Outside of China by Date",
+     main = "Change in Deaths Outside China by Date",
      xlab = "Date",
-     ylab = "Deaths",
+     ylab = "New Deaths",
      type = "b")
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
