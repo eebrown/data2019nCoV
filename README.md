@@ -10,7 +10,7 @@ Currently, this package contains 2 datasets.
 
 ### 1. World Health Organization (WHO)
 
-`WHO_SR`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-03-13 (Situation Reports # 1-53).
+`WHO_SR`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-03-14 (Situation Reports # 1-54).
 
 ### 2. Ontario Ministry of Health Cumulative Cases
 
