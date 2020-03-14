@@ -7,6 +7,27 @@
 #' @source \url{https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports}
 "WHO_SR"
 
+#' Ontario Ministry of Health Coronavirus Cumulative Case Totals
+#'
+#' A dataset containing the data reported online by the Ontario Ministry of 
+#' Health. For verification purposes, the data is retrieved from the Internet
+#' Archive web archives, with the URL of the snapshot provided.
+#'
+#' @source \url{https://www.ontario.ca/page/2019-novel-coronavirus}
+#' @docType data
+#' @format A data frame where each row represents a new Situation Report
+#'  \describe{
+#'     \item{URL}{Internet Archive snapshot of URL for source data}
+#'     \item{LastUpdated}{The date the of the data reported on the webpage}
+#'     \item{Negative}{Negative tests.}
+#'     \item{UnderInvestigation}{Number of current pending tests.}
+#'     \item{PresumptivePositive}{Awaiting confirmation at national laboratory.}
+#'     \item{ConfirmedPositive}{"Patient still testing positive and has not had two consecutive negative results greater than 24 hours apart"}
+#'     \item{Resolved}{"Patient is no longer infectious based on two consecutive negative tests performed"}
+#'     \item{TotalTested}{"Total number of patients approved for COVID-19 testing to date"}
+#'  }
+"ON_cumulative"
+
 #' SARS-CoV-2 World Health Organization Situation Reports 2019 Outbreak (COVID-19)
 #'
 #' These data are transcribed from the WHO Situation Reports on the COVID-19

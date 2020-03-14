@@ -77,9 +77,52 @@ plot(WHO_SR$Date[-1], daily_change(WHO_SR$Cases.nonChina),
 
 ```
 
-## Cases by Region
+## Global Cases
 
 ```{r, fig.width=7, fig.height=7}
+
+# Every country
+gather(WHO_SR, key, value, 
+       
+       China,
+       
+       RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
+       Philippines, Cambodia, NewZealand, BruneiDarussalam,
+       Mongolia,
+       
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
+       Reunion,
+       
+       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
+       Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
+       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
+       
+       Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
+       Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
+       Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
+       Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
+       Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
+       Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
+       Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
+       FaroeIslands, Cyprus, Guernsey,
+
+       Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
+       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
+       OccupiedPalestinianTerritory,
+       
+       Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
+       DemocraticRepublicoftheCongo,
+       
+       InternationalConveyance) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="none") +
+  labs(title = "Confirmed Cases by Region",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
+
+# No China
 gather(WHO_SR, key, value, 
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
@@ -118,6 +161,50 @@ gather(WHO_SR, key, value,
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
 
+# No China, Korea, Italy, Iran
+gather(WHO_SR, key, value, 
+       
+       Japan, Singapore, Australia, Malaysia, VietNam, 
+       Philippines, Cambodia, NewZealand, BruneiDarussalam,
+       Mongolia,
+       
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
+       Reunion,
+       
+       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
+       Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
+       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
+       
+       Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
+       Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
+       Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
+       Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
+       Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
+       Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
+       Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
+       FaroeIslands, Cyprus, Guernsey,
+
+       Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
+       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
+       OccupiedPalestinianTerritory,
+       
+       Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
+       DemocraticRepublicoftheCongo,
+       
+       InternationalConveyance) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="none") +
+  labs(title = "Confirmed Cases Outside of China, Korea, Italy, and Iran",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
+
+```
+
+## Cases by Region
+
+```{r}
 # Western Pacific and Southeast Asia
 gather(WHO_SR, key, value, 
        
