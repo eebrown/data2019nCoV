@@ -4,7 +4,7 @@
 \name{ON_cumulative}
 \alias{ON_cumulative}
 \title{Ontario Ministry of Health Coronavirus Cumulative Case Totals}
-\format{A data frame where each row represents a new Situation Report
+\format{A data frame where each row represents a reporting time
  \describe{
     \item{URL}{Internet Archive snapshot of URL for source data}
     \item{LastUpdated}{The date the of the data reported on the webpage}

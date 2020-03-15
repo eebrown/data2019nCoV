@@ -15,7 +15,7 @@
 #'
 #' @source \url{https://www.ontario.ca/page/2019-novel-coronavirus}
 #' @docType data
-#' @format A data frame where each row represents a new Situation Report
+#' @format A data frame where each row represents a reporting time
 #'  \describe{
 #'     \item{URL}{Internet Archive snapshot of URL for source data}
 #'     \item{LastUpdated}{The date the of the data reported on the webpage}
@@ -27,6 +27,50 @@
 #'     \item{TotalTested}{"Total number of patients approved for COVID-19 testing to date"}
 #'  }
 "ON_cumulative"
+
+#' Canada Public Health Coronavirus Cumulative Case Totals
+#'
+#' A dataset containing the data reported online by the Canadian government.
+#' For verification purposes, the data is retrieved from the Internet
+#' Archive web archives, with the URL of the snapshot provided.
+#'
+#' @source \url{https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html}
+#' @docType data
+#' @format A data frame where each row represents a reporting time
+#'  \describe{
+#'     \item{url}{Internet Archive snapshot of URL for source data}
+#'     \item{date}{The date the of the data reported on the webpage}
+#'     \item{bc_confirmed}{Confirmed cases in British Columbia}
+#'     \item{bc_probable}{Probable cases in British Columbia}
+#'     \item{ab_confirmed}{Confirmed cases in Alberta}
+#'     \item{ab_probable}{Probable cases in Alberta}
+#'     \item{sk_confirmed}{Confirmed cases in Saskatchewan}
+#'     \item{sk_probable}{Probable cases in Saskatchewan}
+#'     \item{mb_confirmed}{Confirmed cases in Manitoba}
+#'     \item{mb_probable}{Probable cases in Manitoba}
+#'     \item{on_confirmed}{Confirmed cases in Ontario}
+#'     \item{on_probable}{Probable cases in Ontario}
+#'     \item{qc_confirmed}{Confirmed cases in Quebec}
+#'     \item{qc_probable}{Probable cases in Quebec}
+#'     \item{nl_confirmed}{Confirmed cases in Newfoundland and Labrador}
+#'     \item{nl_probable}{Probable cases in Newfoundland and Labrador}
+#'     \item{nb_confirmed}{Confirmed cases in New Brunswick}
+#'     \item{nb_probable}{Probable cases in New Brunswick}
+#'     \item{pe_confirmed}{Confirmed cases in Prince Edward Island}
+#'     \item{pe_probable}{Probable cases in Prince Edward Island}
+#'     \item{repatriated_confirmed}{Confirmed repatriated cases}
+#'     \item{repatriated_probable}{Probable repatriated cases}
+#'     \item{total_confirmed}{Total confirmed cases}
+#'     \item{total_probable}{Total probable cases}
+#'     \item{total_deaths}{Total deaths}
+#'     \item{proportion_female}{Proportion of cases that are female}
+#'     \item{proportion_40plus}{Proportion of cases aged 40 and over}
+#'     \item{proportion_60plus}{Proportion of cases aged 60 and over}
+#'     \item{proportion_hospitalized}{Proportion of cases that are in hospital}
+#'     \item{proportion_travellers}{Proportion of cases that are trevellers}
+#'     \item{proportion_contactoftravellers}{Proportion of cases that are close contacts of travellers}
+#'  }
+"CAN_cumulative"
 
 #' SARS-CoV-2 World Health Organization Situation Reports 2019 Outbreak (COVID-19)
 #'
