@@ -10,11 +10,11 @@ Currently, this package contains 2 datasets.
 
 ### 1. World Health Organization (WHO)
 
-`WHO_SR`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-03-14 (Situation Reports # 1-54).
+`WHO_SR`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-03-15 (Situation Reports # 1-55).
 
 ### 2. Ontario Ministry of Health Cumulative Cases
 
-`ON_cumulative`: The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus). It has been updated up to 2020-03-14.
+`ON_cumulative`: The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus). It has been updated up to 2020-03-15.
 
 ## Demo
 

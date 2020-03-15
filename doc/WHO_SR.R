@@ -17,7 +17,13 @@ library(scales)
 # Global Cases
 options(scipen=5)
 plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
-     main = "Global 2019-CoV Confirmed Cases",
+     main = "Global COVID-19 Cases",
+     xlab = "Date",
+     ylab = "Confirmed Cases",
+     type = "b")
+
+plot(WHO_SR$Date, WHO_SR$Cases.nonChina,
+     main = "Global COVID-19 Cases Excluding China",
      xlab = "Date",
      ylab = "Confirmed Cases",
      type = "b")
@@ -42,18 +48,18 @@ plot(WHO_SR$Date[-1], change_cases,
      xlab = "Date",
      type = "b")
 
-plot(WHO_SR$Date, WHO_SR$Cases.nonChina,
-     main = "SARS-CoV-2 Confirmed Cases Excluding China",
-     xlab = "Date",
-     ylab = "Confirmed Cases",
-     type = "b")
+change_change <- daily_change(change_cases)
 
-# Change in Cases Between Reports - Excluding China
-plot(WHO_SR$Date[-1], daily_change(WHO_SR$Cases.nonChina),
-     main = "Change in Global Cases, Excluding China, by Date",
-     ylab = "New Confirmed Cases",
+plot(WHO_SR$Date[-(1:2)], change_change,
+     main = "Change in Change in Global Cases by Date",
+     ylab = "Change in Change in Global Cases",
      xlab = "Date",
      type = "b")
+abline(h = 0)
+trend <- loess(change_change ~ as.numeric(WHO_SR$Date[-(1:2)]), na.action = na.exclude,
+                   span = 0.75)
+   trend.s <- predict(trend)
+   lines(WHO_SR$Date[-(1:2)], trend.s, col="green")
 
 
 ## ---- fig.width=7, fig.height=7-----------------------------------------------
@@ -68,11 +74,13 @@ gather(WHO_SR, key, value,
        Mongolia,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
-       Reunion,
+       
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
+       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
+       CaymanIslands, Curacao,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -81,14 +89,15 @@ gather(WHO_SR, key, value,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
        Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
-       FaroeIslands, Cyprus, Guernsey,
+       FaroeIslands, Cyprus, Guernsey, Kazakhstan,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
        OccupiedPalestinianTerritory,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo,
+       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
+       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -112,6 +121,8 @@ gather(WHO_SR, key, value,
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
+       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
+       CaymanIslands, Curacao,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -127,7 +138,8 @@ gather(WHO_SR, key, value,
        OccupiedPalestinianTerritory,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo,
+       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
+       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -151,6 +163,8 @@ gather(WHO_SR, key, value,
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
+       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
+       CaymanIslands, Curacao,
        
        Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -166,7 +180,8 @@ gather(WHO_SR, key, value,
        OccupiedPalestinianTerritory,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo,
+       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
+       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -224,7 +239,9 @@ gather(WHO_SR, key, value,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
-       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey
+       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
+       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
+       CaymanIslands, Curacao
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -242,7 +259,8 @@ gather(WHO_SR, key, value,
        Afghanistan, Egypt, Qatar, OccupiedPalestinianTerritory,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo
+       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
+       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -316,6 +334,35 @@ gather(WHO_SR, key, value,
   labs(title = "Major COVID-19 Outbreaks (Semilogarithmic)",
        x = "Date", 
        y = "Confirmed Cases") 
+
+overx <- function(country, x) {
+  over <- country[country > x] 
+  over <- c(over, rep(NA, length(WHO_SR$Date)))
+  return(over)
+}
+
+start_no <- 1000
+
+plot(overx(WHO_SR$China, start_no), col="red", type="l",
+     xlab=paste0("Days Since ", start_no, " Cases"),
+     ylab= "Cases",
+     main=paste0("Outbreak Progression from ", start_no, " Cases") )
+lines(overx(WHO_SR$Italy, start_no), col="green")
+lines(overx(WHO_SR$Iran, start_no), col="orange")
+lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
+lines(overx(WHO_SR$Spain, start_no), col="black")
+lines(overx(WHO_SR$Germany, start_no), col="black")
+lines(overx(WHO_SR$France,  start_no), col="black")
+lines(overx(WHO_SR$UnitedStatesofAmerica, start_no), col="black")
+lines(overx(WHO_SR$Switzerland,  start_no), col="black")
+lines(overx(WHO_SR$Norway,  start_no), col="black")
+lines(overx(WHO_SR$UnitedKingdom,  start_no), col="black")
+lines(overx(WHO_SR$Netherlands, start_no), col="black")
+lines(overx(WHO_SR$Sweden, start_no), col="black")
+
+legend(x = "bottom", legend = c("China", "Italy", "Iran", "Korea"), 
+       col =    c("red", "green",   "orange",  "magenta"), 
+       pch=18)
 
 
 ## ---- fig.width=6, fig.height=20----------------------------------------------

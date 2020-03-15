@@ -97,11 +97,13 @@ gather(WHO_SR, key, value,
        Mongolia,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
-       Reunion,
+       
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
+       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
+       CaymanIslands, Curacao,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -110,14 +112,15 @@ gather(WHO_SR, key, value,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
        Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
-       FaroeIslands, Cyprus, Guernsey,
+       FaroeIslands, Cyprus, Guernsey, Kazakhstan,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
        OccupiedPalestinianTerritory,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo,
+       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
+       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -141,6 +144,8 @@ gather(WHO_SR, key, value,
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
+       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
+       CaymanIslands, Curacao,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -156,7 +161,8 @@ gather(WHO_SR, key, value,
        OccupiedPalestinianTerritory,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo,
+       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
+       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -180,6 +186,8 @@ gather(WHO_SR, key, value,
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
+       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
+       CaymanIslands, Curacao,
        
        Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -195,7 +203,8 @@ gather(WHO_SR, key, value,
        OccupiedPalestinianTerritory,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo,
+       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
+       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -256,7 +265,9 @@ gather(WHO_SR, key, value,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
-       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey
+       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
+       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
+       CaymanIslands, Curacao
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -274,7 +285,8 @@ gather(WHO_SR, key, value,
        Afghanistan, Egypt, Qatar, OccupiedPalestinianTerritory,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo
+       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
+       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -358,11 +370,12 @@ overx <- function(country, x) {
   return(over)
 }
 
-start_no <- 500
+start_no <- 1000
 
 plot(overx(WHO_SR$China, start_no), col="red", type="l",
      xlab=paste0("Days Since ", start_no, " Cases"),
-     ylab= "Cases")
+     ylab= "Cases",
+     main=paste0("Outbreak Progression from ", start_no, " Cases") )
 lines(overx(WHO_SR$Italy, start_no), col="green")
 lines(overx(WHO_SR$Iran, start_no), col="orange")
 lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
