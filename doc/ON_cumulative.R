@@ -33,6 +33,6 @@ plot(ON_cumulative$LastUpdated[-1],
      main = "Average Daily New COVID-19 Cases in Ontario",
      xlab = "Date",
      ylab = "Daily Case",
-     type = "b")
+     type = "l")
 
 
