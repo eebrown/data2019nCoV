@@ -41,7 +41,7 @@ gather(CAN_cumulative, key, value,
        ) %>%
   ggplot(aes(x=date, y=value, col=key)) +
   geom_line() +
-  theme(legend.position="none") +
+  theme(legend.position="right") +
   labs(title = "Confirmed Cases by Province",
        x = "Date", 
        y = "Confirmed Cases") +

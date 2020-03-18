@@ -3,12 +3,12 @@
 
 devtools::load_all()
 ON_cumulative <- read.csv("data-raw/ON_cumulative.csv")
-ON_cumulative$LastUpdated <- as.Date(ON_cumulative$LastUpdated)
+ON_cumulative$LastUpdated <- as.POSIXct(ON_cumulative$LastUpdated)
 
 usethis::use_data(ON_cumulative, overwrite = TRUE)
 
 CAN_cumulative <- read.csv("data-raw/CAN_cumulative.csv")
-CAN_cumulative$date <- as.Date(CAN_cumulative$date)
+CAN_cumulative$date <- as.POSIXct(CAN_cumulative$date)
 
 usethis::use_data(CAN_cumulative, overwrite = TRUE)
 

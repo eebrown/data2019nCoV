@@ -199,6 +199,7 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_ben = Benin,
     cases_lbr = Liberia,
     cases_tza = UnitedRepublicofTanzania,
+    cases_region_african = Region.African,
 
     cases_internationalconveyance = InternationalConveyance,
 
@@ -258,7 +259,8 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     deaths_region_european = Region.European.deaths,
     deaths_region_southeastasia = Region.SouthEastAsia.deaths,
     deaths_region_easternmediterranean = Region.EasternMediterranean.deaths,
-    
+    deaths_region_americas = Region.Americas.deaths,
+    deaths_region_african = Region.African.deaths,
 
     deaths_internationalconveyance = InternationalConveyance.deaths,
 
