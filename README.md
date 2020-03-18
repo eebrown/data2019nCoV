@@ -26,7 +26,7 @@ Plots of the WHO data can be found in the [WHO SR vignette](https://htmlpreview.
 
 Plots of the Ontario data can be found in the [ON vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/ON_cumulative.html).
 
-Plots of the Canada data can be found in the [CAN vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/CAN_cumulative.html).
+Plots of the Canada data can be found in the [CAN vignette](https://htmlpreview.github.io/?https://github.com/eebrown/data2019nCoV/blob/master/doc/Canada.html).
 
 ## Usage
 
