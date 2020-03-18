@@ -22,12 +22,6 @@ plot(WHO_SR$Date, WHO_SR$Global.confirmed,
      ylab = "Confirmed Cases",
      type = "b")
 
-plot(WHO_SR$Date, WHO_SR$Cases.nonChina,
-     main = "Global COVID-19 Cases Excluding China",
-     xlab = "Date",
-     ylab = "Confirmed Cases",
-     type = "b")
-
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 # A function to calculate the daily change
@@ -71,16 +65,16 @@ gather(WHO_SR, key, value,
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia,
+       Mongolia, Guam,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
-       
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
-       CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname,
+       CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
+       Aruba, UnitedStatesVirginIslands,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -92,12 +86,13 @@ gather(WHO_SR, key, value,
        FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
-       OccupiedPalestinianTerritory,
+       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
+       OccupiedPalestinianTerritory, 
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
+       Benin, Liberia, UnitedRepublicofTanzania,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -113,16 +108,16 @@ gather(WHO_SR, key, value,
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia,
+       Mongolia, Guam,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
-       Reunion,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
-       CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname,
+       CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
+       Aruba, UnitedStatesVirginIslands,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -131,15 +126,16 @@ gather(WHO_SR, key, value,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
        Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
-       FaroeIslands, Cyprus, Guernsey, Uzbekistan,
+       FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
-       OccupiedPalestinianTerritory,
+       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
+       OccupiedPalestinianTerritory, 
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
+       Benin, Liberia, UnitedRepublicofTanzania,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -155,16 +151,16 @@ gather(WHO_SR, key, value,
        
        Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia,
+       Mongolia, Guam,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
-       Reunion,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
-       CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname,
+       CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
+       Aruba, UnitedStatesVirginIslands,
        
        Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -173,15 +169,16 @@ gather(WHO_SR, key, value,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
        Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
-       FaroeIslands, Cyprus, Guernsey, Uzbekistan,
+       FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan,
 
        Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia,
-       OccupiedPalestinianTerritory,
+       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
+       OccupiedPalestinianTerritory, 
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
-       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte, Rwanda, Seychelles,
+       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
+       Benin, Liberia, UnitedRepublicofTanzania,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -199,10 +196,9 @@ gather(WHO_SR, key, value,
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia,
+       Mongolia, Guam,
        
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives,
-       Reunion
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -223,7 +219,7 @@ gather(WHO_SR, key, value,
        Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
        Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
-       FaroeIslands, Cyprus, Guernsey, Uzbekistan
+       FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -256,11 +252,13 @@ gather(WHO_SR, key, value,
 gather(WHO_SR, key, value, 
        
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt, Qatar, OccupiedPalestinianTerritory,
+       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
+       OccupiedPalestinianTerritory, 
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
-       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte, Rwanda, Seychelles
+       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
+       Benin, Liberia, UnitedRepublicofTanzania
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -384,7 +382,7 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,3000))
+      ylim = c(0,4000))
 }
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
@@ -394,13 +392,6 @@ plot(WHO_SR$Date, WHO_SR$China.deaths,
      ylab = "Deaths",
      type = "b")
 
-plot(WHO_SR$Date, WHO_SR$China.deaths,
-     main = "Cumulative COVID-19 Deaths in China (Semilogarithmic)",
-     xlab = "Date",
-     ylab = "Deaths",
-     log = "y",
-     type = "b")
-
 # Change in Cases Between Reports
 plot(WHO_SR$Date[-1], daily_change(WHO_SR$China.deaths),
      main = "Change in Deaths in China by Date",
@@ -408,14 +399,24 @@ plot(WHO_SR$Date[-1], daily_change(WHO_SR$China.deaths),
      xlab = "Date",
      type = "b")
 
+Deaths.nonChina <- c(WHO_SR$Deaths.nonChina[1:56], 
+                      (WHO_SR$Region.WesternPacific.deaths[57:length(WHO_SR$Date)] + 
+                         WHO_SR$Region.European.deaths[57:length(WHO_SR$Date)] +
+                         WHO_SR$Region.SouthEastAsia.deaths[57:length(WHO_SR$Date)] +
+                         WHO_SR$Region.EasternMediterranean.deaths[57:length(WHO_SR$Date)] +
+                         WHO_SR$Region.Americas.deaths[57:length(WHO_SR$Date)] +
+                         WHO_SR$Region.African.deaths[57:length(WHO_SR$Date)] +
+                         WHO_SR$Region.Other.deaths[57:length(WHO_SR$Date)] -
+                         WHO_SR$China.deaths[57:length(WHO_SR$Date)]))
+
 plot(WHO_SR$Date, 
-     WHO_SR$Deaths.nonChina,
+     Deaths.nonChina,
      main = "Cumulative COVID-19 Deaths Outside of China",
      xlab = "Date",
      ylab = "Deaths",
      type = "b")
 
-plot(WHO_SR$Date[-1], daily_change(WHO_SR$Deaths.nonChina),
+plot(WHO_SR$Date[-1], daily_change(Deaths.nonChina),
      main = "Change in Deaths Outside China by Date",
      xlab = "Date",
      ylab = "New Deaths",
@@ -434,7 +435,7 @@ matplot(as.Date(WHO_SR$Date), cbind( ((WHO_SR$China.deaths + WHO_SR$Deaths.nonCh
      ylab = "Deaths / Confirmed Cases (%)",
      type = "l",
      col = c("black", "red",   "blue",  "green", "magenta"),
-     ylim = c(0,8))
+     ylim = c(0,10))
 legend(x="top", 
        legend = c("World", "China", "Korea", "Italy", "USA"), 
        col =    c("black", "red",   "blue",  "green", "magenta"), 
