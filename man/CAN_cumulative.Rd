@@ -24,6 +24,8 @@
     \item{nl_probable}{Probable cases in Newfoundland and Labrador}
     \item{nb_confirmed}{Confirmed cases in New Brunswick}
     \item{nb_probable}{Probable cases in New Brunswick}
+    \item{ns_confirmed}{Confirmed cases in Nova Scotia}
+    \item{ns_probable}{Probable cases in Nova Scotia}
     \item{pe_confirmed}{Confirmed cases in Prince Edward Island}
     \item{pe_probable}{Probable cases in Prince Edward Island}
     \item{repatriated_confirmed}{Confirmed repatriated cases}

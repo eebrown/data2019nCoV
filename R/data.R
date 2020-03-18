@@ -22,6 +22,7 @@
 #'     \item{Negative}{Negative tests.}
 #'     \item{UnderInvestigation}{Number of current pending tests.}
 #'     \item{PresumptivePositive}{Awaiting confirmation at national laboratory.}
+#'     \item{Deceased}{Confirmed deceased cases.}
 #'     \item{ConfirmedPositive}{"Patient still testing positive and has not had two consecutive negative results greater than 24 hours apart"}
 #'     \item{Resolved}{"Patient is no longer infectious based on two consecutive negative tests performed"}
 #'     \item{TotalTested}{"Total number of patients approved for COVID-19 testing to date"}
@@ -56,6 +57,8 @@
 #'     \item{nl_probable}{Probable cases in Newfoundland and Labrador}
 #'     \item{nb_confirmed}{Confirmed cases in New Brunswick}
 #'     \item{nb_probable}{Probable cases in New Brunswick}
+#'     \item{ns_confirmed}{Confirmed cases in Nova Scotia}
+#'     \item{ns_probable}{Probable cases in Nova Scotia}
 #'     \item{pe_confirmed}{Confirmed cases in Prince Edward Island}
 #'     \item{pe_probable}{Probable cases in Prince Edward Island}
 #'     \item{repatriated_confirmed}{Confirmed repatriated cases}
