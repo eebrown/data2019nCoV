@@ -61,6 +61,12 @@
 #'     \item{ns_probable}{Probable cases in Nova Scotia}
 #'     \item{pe_confirmed}{Confirmed cases in Prince Edward Island}
 #'     \item{pe_probable}{Probable cases in Prince Edward Island}
+#'     \item{yt_confirmed}{Confirmed cases in Yukon}
+#'     \item{yt_probable}{Probable cases in Yukon}
+#'     \item{nt_confirmed}{Confirmed cases in Northwest Territories}
+#'     \item{nt_probable}{Probable cases in Northwest Territories}
+#'     \item{nu_confirmed}{Confirmed cases in Nunavut}
+#'     \item{nu_probable}{Probable cases in Nunavut}
 #'     \item{repatriated_confirmed}{Confirmed repatriated cases}
 #'     \item{repatriated_probable}{Probable repatriated cases}
 #'     \item{total_confirmed}{Total confirmed cases}

@@ -64,9 +64,9 @@ gather(CAN_cumulative, key, value,
   ggplot(aes(x=date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="right") +
-  labs(title = "Confirmed Cases by Province",
+  labs(title = "Cases by Province in Canada",
        x = "Date", 
-       y = "Confirmed Cases") +
+       y = "Cases (Confirmed and Probable)") +
   theme(legend.title = element_blank())
 
 ```
