@@ -1,27 +1,29 @@
 url,date,bc_confirmed,bc_probable,ab_confirmed,ab_probable,sk_confirmed,sk_probable,mb_confirmed,mb_probable,on_confirmed,on_probable,qc_confirmed,qc_probable,nl_confirmed,nl_probable,nb_confirmed,nb_probable,ns_confirmed,ns_probable,pe_confirmed,pe_probable,repatriated_confirmed,repatriated_probable,total_confirmed,total_probable,total_deaths,proportion_female,proportion_40plus,proportion_60plus,proportion_hospitalized,proportion_travellers,proportion_contactoftravellers
-https://web.archive.org/web/20200129014437/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-01-25,0,0,,,,,,,1,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200129014437/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-01-27,0,0,,,,,,,2,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200129014437/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-01-28,1,0,,,,,,,2,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200201103618/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-01-31,1,0,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200205215250/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-04,1,1,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200209040458/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-08,4,0,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200217005017/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-14,4,1,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200218090425/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-16,5,0,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200221180820/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-20,5,0,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200222223649/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-21,6,0,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200225044704/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-24,6,1,,,,,,,4,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200226111309/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-25,7,0,,,,,,,4,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200227133155/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-26,7,0,,,,,,,5,0,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200306054231/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-05,21,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-https://web.archive.org/web/20200307054906/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-06,21,0,,,,,,,28,,2,,,,,,,,,,,,51,,,,,,,,
-https://web.archive.org/web/20200308145324/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-07,27,0,,,,,,,28,,2,,,,,,,,,,,,57,,,,,,,,
-https://web.archive.org/web/20200310144823/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-09,32,0,7,,,,,,34,,4,,,,,,,,,,,,77,,1,0.53,0.82,,0.13,,
-https://web.archive.org/web/20200311152930/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-10,39,0,14,,,,,,36,,4,,,,,,,,,,,,93,,1,0.55,0.79,,0.13,0.79,0.12
-https://web.archive.org/web/20200312200713/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-11,39,0,14,,,,,,42,,7,,,,,,,,,,1,,103,,1,0.52,0.76,,0.13,0.79,0.12
-https://web.archive.org/web/20200313200835/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-13 09:00:00,53,0,23,,,1,1,2,60,0,13,0,,,1,0,,,0,0,1,0,152,3,1,0.53,0.67,,0.13,0.8,0.1
-https://web.archive.org/web/20200314225807/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-14 09:00:00,64,0,29,,,2,1,3,79,0,17,0,,,1,1,,,0,0,2,0,193,6,1,0.5,0.73,,0.11,0.75,0.1
-,2020-03-14 17:50:00,73,0,39,2,0,2,4,0,101,0,21,0,,,1,1,,,1,0,4,0,244,5,1,0.5,,0.29,0.12,0.79,0.08
-,2020-03-15 09:00:00,73,0,39,0,0,2,4,0,103,0,24,0,0,1,1,1,,,1,0,4,0,249,4,1,0.5,,0.29,0.12,0.79,0.08
-,2020-03-15 17:45:00,73,0,39,0,1,5,4,3,142,0,39,0,0,1,1,5,,,1,0,4,0,304,17,1,0.51,,0.31,0.13,0.74,0.06
-,2020-03-16 18:45:00,103,0,74,0,2,5,7,0,177,0,50,0,0,1,2,5,,,1,0,8,0,424,16,4,0.51,,0.31,0.13,0.74,0.06
-,2020-03-17,103,0,74,0,2,5,7,0,177,0,50,0,0,1,2,5,0,5,1,0,8,0,424,16,4,0.51,,0.31,0.13,0.74,0.06
+https://web.archive.org/web/20200129014437/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-01-25 00:00:00,0,0,,,,,,,1,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200129014437/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-01-27 00:00:00,0,0,,,,,,,2,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200129014437/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-01-28 00:00:00,1,0,,,,,,,2,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200201103618/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-01-31 00:00:00,1,0,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200205215250/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-04 00:00:00,1,1,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200209040458/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-08 00:00:00,4,0,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200217005017/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-14 00:00:00,4,1,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200218090425/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-16 00:00:00,5,0,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200221180820/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-20 00:00:00,5,0,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200222223649/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-21 00:00:00,6,0,,,,,,,3,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200225044704/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-24 00:00:00,6,1,,,,,,,4,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200226111309/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-25 00:00:00,7,0,,,,,,,4,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200227133155/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-02-26 00:00:00,7,0,,,,,,,5,0,,,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200306054231/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-05 00:00:00,21,0,,,,,,,22,0,2,0,,,,,,,,,,,,,,,,,,,
+https://web.archive.org/web/20200307054906/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-06 00:00:00,21,0,,,,,,,28,0,2,0,,,,,,,,,,,51,0,,,,,,,
+https://web.archive.org/web/20200308145324/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-07 00:00:00,27,0,,,,,,,28,0,2,0,,,,,,,,,,,57,0,,,,,,,
+https://web.archive.org/web/20200310144823/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-09 00:00:00,32,0,7,0,,,,,34,0,4,0,,,,,,,,,,,77,0,1,0.53,0.82,,0.13,,
+https://web.archive.org/web/20200311152930/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-10 00:00:00,39,0,14,0,,,,,36,0,4,0,,,,,,,,,,,93,0,1,0.55,0.79,,0.13,0.79,0.12
+https://web.archive.org/web/20200312200713/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-11 00:00:00,39,0,14,0,,,,,42,0,7,0,,,,,,,,,1,0,103,0,1,0.52,0.76,,0.13,0.79,0.12
+https://web.archive.org/web/20200313200835/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-13 09:00:00,53,0,23,0,0,1,1,2,60,0,13,0,,,1,0,,,0,0,1,0,152,3,1,0.53,0.67,,0.13,0.8,0.1
+https://web.archive.org/web/20200314225807/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-14 09:00:00,64,0,29,0,0,2,1,3,79,0,17,0,,,1,1,,,0,0,2,0,193,6,1,0.5,0.73,,0.11,0.75,0.1
+https://web.archive.org/web/20200315050714/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-14 17:50:00,73,0,39,2,0,2,4,0,101,0,21,0,,,1,1,,,1,0,4,0,244,5,1,0.5,,0.29,0.12,0.79,0.08
+https://web.archive.org/web/20200315212903/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-15 09:00:00,73,0,39,0,0,2,4,0,103,0,24,0,0,1,1,1,,,1,0,4,0,249,4,1,0.5,,0.29,0.12,0.79,0.08
+https://web.archive.org/web/20200316061939/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-15 17:45:00,73,0,39,0,1,5,4,3,142,0,39,0,0,1,1,5,,,1,0,4,0,304,17,1,0.51,,0.31,0.13,0.74,0.06
+https://web.archive.org/web/20200316195650/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-16 09:00:00,73,0,56,0,1,5,4,3,145,0,39,0,0,1,1,5,0,3,1,0,4,0,324,17,1,0.51,,0.31,0.13,0.74,0.06
+https://web.archive.org/web/20200317050739/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-16 18:45:00,103,0,74,0,2,5,7,0,177,0,50,0,0,1,2,5,0,5,1,0,8,0,424,16,4,0.51,,0.31,0.13,0.74,0.06
+https://web.archive.org/web/20200317215904/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-17 10:30:00,103,0,74,0,2,5,7,0,177,0,50,0,0,1,2,5,0,5,1,0,8,0,424,16,4,0.51,,0.31,0.13,0.74,0.06
+https://web.archive.org/web/20200318224900/https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html,2020-03-18 09:30:00,186,0,97,0,2,6,8,7,189,0,74,0,0,3,2,6,1,6,1,0,9,0,569,28,8,0.47,,0.32,0.12,0.74,0.11
