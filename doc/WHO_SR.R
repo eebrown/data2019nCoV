@@ -65,7 +65,7 @@ gather(WHO_SR, key, value,
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam,
+       Mongolia, Guam, Fiji,NewCaledonia,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
        
@@ -74,7 +74,8 @@ gather(WHO_SR, key, value,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
-       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,
+       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
+       Nicaragua, SintMaartin,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -94,6 +95,7 @@ gather(WHO_SR, key, value,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
+       Chad, Niger,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -109,7 +111,7 @@ gather(WHO_SR, key, value,
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam,
+       Mongolia, Guam, Fiji,NewCaledonia,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
        
@@ -118,7 +120,8 @@ gather(WHO_SR, key, value,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
-       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,
+       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
+       Nicaragua, SintMaartin,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -138,6 +141,7 @@ gather(WHO_SR, key, value,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
+       Chad, Niger,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -151,11 +155,9 @@ gather(WHO_SR, key, value,
 # No China, Italy, Iran
 gather(WHO_SR, key, value, 
        
-
-       
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam,
+       Mongolia, Guam, Fiji,NewCaledonia,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
        
@@ -164,7 +166,8 @@ gather(WHO_SR, key, value,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
-       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,
+       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
+       Nicaragua, SintMaartin,
        
        Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -184,6 +187,7 @@ gather(WHO_SR, key, value,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
+       Chad, Niger,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -201,7 +205,7 @@ gather(WHO_SR, key, value,
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam,
+       Mongolia, Guam, Fiji,NewCaledonia,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives
        
@@ -244,7 +248,8 @@ gather(WHO_SR, key, value,
        Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
-       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat
+       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
+       Nicaragua, SintMaartin
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -265,7 +270,8 @@ gather(WHO_SR, key, value,
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
-       Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia
+       Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
+       Chad, Niger
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -281,12 +287,16 @@ gather(WHO_SR, key, value,
 # Southern Hemisphere
 gather(WHO_SR, key, value, 
        
-       Australia, NewZealand,
+       Australia, NewZealand, Fiji, NewCaledonia, 
        
        Brazil, Ecuador, Argentina, Chile, Peru, Colombia,
-       DemocraticRepublicoftheCongo, Bolivia,
+       DemocraticRepublicoftheCongo, Bolivia, Uruguay,
+
+       SouthAfrica, Reunion, Gabon, Kenya, Namibia, Congo, 
+       Eswatini, Mayotte, Rwanda, Seychelles,
+       UnitedRepublicofTanzania,Mauritius,Zambia
        
-       SouthAfrica, Reunion, Gabon, Kenya) %>%
+       ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
