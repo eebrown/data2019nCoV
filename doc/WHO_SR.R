@@ -360,7 +360,8 @@ start_no <- 1000
 plot(overx(WHO_SR$China, start_no), col="red", type="l",
      xlab=paste0("Days Since ", start_no, " Cases"),
      ylab= "Cases",
-     main=paste0("Outbreak Progression from ", start_no, " Cases") )
+     main=paste0("Outbreak Progression from ", start_no, " Cases"),
+     xlim=c(0,60))
 lines(overx(WHO_SR$Italy, start_no), col="green")
 lines(overx(WHO_SR$Iran, start_no), col="orange")
 lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
