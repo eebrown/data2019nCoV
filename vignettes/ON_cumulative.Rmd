@@ -38,13 +38,27 @@ plot(ON_cumulative$LastUpdated, (ON_cumulative$ConfirmedPositive+ON_cumulative$R
      ylab = "Current and Resolved Cases",
      type = "b")
 
-plot(ON_cumulative$LastUpdated[-1], (daily_change(ON_cumulative$Negative + 
-                                 ON_cumulative$ConfirmedPositive + 
-                                 ON_cumulative$Resolved +
-                                 ON_cumulative$Deceased)),
+cases <- (ON_cumulative$Negative + 
+         ON_cumulative$ConfirmedPositive + 
+         ON_cumulative$Resolved +
+         ON_cumulative$Deceased)
+
+change <- daily_change(cases)
+
+plot(ON_cumulative$LastUpdated[-1], change,
      main = "Number of Results Posted Between Reports in Ontario",
      xlab = "Date",
      ylab = "Change in Negative + Positive + Resolved + Deceased",
      type = "b")
+
+
+#Current backlog
+
+current_rate <- (change[length(change)] + change[length(change) - 1] / 2)
+
+paste("The current backlog is", 
+      round((ON_cumulative$UnderInvestigation[length(ON_cumulative$UnderInvestigation)] 
+        / current_rate), digits=2),
+      "days.")
 
 ```

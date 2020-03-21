@@ -361,14 +361,14 @@ plot(overx(WHO_SR$China, start_no), col="red", type="l",
      xlab=paste0("Days Since ", start_no, " Cases"),
      ylab= "Cases",
      main=paste0("Outbreak Progression from ", start_no, " Cases"),
-     xlim=c(0,60))
+     xlim=c(0,31))
 lines(overx(WHO_SR$Italy, start_no), col="green")
 lines(overx(WHO_SR$Iran, start_no), col="orange")
 lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
 lines(overx(WHO_SR$Spain, start_no), col="black")
 lines(overx(WHO_SR$Germany, start_no), col="black")
 lines(overx(WHO_SR$France,  start_no), col="black")
-lines(overx(WHO_SR$UnitedStatesofAmerica, start_no), col="black")
+lines(overx(WHO_SR$UnitedStatesofAmerica, start_no), col="blue")
 lines(overx(WHO_SR$Switzerland,  start_no), col="black")
 lines(overx(WHO_SR$Austria,  start_no), col="black")
 lines(overx(WHO_SR$UnitedKingdom,  start_no), col="black")
@@ -378,8 +378,8 @@ lines(overx(WHO_SR$Sweden, start_no), col="black")
 lines(overx(WHO_SR$Denmark, start_no), col="black")
 lines(overx(WHO_SR$Belgium, start_no), col="black")
 
-legend(x = "bottom", legend = c("China", "Italy", "Iran", "Korea"), 
-       col =    c("red", "green",   "orange",  "magenta"), 
+legend(x = "bottom", legend = c("China", "Italy", "Iran", "Korea", "USA"), 
+       col =    c("red", "green",   "orange",  "magenta", "blue"), 
        pch=18)
 
 
