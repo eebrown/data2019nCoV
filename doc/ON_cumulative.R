@@ -60,10 +60,11 @@ plot(ON_cumulative$LastUpdated, proportion_positive*100,
      ylab="Positive Tests (%)",
      xlab="Date")
 
-plot(ON_cumulative$LastUpdated, (ON_cumulative$ConfirmedPositive + (ON_cumulative$UnderInvestigation * proportion_positive) ),
+estimated_withpending <- (ON_cumulative$ConfirmedPositive + 
+                            (ON_cumulative$UnderInvestigation * proportion_positive))
+
+plot(ON_cumulative$LastUpdated, estimated_withpending,
      xlab="Date",
      main="Estimated Identified Cases")
-     
-
 
 

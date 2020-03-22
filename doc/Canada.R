@@ -23,7 +23,11 @@ gather(CAN_cumulative, key, value,
        qc_confirmed,
        nl_confirmed,
        nb_confirmed,
+       ns_confirmed,
        pe_confirmed,
+       yt_confirmed,
+       nt_confirmed,
+       nu_confirmed,
        repatriated_confirmed
        ) %>%
   ggplot(aes(x=date, y=value, col=key)) +
@@ -42,16 +46,20 @@ CAN_cumulative$ON <- CAN_cumulative$on_confirmed + CAN_cumulative$on_probable
 CAN_cumulative$QC <- CAN_cumulative$qc_confirmed + CAN_cumulative$qc_probable
 CAN_cumulative$NL <- CAN_cumulative$nl_confirmed + CAN_cumulative$nl_probable
 CAN_cumulative$NB <- CAN_cumulative$nb_confirmed + CAN_cumulative$nb_probable
+CAN_cumulative$NS <- CAN_cumulative$ns_confirmed + CAN_cumulative$ns_probable
 CAN_cumulative$PE <- CAN_cumulative$pe_confirmed + CAN_cumulative$pe_probable
+CAN_cumulative$YT <- CAN_cumulative$yt_confirmed + CAN_cumulative$yt_probable
+CAN_cumulative$NT <- CAN_cumulative$nt_confirmed + CAN_cumulative$nt_probable
+CAN_cumulative$NU <- CAN_cumulative$nu_confirmed + CAN_cumulative$nu_probable
 CAN_cumulative$Repatriated <- CAN_cumulative$repatriated_confirmed + CAN_cumulative$repatriated_probable
 
 gather(CAN_cumulative, key, value, 
-       BC, AB, SK, MB, ON, QC, NL, NB, PE, Repatriated
+       BC, AB, SK, MB, ON, QC, NL, NS, NB, PE, YT, NT, NU, Repatriated
        ) %>%
   ggplot(aes(x=date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="right") +
-  labs(title = "Cases by Province in Canada",
+  labs(title = "Cases by Province and Territory in Canada",
        x = "Date", 
        y = "Cases (Confirmed and Probable)") +
   theme(legend.title = element_blank())
