@@ -38,12 +38,12 @@ plot(ON_cumulative$LastUpdated, (ON_cumulative$ConfirmedPositive+ON_cumulative$R
      ylab = "Current and Resolved Cases",
      type = "b")
 
-cases <- (ON_cumulative$Negative + 
+tests <- (ON_cumulative$Negative + 
          ON_cumulative$ConfirmedPositive + 
          ON_cumulative$Resolved +
          ON_cumulative$Deceased)
 
-change <- daily_change(cases)
+change <- daily_change(tests)
 
 plot(ON_cumulative$LastUpdated[-1], change,
      main = "Number of Results Posted Between Reports in Ontario",
@@ -60,5 +60,26 @@ paste("The current backlog is",
       round((ON_cumulative$UnderInvestigation[length(ON_cumulative$UnderInvestigation)] 
         / current_rate), digits=2),
       "days.")
+```
+
+The following is speculative.
+
+```{r, fig.width=6, fig.height=10}
+cases <- ON_cumulative$ConfirmedPositive + ON_cumulative$Resolved + ON_cumulative$Deceased
+
+proportion_positive <- cases/tests
+
+par(mfrow=c(2,1))
+
+plot(ON_cumulative$LastUpdated, proportion_positive*100,
+     main="Proportion of Positive Tests",
+     ylab="Positive Tests (%)",
+     xlab="Date")
+
+plot(ON_cumulative$LastUpdated, (ON_cumulative$ConfirmedPositive + (ON_cumulative$UnderInvestigation * proportion_positive) ),
+     xlab="Date",
+     main="Estimated Identified Cases")
+     
+
 
 ```

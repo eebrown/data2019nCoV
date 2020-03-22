@@ -65,9 +65,9 @@ gather(WHO_SR, key, value,
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam, Fiji,NewCaledonia,
+       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea,
        
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
@@ -75,7 +75,7 @@ gather(WHO_SR, key, value,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin,
+       Nicaragua, SintMaartin,Haiti,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -95,7 +95,7 @@ gather(WHO_SR, key, value,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
-       Chad, Niger,
+       Chad, Niger,CaboVerde,Zimbabwe,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -109,11 +109,11 @@ gather(WHO_SR, key, value,
 # No China
 gather(WHO_SR, key, value, 
        
-       RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
+        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam, Fiji,NewCaledonia,
+       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea,
        
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
@@ -121,7 +121,7 @@ gather(WHO_SR, key, value,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin,
+       Nicaragua, SintMaartin,Haiti,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -141,7 +141,7 @@ gather(WHO_SR, key, value,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
-       Chad, Niger,
+       Chad, Niger,CaboVerde,Zimbabwe,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -155,11 +155,11 @@ gather(WHO_SR, key, value,
 # No China, Italy, Iran
 gather(WHO_SR, key, value, 
        
-       RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
+        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam, Fiji,NewCaledonia,
+       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea,
        
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, 
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
        
        UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
        Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
@@ -167,7 +167,7 @@ gather(WHO_SR, key, value,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin,
+       Nicaragua, SintMaartin,Haiti,
        
        Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -187,7 +187,7 @@ gather(WHO_SR, key, value,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
-       Chad, Niger,
+       Chad, Niger,CaboVerde,Zimbabwe,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -205,9 +205,9 @@ gather(WHO_SR, key, value,
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam, Fiji,NewCaledonia,
+       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea,
        
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives
+       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -249,7 +249,7 @@ gather(WHO_SR, key, value,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin
+       Nicaragua, SintMaartin, Haiti
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -271,7 +271,7 @@ gather(WHO_SR, key, value,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
-       Chad, Niger
+       Chad, Niger, CaboVerde, Zimbabwe
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -287,14 +287,14 @@ gather(WHO_SR, key, value,
 # Southern Hemisphere
 gather(WHO_SR, key, value, 
        
-       Australia, NewZealand, Fiji, NewCaledonia, 
+       Australia, NewZealand, Fiji, NewCaledonia, PapuaNewGuinea,
        
        Brazil, Ecuador, Argentina, Chile, Peru, Colombia,
-       DemocraticRepublicoftheCongo, Bolivia, Uruguay,
+       DemocraticRepublicoftheCongo, Bolivia, Uruguay,TimorLeste,
 
        SouthAfrica, Reunion, Gabon, Kenya, Namibia, Congo, 
        Eswatini, Mayotte, Rwanda, Seychelles,
-       UnitedRepublicofTanzania,Mauritius,Zambia
+       UnitedRepublicofTanzania,Mauritius,Zambia,Zimbabwe
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -361,7 +361,7 @@ plot(overx(WHO_SR$China, start_no), col="red", type="l",
      xlab=paste0("Days Since ", start_no, " Cases"),
      ylab= "Cases",
      main=paste0("Outbreak Progression from ", start_no, " Cases"),
-     xlim=c(0,31))
+     xlim=c(0,50))
 lines(overx(WHO_SR$Italy, start_no), col="green")
 lines(overx(WHO_SR$Iran, start_no), col="orange")
 lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
@@ -378,20 +378,20 @@ lines(overx(WHO_SR$Sweden, start_no), col="black")
 lines(overx(WHO_SR$Denmark, start_no), col="black")
 lines(overx(WHO_SR$Belgium, start_no), col="black")
 
-legend(x = "bottom", legend = c("China", "Italy", "Iran", "Korea", "USA"), 
+legend(x = "right", legend = c("China", "Italy", "Iran", "Korea", "USA"), 
        col =    c("red", "green",   "orange",  "magenta", "blue"), 
        pch=18)
 
 
 ## ---- fig.width=6, fig.height=20----------------------------------------------
-outbreaks <- list(Korea = WHO_SR$RepublicofKorea, 
-                  Iran = WHO_SR$Iran,
+outbreaks <- list(China = WHO_SR$China, 
                   Italy = WHO_SR$Italy,
-                  France = WHO_SR$France,
-                  Germany = WHO_SR$Germany,
                   USA = WHO_SR$UnitedStatesofAmerica,
                   Spain = WHO_SR$Spain,
-                  Switzerland = WHO_SR$Switzerland)
+                  Germany = WHO_SR$Germany,
+                  Iran = WHO_SR$Iran,
+                  France = WHO_SR$France,
+                  Korea = WHO_SR$RepublicofKorea)
 
 par(mfrow=c(4,2))
 
@@ -402,7 +402,7 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,6000))
 }
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
