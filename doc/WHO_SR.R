@@ -96,6 +96,7 @@ gather(WHO_SR, key, value,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
        Chad, Niger,CaboVerde,Zimbabwe,
+       Madagascar, Angola, Eritrea, Uganda,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -142,6 +143,7 @@ gather(WHO_SR, key, value,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
        Chad, Niger,CaboVerde,Zimbabwe,
+       Madagascar, Angola, Eritrea, Uganda,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -188,6 +190,7 @@ gather(WHO_SR, key, value,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
        Chad, Niger,CaboVerde,Zimbabwe,
+       Madagascar, Angola, Eritrea, Uganda,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -271,7 +274,8 @@ gather(WHO_SR, key, value,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
-       Chad, Niger, CaboVerde, Zimbabwe
+       Chad, Niger, CaboVerde, Zimbabwe,
+       Madagascar, Angola, Eritrea, Uganda
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -294,7 +298,8 @@ gather(WHO_SR, key, value,
 
        SouthAfrica, Reunion, Gabon, Kenya, Namibia, Congo, 
        Eswatini, Mayotte, Rwanda, Seychelles,
-       UnitedRepublicofTanzania,Mauritius,Zambia,Zimbabwe
+       UnitedRepublicofTanzania,Mauritius,Zambia,Zimbabwe,Madagascar,
+       Angola, Uganda
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -402,7 +407,7 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,6000))
+      ylim = c(0,7000))
 }
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
