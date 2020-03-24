@@ -46,10 +46,10 @@
     \item{nt_deaths}{Deaths in Northwest Territories}
     \item{nu_confirmed}{Confirmed cases in Nunavut}
     \item{nu_probable}{Probable cases in Nunavut}
-    \item{nu_probable}{Deaths in Nunavut}
+    \item{nu_deaths}{Deaths in Nunavut}
     \item{repatriated_confirmed}{Confirmed repatriated cases}
     \item{repatriated_probable}{Probable repatriated cases}
-    \item{repatriated_probable}{Deaths among repatriated cases}
+    \item{repatriated_deaths}{Deaths among repatriated cases}
     \item{total_confirmed}{Total confirmed cases}
     \item{total_probable}{Total probable cases}
     \item{total_deaths}{Total deaths}

@@ -72,18 +72,18 @@ gather(WHO_SR, key, value,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
        Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
        FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan, Kyrgyzstan,
-       Greenland, Montenegro,
+       Greenland, Montenegro, Kosovo,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
-       OccupiedPalestinianTerritory, Djibouti,
+       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
        Chad, Niger,CaboVerde,Zimbabwe,
-       Madagascar, Angola, Eritrea, Uganda,
+       Madagascar, Angola, Eritrea, Uganda,Mozambique,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -119,18 +119,18 @@ gather(WHO_SR, key, value,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
        Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
        FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan, Kyrgyzstan,
-       Greenland, Montenegro,
+       Greenland, Montenegro, Kosovo,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
-       OccupiedPalestinianTerritory, Djibouti,
+       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
        Chad, Niger,CaboVerde,Zimbabwe,
-       Madagascar, Angola, Eritrea, Uganda,
+       Madagascar, Angola, Eritrea, Uganda,Mozambique,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -166,18 +166,18 @@ gather(WHO_SR, key, value,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
        Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
        FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan, Kyrgyzstan,
-       Greenland, Montenegro,
+       Greenland, Montenegro, Kosovo,
 
        Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
-       OccupiedPalestinianTerritory, Djibouti,
+       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
        Chad, Niger,CaboVerde,Zimbabwe,
-       Madagascar, Angola, Eritrea, Uganda,
+       Madagascar, Angola, Eritrea, Uganda,Mozambique,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -219,7 +219,7 @@ gather(WHO_SR, key, value,
        Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
        Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
        FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan, Kyrgyzstan,
-       Greenland, Montenegro
+       Greenland, Montenegro,  Kosovo
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -255,14 +255,14 @@ gather(WHO_SR, key, value,
        
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
-       OccupiedPalestinianTerritory, Djibouti,
+       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
        Chad, Niger, CaboVerde, Zimbabwe,
-       Madagascar, Angola, Eritrea, Uganda
+       Madagascar, Angola, Eritrea, Uganda, Mozambique
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
