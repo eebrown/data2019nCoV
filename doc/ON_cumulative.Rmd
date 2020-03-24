@@ -52,35 +52,6 @@ plot(ON_cumulative$LastUpdated[-1], change,
      type = "b")
 
 
-#Current backlog
-
-current_rate <- (change[length(change)] + change[length(change) - 1] / 2)
-
-paste("The current backlog is", 
-      round((ON_cumulative$UnderInvestigation[length(ON_cumulative$UnderInvestigation)] 
-        / current_rate), digits=2),
-      "days.")
-```
-
-The following is speculative.
-
-```{r, fig.width=6, fig.height=10}
-cases <- ON_cumulative$ConfirmedPositive + ON_cumulative$Resolved + ON_cumulative$Deceased
-
-proportion_positive <- cases/tests
-
-par(mfrow=c(2,1))
-
-plot(ON_cumulative$LastUpdated, proportion_positive*100,
-     main="Proportion of Positive Tests",
-     ylab="Positive Tests (%)",
-     xlab="Date")
-
-estimated_withpending <- (ON_cumulative$ConfirmedPositive + 
-                            (ON_cumulative$UnderInvestigation * proportion_positive))
-
-plot(ON_cumulative$LastUpdated, estimated_withpending,
-     xlab="Date",
-     main="Estimated Identified Cases")
 
 ```
+

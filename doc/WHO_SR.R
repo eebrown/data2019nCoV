@@ -42,19 +42,6 @@ plot(WHO_SR$Date[-1], change_cases,
      xlab = "Date",
      type = "b")
 
-change_change <- daily_change(change_cases)
-
-plot(WHO_SR$Date[-(1:2)], change_change,
-     main = "Change in Change in Global Cases by Date",
-     ylab = "Change in Change in Global Cases",
-     xlab = "Date",
-     type = "b")
-abline(h = 0)
-trend <- loess(change_change ~ as.numeric(WHO_SR$Date[-(1:2)]), na.action = na.exclude,
-                   span = 0.75)
-   trend.s <- predict(trend)
-   lines(WHO_SR$Date[-(1:2)], trend.s, col="green")
-
 
 ## ---- fig.width=7, fig.height=7-----------------------------------------------
 
