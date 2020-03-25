@@ -52,7 +52,7 @@ gather(WHO_SR, key, value,
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea,
+       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea, Myanmar,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
        
@@ -62,7 +62,7 @@ gather(WHO_SR, key, value,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin,Haiti,
+       Nicaragua, SintMaartin,Haiti,Dominica,TurksandCaicos,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -94,108 +94,13 @@ gather(WHO_SR, key, value,
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
 
-# No China
-gather(WHO_SR, key, value, 
-       
-        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
-       Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea,
-       
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
-       
-       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
-       Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
-       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
-       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
-       CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
-       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin,Haiti,
-       
-       Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
-       Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
-       Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
-       Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
-       Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
-       Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
-       Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
-       FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan, Kyrgyzstan,
-       Greenland, Montenegro, Kosovo,
-
-       Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
-       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,
-       
-       Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
-       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
-       Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
-       Chad, Niger,CaboVerde,Zimbabwe,
-       Madagascar, Angola, Eritrea, Uganda,Mozambique,
-       
-       InternationalConveyance) %>%
-  ggplot(aes(x=Date, y=value, col=key)) +
-  geom_line() +
-  theme(legend.position="none") +
-  labs(title = "Confirmed Cases Outside of China",
-       x = "Date", 
-       y = "Confirmed Cases") +
-  theme(legend.title = element_blank())
-
-# No China, Italy, Iran
-gather(WHO_SR, key, value, 
-       
-        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
-       Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea,
-       
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
-       
-       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
-       Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
-       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
-       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
-       CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
-       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin,Haiti,
-       
-       Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
-       Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
-       Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
-       Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
-       Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
-       Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
-       Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
-       FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan, Kyrgyzstan,
-       Greenland, Montenegro, Kosovo,
-
-       Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
-       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,
-       
-       Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
-       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
-       Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
-       Chad, Niger,CaboVerde,Zimbabwe,
-       Madagascar, Angola, Eritrea, Uganda,Mozambique,
-       
-       InternationalConveyance) %>%
-  ggplot(aes(x=Date, y=value, col=key)) +
-  geom_line() +
-  theme(legend.position="none") +
-  labs(title = "Confirmed Cases Outside of China, Italy, and Iran",
-       x = "Date", 
-       y = "Confirmed Cases") +
-  theme(legend.title = element_blank())
-
-
 ## ---- fig.width=7, fig.height=7-----------------------------------------------
 # Western Pacific and Southeast Asia
 gather(WHO_SR, key, value, 
        
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea,
+       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea,Myanmar,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
        
@@ -239,7 +144,7 @@ gather(WHO_SR, key, value,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin, Haiti
+       Nicaragua, SintMaartin, Haiti,Dominica,TurksandCaicos
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
