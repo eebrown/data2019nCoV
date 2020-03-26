@@ -53,6 +53,7 @@ gather(WHO_SR, key, value,
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
        Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea, Myanmar,
+       LaoPeoplesDemocraticRepublic,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
        
@@ -76,7 +77,7 @@ gather(WHO_SR, key, value,
 
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
-       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,
+       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,Libya,
        
        Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
        DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
@@ -101,6 +102,7 @@ gather(WHO_SR, key, value,
        RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
        Philippines, Cambodia, NewZealand, BruneiDarussalam,
        Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea,Myanmar,
+       LaoPeoplesDemocraticRepublic,
        
        Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
        
@@ -160,24 +162,36 @@ gather(WHO_SR, key, value,
        
        Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
        Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
-       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,
-       
-       Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
-       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
-       Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
-       Chad, Niger, CaboVerde, Zimbabwe,
-       Madagascar, Angola, Eritrea, Uganda, Mozambique
+       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,Libya,
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="bottom") +
-  labs(title = "Eastern Mediterranean and Africa",
+  labs(title = "Eastern Mediterranean Region",
        x = "Date", 
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
 
+# Eastern Mediterranean and Africa
+gather(WHO_SR, key, value, 
+      
+    Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo,
+    BurkinaFaso,DemocraticRepublicoftheCongo,CotedIvoire,
+    Ethiopia,Gabon,Ghana,Guinea,Kenya,Namibia,CentralAfricanRepublic,
+    Congo,EquatorialGuinea,Eswatini,Mauritania,Mayotte, Rwanda,
+    Seychelles,Benin,Liberia,UnitedRepublicofTanzania,Mauritius,
+    Zambia,  Gambia, Chad, Niger, Reunion, CaboVerde,  Zimbabwe, Madagascar,
+    Angola,  Eritrea, Uganda, Mozambique
+    
+       ) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="bottom") +
+  labs(title = "African Region",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
 
 
 # Southern Hemisphere
@@ -299,7 +313,7 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,7000))
+      ylim = c(0,8000))
 }
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
@@ -346,7 +360,9 @@ matplot(as.Date(WHO_SR$Date), cbind( ((WHO_SR$China.deaths + WHO_SR$Deaths.nonCh
                            (WHO_SR$China.deaths/ WHO_SR$China)*100,
                            (WHO_SR$RepublicofKorea.deaths / WHO_SR$RepublicofKorea)*100,
                            (WHO_SR$Italy.deaths / WHO_SR$Italy)*100,
-                           (WHO_SR$UnitedStatesofAmerica.deaths / WHO_SR$UnitedStatesofAmerica)*100),
+                           (WHO_SR$UnitedStatesofAmerica.deaths / 
+                                WHO_SR$UnitedStatesofAmerica)*100,
+                           (WHO_SR$Canada.deaths / WHO_SR$Canada)*100),
      main = "Case Fatality Rate",
      xlab = "Date",
      ylab = "Deaths / Confirmed Cases (%)",
@@ -354,8 +370,8 @@ matplot(as.Date(WHO_SR$Date), cbind( ((WHO_SR$China.deaths + WHO_SR$Deaths.nonCh
      col = c("black", "red",   "blue",  "green", "magenta"),
      ylim = c(0,10))
 legend(x="top", 
-       legend = c("World", "China", "Korea", "Italy", "USA"), 
-       col =    c("black", "red",   "blue",  "green", "magenta"), 
+       legend = c("World", "China", "Korea", "Italy", "USA", "Canada"), 
+       col =    c("black", "red",   "blue",  "green", "magenta", "orange"), 
        pch=18)
 
 
