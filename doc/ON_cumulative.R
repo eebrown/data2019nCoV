@@ -19,10 +19,10 @@ daily_change <- function(series) {
 par(mfrow=c(2,1))
 
 
-plot(ON_cumulative$LastUpdated, (ON_cumulative$ConfirmedPositive+ON_cumulative$Resolved),
+plot(ON_cumulative$LastUpdated, (ON_cumulative$ConfirmedPositive+ON_cumulative$Resolved+ON_cumulative$Deceased),
      main = "Cumulative Confirmed COVID-19 Cases in Ontario",
      xlab = "Date",
-     ylab = "Current and Resolved Cases",
+     ylab = "Cases (Open, Resolved, Deceased)",
      type = "b")
 
 tests <- (ON_cumulative$Negative + 
