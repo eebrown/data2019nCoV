@@ -10,15 +10,15 @@ Currently, this package contains 3 datasets.
 
 ### 1. World Health Organization (WHO)
 
-`WHO_SR`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-03-26 (Situation Reports # 1-66).
+`WHO_SR`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-03-27 (Situation Reports # 1-67).
 
 ### 2. Ontario Ministry of Health Cumulative Cases
 
-`ON_cumulative`: The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus) where possible. It has been updated up to 2020-03-26.
+`ON_cumulative`: The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus) where possible. It has been updated up to 2020-03-27.
 
 ### 3. Government of Canada Cumulative Cases
 
-`CAN_cumulative`: The source of this data is the official Canadian Government's [website](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html). Data is included from page updates that were captured by the Internet Archive where possible. It has been updated up to 2020-03-26.
+`CAN_cumulative`: The source of this data is the official Canadian Government's [website](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html). Data is included from page updates that were captured by the Internet Archive where possible. It has been updated up to 2020-03-27.
 
 ## Demo
 

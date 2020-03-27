@@ -64,6 +64,7 @@ gather(WHO_SR, key, value,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
        Nicaragua, SintMaartin,Haiti,Dominica,TurksandCaicos,SaintKittsandNevis,
+       Anguilla, BritishVirginIslands,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -146,7 +147,8 @@ gather(WHO_SR, key, value,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin, Haiti,Dominica,TurksandCaicos,SaintKittsandNevis
+       Nicaragua, SintMaartin, Haiti,Dominica,TurksandCaicos,SaintKittsandNevis,
+       Anguilla, BritishVirginIslands
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
