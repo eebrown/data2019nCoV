@@ -313,7 +313,7 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,8000))
+      ylim = c(0,10000))
 }
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
