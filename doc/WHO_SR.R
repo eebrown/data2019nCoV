@@ -63,7 +63,7 @@ gather(WHO_SR, key, value,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin,Haiti,Dominica,TurksandCaicos,
+       Nicaragua, SintMaartin,Haiti,Dominica,TurksandCaicos,SaintKittsandNevis,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
        Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
@@ -84,7 +84,7 @@ gather(WHO_SR, key, value,
        Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
        Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
        Chad, Niger,CaboVerde,Zimbabwe,
-       Madagascar, Angola, Eritrea, Uganda,Mozambique,
+       Madagascar, Angola, Eritrea, Uganda,Mozambique,GuineaBissau,Mali,
        
        InternationalConveyance) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -146,7 +146,7 @@ gather(WHO_SR, key, value,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin, Haiti,Dominica,TurksandCaicos
+       Nicaragua, SintMaartin, Haiti,Dominica,TurksandCaicos,SaintKittsandNevis
        
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -182,7 +182,7 @@ gather(WHO_SR, key, value,
     Congo,EquatorialGuinea,Eswatini,Mauritania,Mayotte, Rwanda,
     Seychelles,Benin,Liberia,UnitedRepublicofTanzania,Mauritius,
     Zambia,  Gambia, Chad, Niger, Reunion, CaboVerde,  Zimbabwe, Madagascar,
-    Angola,  Eritrea, Uganda, Mozambique
+    Angola,  Eritrea, Uganda, Mozambique,GuineaBissau,Mali,
     
        ) %>%
   ggplot(aes(x=Date, y=value, col=key)) +
@@ -367,7 +367,7 @@ matplot(as.Date(WHO_SR$Date), cbind( ((WHO_SR$China.deaths + WHO_SR$Deaths.nonCh
      xlab = "Date",
      ylab = "Deaths / Confirmed Cases (%)",
      type = "l",
-     col = c("black", "red",   "blue",  "green", "magenta"),
+     col = c("black", "red",   "blue",  "green", "magenta", "orange"),
      ylim = c(0,10))
 legend(x="top", 
        legend = c("World", "China", "Korea", "Italy", "USA", "Canada"), 
