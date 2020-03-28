@@ -11,6 +11,7 @@ library(tidyr)
 library(dplyr)
 library(ggplot2)
 library(scales)
+library(lubridate)
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 

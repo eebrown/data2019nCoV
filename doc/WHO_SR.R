@@ -377,3 +377,17 @@ legend(x="top",
        pch=18)
 
 
+## -----------------------------------------------------------------------------
+gather(WHO_SR, key, value, 
+       
+       Australia, Canada
+       
+       ) %>%
+  ggplot(aes(x=Date, y=value, col=key)) +
+  geom_line() +
+  theme(legend.position="bottom") +
+  labs(title = "Confirmed Cases - Canada vs. Australia",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
+

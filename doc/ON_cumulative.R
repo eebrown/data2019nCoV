@@ -14,16 +14,39 @@ daily_change <- function(series) {
   return(change)
 }
 
-## ---- fig.width=6, fig.height=10----------------------------------------------
+## ---- fig.width=6, fig.height=12----------------------------------------------
 
-par(mfrow=c(2,1))
+par(mfrow=c(3,1))
 
 
-plot(ON_cumulative$LastUpdated, (ON_cumulative$ConfirmedPositive+ON_cumulative$Resolved+ON_cumulative$Deceased),
+all_cases <- ON_cumulative$ConfirmedPositive+ON_cumulative$Resolved+ON_cumulative$Deceased
+
+plot(ON_cumulative$LastUpdated, all_cases,
      main = "Cumulative Confirmed COVID-19 Cases in Ontario",
      xlab = "Date",
      ylab = "Cases (Open, Resolved, Deceased)",
      type = "b")
+
+
+
+# Range with consistent daily reports
+range <- (7:(length(ON_cumulative$LastUpdated)/2)*2)
+
+# A function to calculate the daily change
+daily_change <- function(series) {
+  change <- c(series, NA) - c(NA, series)
+  change <- change[-1]
+  change <- change[-length(change)]
+  return(change)
+}
+
+plot(ON_cumulative$LastUpdated[range][-1],
+  daily_change(all_cases[range]),
+  main = "Daily New Cases in Ontario",
+  xlab = "Date",
+  ylab = "Daily Change in Total Cases (Open, Resolved, Deceased)",
+  type = "b")
+
 
 tests <- (ON_cumulative$Negative + 
          ON_cumulative$ConfirmedPositive + 

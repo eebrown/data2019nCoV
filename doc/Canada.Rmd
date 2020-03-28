@@ -21,6 +21,7 @@ library(tidyr)
 library(dplyr)
 library(ggplot2)
 library(scales)
+library(lubridate)
 ```
 
 ## Cases Across Canada
@@ -78,3 +79,5 @@ gather(CAN_cumulative, key, value,
   theme(legend.title = element_blank())
 
 ```
+
+
