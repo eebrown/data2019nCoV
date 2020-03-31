@@ -26,6 +26,11 @@
 #'     \item{ConfirmedPositive}{"Patient still testing positive and has not had two consecutive negative results greater than 24 hours apart"}
 #'     \item{Resolved}{"Patient is no longer infectious based on two consecutive negative tests performed"}
 #'     \item{TotalTested}{"Total number of patients approved for COVID-19 testing to date"}
+#'     \item{Male}{"Male cases"}
+#'     \item{Female}{"Female cases"}
+#'     \item{X19andunder}{"Cases age 19 and under"} 
+#'     \item{X20to64}{"Cases age 20 to 64"}
+#'     \item{X65andover}{"Cases age 65 and over"}
 #'  }
 "ON_cumulative"
 

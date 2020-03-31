@@ -30,7 +30,7 @@ plot(ON_cumulative$LastUpdated, all_cases,
 
 
 # Range with consistent daily reports
-range <- (7:(length(ON_cumulative$LastUpdated)/2)*2)
+range <- (8:(length(ON_cumulative$LastUpdated)/2)*2) - 1
 
 # A function to calculate the daily change
 daily_change <- function(series) {
