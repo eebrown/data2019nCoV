@@ -30,6 +30,11 @@ usethis::use_data(CAN_cumulative, overwrite = TRUE)
 # Once the data in the CSV is updated, run the above code, update the package 
 # version, followed by:
 
+#new can data
+#can <- read.csv("~/Downloads/covid19.csv")
+#library(reshape2)
+#dcast(can, date ~ prname, value.var="numconf")
+
 devtools::document()
 devtools::build_vignettes()
 devtools::check()

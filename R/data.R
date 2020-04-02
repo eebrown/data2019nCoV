@@ -18,7 +18,8 @@
 #' @format A data frame where each row represents a reporting time
 #'  \describe{
 #'     \item{URL}{Internet Archive snapshot of URL for source data}
-#'     \item{LastUpdated}{The date the of the data reported on the webpage}
+#'     \item{AsOf}{The results are updated to this date}
+#'     \item{LastUpdated}{The date the data were reported on the webpage}
 #'     \item{Negative}{Negative tests.}
 #'     \item{UnderInvestigation}{Number of current pending tests.}
 #'     \item{PresumptivePositive}{Awaiting confirmation at national laboratory.}
