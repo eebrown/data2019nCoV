@@ -394,15 +394,15 @@ matplot(as.Date(WHO_SR$Date[range]), cbind(
                            ),
                            
      main = "Cases and Deaths Per Capita",
-     xlab = "Date",
-     ylab = "Number of people",
+     xlab = "Date (2020)",
+     ylab = "Cases Per 100k / Deaths per Million",
      type = "l",
      col = c("red",   "red",  "blue", "blue"),
      lty = c("solid", "dotted", "solid", "dotted"),
      ylim = c(0,100),
      ylog = TRUE,
      xaxt="n")
-dates<-format(WHO_SR$Date,"%b-%d")
+dates<-format(WHO_SR$Date,"%b %d")
 axis(1, at=WHO_SR$Date, labels=dates)
 legend(x="top", 
        legend = c("Canada Cases per 100k", "Canada Deaths per Million", "USA Cases per 100k", "USA Deaths per Million"), 
