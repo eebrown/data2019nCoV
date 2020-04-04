@@ -7,23 +7,11 @@ devtools::load_all()
 WHO_SR <- read.csv("data-raw/WHO_SR.csv")
 WHO_SR$Date <- as.Date(WHO_SR$Date)
 
-
 usethis::use_data(WHO_SR, overwrite = TRUE)
-
-
-# Once the data in the CSV is updated, run the above code, update the package 
-# version, followed by:
-
-devtools::document()
-devtools::build_vignettes()
-devtools::check()
-
 
 ## Below creates alternately labelled object, for use by downstream outbreaks
 
-
 library(tidyverse)
-
 sarscov2_who_2019 <- WHO_SR
 
 sarscov2_who_2019 <- rename(sarscov2_who_2019,
@@ -105,7 +93,7 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_msr = Montserrat,
     cases_slv = ElSalvador,
     cases_nic = Nicaragua,
-    cases_sxm = SintMaartin,
+    cases_sxm = SintMaarten,
     cases_bmu = Bermuda,
     cases_hti = Haiti,
     cases_blz = Belize,
@@ -245,6 +233,7 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_bwa = Botswana,
     cases_bdi = Burundi,
     cases_sle =	SierraLeone,
+    cases_mwi = Malawi,
 
     cases_region_african = Region.African,
 
@@ -387,6 +376,15 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     deaths_cog = Congo.deaths,
     deaths_bwa = Botswana.deaths,
     deaths_myt = Mayotte.deaths,
+    deaths_mnp = NorthernMarianaIslands.deaths,
+    deaths_imn = IsleofMan.deaths,
+    deaths_kgz = Kyrgyzstan.deaths,
+    deaths_lby = Libya.deaths,
+    deaths_sxm = SintMaarten.deaths,
+    deaths_bhm = Bahamas.deaths,
+    deaths_mli = Mali.deaths,
+    deaths_zmb = Zambia.deaths,
+    deaths_civ = CotedIvoire.deaths,
 
     deaths_region_westernpacific = Region.WesternPacific.deaths,
     deaths_region_european = Region.European.deaths,
@@ -487,7 +485,11 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
 
 usethis::use_data(sarscov2_who_2019, overwrite = TRUE)
 
+# Once the data in the CSV is updated, run the above code, update the package 
+# version, followed by:
+
 devtools::document()
+devtools::build_vignettes()
 devtools::check()
 
 save(sarscov2_who_2019, file = "sarscov2_who_2019.RData", version = 2)

@@ -63,7 +63,7 @@ gather(WHO_SR, key, value,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin,Haiti,Dominica,TurksandCaicos,SaintKittsandNevis,
+       Nicaragua, SintMaarten,Haiti,Dominica,TurksandCaicos,SaintKittsandNevis,
        Anguilla, BritishVirginIslands,
        
        Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
@@ -147,7 +147,7 @@ gather(WHO_SR, key, value,
        Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
        CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
        Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaartin, Haiti,Dominica,TurksandCaicos,SaintKittsandNevis,
+       Nicaragua, SintMaarten, Haiti,Dominica,TurksandCaicos,SaintKittsandNevis,
        Anguilla, BritishVirginIslands
        
        ) %>%
@@ -384,7 +384,7 @@ legend(x="top",
 population_US <- 329968629
 population_CAN <- 37894799
 
-range <- 41:length(WHO_SR$Canada)
+range <- 50:length(WHO_SR$Canada)
 
 matplot(as.Date(WHO_SR$Date[range]), cbind( 
                            ( (WHO_SR$Canada / population_CAN)[range] * 100000 ),
@@ -397,7 +397,8 @@ matplot(as.Date(WHO_SR$Date[range]), cbind(
      xlab = "Date",
      ylab = "Number of people",
      type = "l",
-     col = c("red",   "brown",  "blue", "black"),
+     col = c("red",   "red",  "blue", "blue"),
+     lty = c("solid", "dotted", "solid", "dotted"),
      ylim = c(0,100),
      ylog = TRUE,
      xaxt="n")
@@ -405,7 +406,9 @@ dates<-format(WHO_SR$Date,"%b-%d")
 axis(1, at=WHO_SR$Date, labels=dates)
 legend(x="top", 
        legend = c("Canada Cases per 100k", "Canada Deaths per Million", "USA Cases per 100k", "USA Deaths per Million"), 
-       col =    c("red",   "brown",  "blue", "black"), 
+       col =    c("red",   "red",  "blue", "blue"),
+       lty = c("solid", "dotted", "solid", "dotted"),
        pch=18)
+abline(h = 20, col="grey", lty="dotted") #roughly, annual mortality from influenza per million
 
 
