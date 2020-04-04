@@ -14,12 +14,16 @@ daily_change <- function(series) {
   return(change)
 }
 
-## ---- fig.width=6, fig.height=12----------------------------------------------
+## ---- fig.width=6, fig.height=6-----------------------------------------------
 
 #par(mfrow=c(3,1))
 
 
-all_cases <- ON_cumulative$ConfirmedPositive+ON_cumulative$Resolved+ON_cumulative$Deceased
+all_cases <- ( 
+              c((ON_cumulative$ConfirmedPositive+ON_cumulative$Resolved+ON_cumulative$Deceased)[1:44],
+                rep(0, length(ON_cumulative$Cases)-44))
+              + c(rep(0, 44), ON_cumulative$Cases[45:length(ON_cumulative$Cases)])
+              )
 
 plot(ON_cumulative$LastUpdated, all_cases,
      main = "Cumulative Confirmed COVID-19 Cases in Ontario",

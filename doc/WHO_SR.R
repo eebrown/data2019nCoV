@@ -358,8 +358,7 @@ plot(WHO_SR$Date[-1], daily_change(Deaths.nonChina),
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 
-matplot(as.Date(WHO_SR$Date), cbind( ((WHO_SR$China.deaths + WHO_SR$Deaths.nonChina) / 
-                                              (WHO_SR$China + WHO_SR$Cases.nonChina))*100, 
+matplot(as.Date(WHO_SR$Date), cbind( 
                            (WHO_SR$China.deaths/ WHO_SR$China)*100,
                            (WHO_SR$RepublicofKorea.deaths / WHO_SR$RepublicofKorea)*100,
                            (WHO_SR$Italy.deaths / WHO_SR$Italy)*100,
@@ -370,11 +369,43 @@ matplot(as.Date(WHO_SR$Date), cbind( ((WHO_SR$China.deaths + WHO_SR$Deaths.nonCh
      xlab = "Date",
      ylab = "Deaths / Confirmed Cases (%)",
      type = "l",
-     col = c("black", "red",   "blue",  "green", "magenta", "orange"),
-     ylim = c(0,12))
+     col = c("red",   "blue",  "green", "magenta", "orange"),
+     ylim = c(0,12),
+     xaxt="n")
+dates<-format(WHO_SR$Date,"%b-%d")
+axis(1, at=WHO_SR$Date, labels=dates)
 legend(x="top", 
-       legend = c("World", "China", "Korea", "Italy", "USA", "Canada"), 
-       col =    c("black", "red",   "blue",  "green", "magenta", "orange"), 
+       legend = c("China", "Korea", "Italy", "USA", "Canada"), 
+       col =    c("red",   "blue",  "green", "magenta", "orange"), 
+       pch=18)
+
+
+## ---- fig.width=6, fig.height=6-----------------------------------------------
+population_US <- 329968629
+population_CAN <- 37894799
+
+range <- 41:length(WHO_SR$Canada)
+
+matplot(as.Date(WHO_SR$Date[range]), cbind( 
+                           ( (WHO_SR$Canada / population_CAN)[range] * 100000 ),
+                           ( (WHO_SR$Canada.deaths/ population_CAN)[range] * 1000000 ),
+                           ( (WHO_SR$UnitedStatesofAmerica/ population_US)[range] * 100000 ),
+                           ( (WHO_SR$UnitedStatesofAmerica.deaths/ population_US)[range] * 1000000 )
+                           ),
+                           
+     main = "Cases and Deaths Per Capita",
+     xlab = "Date",
+     ylab = "Number of people",
+     type = "l",
+     col = c("red",   "brown",  "blue", "black"),
+     ylim = c(0,100),
+     ylog = TRUE,
+     xaxt="n")
+dates<-format(WHO_SR$Date,"%b-%d")
+axis(1, at=WHO_SR$Date, labels=dates)
+legend(x="top", 
+       legend = c("Canada Cases per 100k", "Canada Deaths per Million", "USA Cases per 100k", "USA Deaths per Million"), 
+       col =    c("red",   "brown",  "blue", "black"), 
        pch=18)
 
 

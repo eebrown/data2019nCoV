@@ -14,6 +14,7 @@
     \item{PresumptivePositive}{Awaiting confirmation at national laboratory.}
     \item{Deceased}{Confirmed deceased cases.}
     \item{ConfirmedPositive}{"Patient still testing positive and has not had two consecutive negative results greater than 24 hours apart"}
+    \item{Cases}{"Number of confirmed cases reported to date in iPHIS by 34 Public Health Units, including resolved and deceased cases"}
     \item{Resolved}{"Patient is no longer infectious based on two consecutive negative tests performed"}
     \item{TotalTested}{"Total number of patients approved for COVID-19 testing to date"}
     \item{Male}{"Male cases"}
@@ -21,6 +22,13 @@
     \item{X19andunder}{"Cases age 19 and under"} 
     \item{X20to64}{"Cases age 20 to 64"}
     \item{X65andover}{"Cases age 65 and over"}
+    \item{X20to39}{"Cases age 20 to 39"}
+    \item{X40to59}{"Cases age 40 to 59"}
+    \item{X60to79}{"Cases age 60 to 79"}
+    \item{X80andover}{"Cases age 80 and over"}
+    \item{Hospitalized}{"Cases currently hospitalized"}
+    \item{ICU}{"Cases currently in ICU"}
+    \item{Ventilator}{"Cases currently in ICU and on ventilator"}
  }}
 \source{
 \url{https://www.ontario.ca/page/2019-novel-coronavirus}
