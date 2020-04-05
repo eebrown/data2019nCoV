@@ -43,6 +43,16 @@
 #'  }
 "ON_cumulative"
 
+#' Ontario Ministry of Health Epidemiologic Summaries (PDF reports)
+#'
+#' A dataset containing the data reported online by the Ontario Ministry of 
+#' Health in its Epidemiologic Summary reports.
+#'
+#' @source \url{https://www.ontario.ca/page/2019-novel-coronavirus}
+#' @docType data
+#' @format A data frame where each row represents a report
+"ON_mohreports"
+
 #' Canada Public Health Coronavirus Cumulative Case Totals
 #'
 #' A dataset containing the data reported online by the Canadian government.
