@@ -2,9 +2,9 @@
 
 # data2019nCoV R Package
 
-This is a simple R package to store data about the 2019-2020 outbreak of the novel coronavirus, SARS-CoV-2, causing COVID-19.
+This R package stores data about the 2019-2020 COVID-19 pandemic (SARS-CoV-2). 
 
-There is no guarantee as to the accuracy of the transcribed data or graphs in the vignette. Please file an issue if any errors (discrepancies with the WHO reports) are noticed.
+The date is transcribed or compiled from official sources, but there is no guarantee as to the accuracy of the transcribed data or graphs in the vignettes. Please file an issue if any errors (discrepancies with official reports) are noticed.
 
 Currently, this package contains 4 datasets. 
 
