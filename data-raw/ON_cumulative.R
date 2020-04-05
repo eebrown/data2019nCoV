@@ -15,7 +15,7 @@ usethis::use_data(ON_cumulative, overwrite = TRUE)
 
 ON_mohreports <- read.csv("data-raw/ON_mohreports.csv")
 ON_mohreports$date <- as.POSIXct(ON_mohreports$date)
-ON_mohreports$date_data <- as.POSIXct(ON_mohreports$data_data)
+ON_mohreports$date_data <- as.POSIXct(ON_mohreports$date_data)
 
 usethis::use_data(ON_mohreports, overwrite = TRUE)
 

@@ -6,6 +6,10 @@ knitr::opts_chunk$set(
 
 ## ----setup--------------------------------------------------------------------
 library(data2019nCoV)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(scales)
 
 daily_change <- function(series) {
   change <- c(series, NA) - c(NA, series)
@@ -20,7 +24,7 @@ daily_change <- function(series) {
 
 
 all_cases <- ( 
-              c((ON_cumulative$ConfirmedPositive+ON_cumulative$Resolved+ON_cumulative$Deceased)[1:44],
+          c((ON_cumulative$ConfirmedPositive+ON_cumulative$Resolved+ON_cumulative$Deceased)[1:44],
                 rep(0, length(ON_cumulative$Cases)-44))
               + c(rep(0, 44), ON_cumulative$Cases[45:length(ON_cumulative$Cases)])
               )
@@ -31,40 +35,93 @@ plot(ON_cumulative$LastUpdated, all_cases,
      ylab = "Cases (Open, Resolved, Deceased)",
      type = "b")
 
+plot(ON_cumulative$LastUpdated[-1], daily_change(ON_cumulative$TotalTested), type="b",
+     main = "Change in Total Tested Between Report",
+     xlab = "Date",
+     ylab = "Change in Total Tested Between Report")
+
+colours <- c("red",   "blue",  "black", "magenta")
+
+matplot(ON_mohreports$date, cbind( 
+                ( (ON_mohreports$deaths / ON_mohreports$cases) * 100 ),
+                ( (ON_mohreports$severity_hospitalized / ON_mohreports$cases) * 100 ),
+                ( (ON_mohreports$severity_icu / ON_mohreports$cases) * 100 ),
+                ( (ON_mohreports$deaths_ltc_residents / ON_mohreports$cases_ltc_residents) * 100 )
+               ),
+                           
+     main = "Ontario Severity and Outcomes",
+     xlab = "Date (2020)",
+     ylab = "Outcome (Percent)",
+     type = "l",
+     col = colours,
+     lty = c("solid", "solid", "solid", "solid"),
+     ylim = c(0,20),
+     ylog = TRUE,
+     xaxt="n")
+dates<-format(ON_mohreports$date,"%b %d")
+axis(1, at=ON_mohreports$date, labels=dates)
+legend(x="top", 
+       legend = c("CFR", 
+                  "Hospitalized", 
+                  "ICU", 
+                  "CFR in LTC Residents"), 
+       col = colours,
+       lty = c("solid", "solid", "solid", "solid"), pch=18)
+
+## ---- fig.width=6, fig.height=8-----------------------------------------------
+
+ON_forplot <- rename(ON_mohreports,
+    Ontario = cases, Toronto = cases_phu_toronto, Peel = cases_phu_peel, 
+    York = cases_phu_york, Ottawa = cases_phu_ottawa, Durham = cases_phu_durham, 
+    Waterloo = cases_phu_waterloo, Hamilton = cases_phu_hamilton, 
+    Windsor... = cases_phu_windsoressex, Middlesex... = cases_phu_middlesexlondon, 
+    Halton = cases_phu_halton, Niagara = cases_phu_niagara, 
+    Simcoe... = cases_phu_simcoemuskoka, Haliburton... = cases_phu_haliburtonkawarthapineridge,
+    Lambton = cases_phu_lambton, Wellington... = cases_phu_wellingtondufferinguelph, 
+    Kingston... = cases_phu_kingstonfrontenaclennoxaddington, 
+    Haldimand... = cases_phu_haldimandnorfolk, Peterborough = cases_phu_peterborough, 
+    Leeds... = cases_phu_leedsgrenvillelanark, Brant = cases_phu_brant, 
+    Eastern = cases_phu_easternontario, Porcupine = cases_phu_porcupine, 
+    Sudbury = cases_phu_sudbury, Hastings... = cases_phu_hastingsprinceedward, 
+    Grey... = cases_phu_greybruce, Southwestern = cases_phu_southwestern, 
+    Perth = cases_phu_perth, Chatham... = cases_phu_chathamkent, 
+    ThunderBay = cases_phu_thunderbay, Renfrew = cases_phu_renfrew, Algoma = cases_phu_algoma, 
+    Huron = cases_phu_huron, NorthBay... = cases_phu_northbayparrysound, 
+    Northwestern = cases_phu_northwestern, Timiskaming = cases_phu_timiskaming)
 
 
-# Range with consistent daily reports
-range <- (7:(length(ON_cumulative$LastUpdated)/2)*2) + 1
+gather(ON_forplot, key, value, 
+       Ontario, Toronto, Peel, York, Ottawa, Durham, Waterloo, Hamilton,
+       Windsor..., Middlesex..., Halton, Niagara, Simcoe..., Haliburton...,
+    Lambton, Wellington..., Kingston..., Haldimand..., Peterborough, 
+    Leeds..., Brant, Eastern, Porcupine, Sudbury, Hastings..., 
+    Grey..., Southwestern, Perth, Chatham..., ThunderBay, Renfrew, Algoma, 
+    Huron, NorthBay..., Northwestern, Timiskaming
+       ) %>%
+  ggplot(aes(x=date, y=value, col=key)) +
+  geom_path() +
+  scale_y_continuous(trans = 'log10', labels = comma) +
+  theme(legend.position="bottom") +
+  labs(title = "Ontario COVID-19 Cases by Public Health Unit (Semilog.)",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  guides(shape = guide_legend(override.aes = list(size = 0.5))) +
+  guides(color = guide_legend(override.aes = list(size = 0.5))) +
+  theme(legend.text = element_text(size = 7)) +
+  theme(legend.title = element_blank())
 
-# A function to calculate the daily change
-daily_change <- function(series) {
-  change <- c(series, NA) - c(NA, series)
-  change <- change[-1]
-  change <- change[-length(change)]
-  return(change)
-}
-
-#plot(ON_cumulative$LastUpdated[range][-1],
-#  daily_change(all_cases[range]),
-#  main = "Daily New Cases in Ontario",
-#  xlab = "Date",
-#  ylab = "Daily Change in Total Cases (Open, Resolved, Deceased)",
-#  type = "b")
-
-
-tests <- (ON_cumulative$Negative + 
-         ON_cumulative$ConfirmedPositive + 
-         ON_cumulative$Resolved +
-         ON_cumulative$Deceased)
-
-change <- daily_change(tests)
-
-#plot(ON_cumulative$LastUpdated[-1], change,
-#     main = "Number of Results Posted Between Reports in Ontario",
-#     xlab = "Date",
-#     ylab = "Change in Negative + Positive + Resolved + Deceased",
-#     type = "b")
-
-
-
+gather(ON_mohreports, key, value, 
+       cases,deaths,
+       severity_hospitalized,severity_icu,
+       cases_ltc_residents, cases_ltc_staff
+       ) %>%
+  ggplot(aes(x=date, y=value, col=key)) +
+  geom_line() +
+  guides(shape = guide_legend(override.aes = list(size = 0.5))) +
+  scale_y_continuous(trans = 'log10', labels = comma) +
+  theme(legend.position="bottom") +
+  labs(title = "Ontario COVID-19 Cases (Semilog.)",
+       x = "Date", 
+       y = "Confirmed Cases") +
+  theme(legend.title = element_blank())
 
