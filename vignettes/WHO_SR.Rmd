@@ -304,25 +304,25 @@ plot(overx(WHO_SR$China, start_no), col="red", type="l",
      ylab= "Cases",
      main=paste0("Outbreak Progression from ", start_no, " Cases"),
      xlim=c(0,50),
-     ylim=c(1000,250000))
+     ylim=c(1000,350000))
 lines(overx(WHO_SR$Italy, start_no), col="green")
 lines(overx(WHO_SR$Iran, start_no), col="orange")
 lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
-lines(overx(WHO_SR$Spain, start_no), col="black")
+lines(overx(WHO_SR$Spain, start_no), col="brown")
 lines(overx(WHO_SR$Germany, start_no), col="black")
 lines(overx(WHO_SR$France,  start_no), col="black")
 lines(overx(WHO_SR$UnitedStatesofAmerica, start_no), col="blue")
 lines(overx(WHO_SR$Switzerland,  start_no), col="black")
 lines(overx(WHO_SR$Austria,  start_no), col="black")
-lines(overx(WHO_SR$UnitedKingdom,  start_no), col="black")
+lines(overx(WHO_SR$UnitedKingdom,  start_no), col="yellow")
 lines(overx(WHO_SR$Netherlands, start_no), col="black")
 lines(overx(WHO_SR$Norway, start_no), col="black")
 lines(overx(WHO_SR$Sweden, start_no), col="black")
 lines(overx(WHO_SR$Denmark, start_no), col="black")
 lines(overx(WHO_SR$Belgium, start_no), col="black")
 
-legend(x = "right", legend = c("China", "Italy", "Iran", "Korea", "USA"), 
-       col =    c("red", "green",   "orange",  "magenta", "blue"), 
+legend(x = "right", legend = c("China", "Italy", "Iran", "Korea", "USA", "Spain", "UK"), 
+       col =    c("red", "green",   "orange",  "magenta", "blue", "brown", "yellow"), 
        pch=18)
 
 ```
@@ -332,7 +332,7 @@ legend(x = "right", legend = c("China", "Italy", "Iran", "Korea", "USA"),
 ```{r, fig.width=6, fig.height=20}
 outbreaks <- list(China = WHO_SR$China, 
                   Italy = WHO_SR$Italy,
-                  USA = WHO_SR$UnitedStatesofAmerica,
+                  Canada = WHO_SR$Canada,
                   Spain = WHO_SR$Spain,
                   Germany = WHO_SR$Germany,
                   Iran = WHO_SR$Iran,
@@ -350,6 +350,17 @@ for (i in 1:length(outbreaks)) {
       type = "l",
       ylim = c(0,10000))
 }
+
+ par(mfrow=c(1,1))
+ 
+ plot(WHO_SR$Date[-1], daily_change(WHO_SR$UnitedStatesofAmerica),
+      main = "United States",
+      ylab = "Daily Cases",
+      xlab = "Date",
+      type = "l",
+      ylim = c(0,50000))
+ 
+
 ```
 
 ## Deaths
@@ -402,19 +413,21 @@ matplot(as.Date(WHO_SR$Date), cbind(
                            (WHO_SR$Italy.deaths / WHO_SR$Italy)*100,
                            (WHO_SR$UnitedStatesofAmerica.deaths / 
                                 WHO_SR$UnitedStatesofAmerica)*100,
-                           (WHO_SR$Canada.deaths / WHO_SR$Canada)*100),
+                           (WHO_SR$Canada.deaths / WHO_SR$Canada)*100,
+                           (WHO_SR$Spain.deaths / WHO_SR$Spain)*100),
      main = "Case Fatality Rate",
      xlab = "Date",
      ylab = "Deaths / Confirmed Cases (%)",
      type = "l",
-     col = c("red",   "blue",  "green", "magenta", "orange"),
+     lty = "solid",
+     col = c("black",   "blue",  "green", "magenta", "red", "brown"),
      ylim = c(0,12),
      xaxt="n")
 dates<-format(WHO_SR$Date,"%b-%d")
 axis(1, at=WHO_SR$Date, labels=dates)
 legend(x="top", 
-       legend = c("China", "Korea", "Italy", "USA", "Canada"), 
-       col =    c("red",   "blue",  "green", "magenta", "orange"), 
+       legend = c("China", "Korea", "Italy", "USA", "Canada", "Spain"), 
+       col =    c("black",   "blue",  "green", "magenta", "red", "brown"), 
        pch=18)
 
 ```
