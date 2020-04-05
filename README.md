@@ -1,6 +1,6 @@
 [![DOI](https://zenodo.org/badge/237660917.svg)](https://zenodo.org/badge/latestdoi/237660917)
 
-# data2019nCoV R Package
+# COVID-19 Pandemic Data R Package
 
 This R package stores data about the 2019-2020 COVID-19 pandemic (SARS-CoV-2). 
 
@@ -32,7 +32,7 @@ Plots of the Canada data can be found in the [CAN vignette](https://htmlpreview.
 
 ## Usage
 
-The package can be installed via `devtools::install_github("eebrown/data2019nCoV")`. Be sure to reinstall to obtain the latest version as new data is released (including the errata periodically reported by WHO).
+The package can be installed via `devtools::install_github("eebrown/data2019nCoV")`. Be sure to reinstall to obtain the latest version as new data is released and old data is corrected.
 
 Once the package is installed and loaded, the data is available in a data.frame object, `WHO_SR`. This package uses plain lanugage variable names. The data is also available in the object `sarscov2_who_2019`, which uses more systematic variable names. The latter object also appears in the package [`outbreaks`](https://github.com/reconhub/outbreaks), though may be slightly less updated there.
 
