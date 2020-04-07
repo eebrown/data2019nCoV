@@ -319,15 +319,63 @@ for (i in 1:length(outbreaks)) {
       ylim = c(0,10000))
 }
 
- par(mfrow=c(1,1))
+ par(mfrow=c(4,2))
  
  plot(WHO_SR$Date[-1], daily_change(WHO_SR$UnitedStatesofAmerica),
-      main = "United States",
+      main = "United States - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
       ylim = c(0,50000))
  
+  plot(WHO_SR$Date[-1], daily_change(WHO_SR$UnitedStatesofAmerica.deaths),
+      main = "United States - Deaths",
+      ylab = "Daily Cases",
+      xlab = "Date",
+      type = "l",
+      ylim = c(0,5000))
+  
+   plot(WHO_SR$Date[-1], daily_change(WHO_SR$Italy),
+      main = "Italy - Cases",
+      ylab = "Daily Cases",
+      xlab = "Date",
+      type = "l",
+      ylim = c(0,50000))
+   
+    plot(WHO_SR$Date[-1], daily_change(WHO_SR$Italy.deaths),
+      main = "Italy - Deaths",
+      ylab = "Daily Cases",
+      xlab = "Date",
+      type = "l",
+      ylim = c(0,5000))
+ 
+     plot(WHO_SR$Date[-1], daily_change(WHO_SR$Spain),
+      main = "Spain - Cases",
+      ylab = "Daily Cases",
+      xlab = "Date",
+      type = "l",
+      ylim = c(0,50000))
+     
+      plot(WHO_SR$Date[-1], daily_change(WHO_SR$Spain.deaths),
+      main = "Spain - Deaths",
+      ylab = "Daily Cases",
+      xlab = "Date",
+      type = "l",
+      ylim = c(0,5000))
+      
+           plot(WHO_SR$Date[-1], daily_change(WHO_SR$France),
+      main = "France - Cases",
+      ylab = "Daily Cases",
+      xlab = "Date",
+      type = "l",
+      ylim = c(0,50000))
+     
+      plot(WHO_SR$Date[-1], daily_change(WHO_SR$France.deaths),
+      main = "France - Deaths",
+      ylab = "Daily Cases",
+      xlab = "Date",
+      type = "l",
+      ylim = c(0,5000))
 
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------

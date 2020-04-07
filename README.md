@@ -14,9 +14,9 @@ Currently, this package contains 4 datasets.
 
 ### Ontario
 
-`ON_cumulative`: The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus) where possible. It has been updated as of 2020-04-05.
+`ON_cumulative`: The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus) where possible. It has been updated as of 2020-04-06.
 
-`ON_mohreports`: This object contains the data in the Public Health Ontario/Ontario Ministry of Health "Epidemiologic Summary" reports, published daily from 2020-03-29. It is updated as of 2020-04-05.
+`ON_mohreports`: This object contains the data in the Public Health Ontario/Ontario Ministry of Health "Epidemiologic Summary" reports, published daily from 2020-03-29. It is updated as of 2020-04-06.
 
 ### Canada
 

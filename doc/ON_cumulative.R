@@ -40,13 +40,14 @@ plot(ON_cumulative$LastUpdated[-1], daily_change(ON_cumulative$TotalTested), typ
      xlab = "Date",
      ylab = "Change in Total Tested Between Report")
 
-colours <- c("red",   "blue",  "black", "magenta")
+colours <- c("red",   "blue",  "black", "magenta", "green")
 
 matplot(ON_mohreports$date, cbind( 
                 ( (ON_mohreports$deaths / ON_mohreports$cases) * 100 ),
                 ( (ON_mohreports$severity_hospitalized / ON_mohreports$cases) * 100 ),
                 ( (ON_mohreports$severity_icu / ON_mohreports$cases) * 100 ),
-                ( (ON_mohreports$deaths_ltc_residents / ON_mohreports$cases_ltc_residents) * 100 )
+                ( (ON_mohreports$deaths_ltc_residents / ON_mohreports$cases_ltc_residents) * 100 ),
+                ( (ON_mohreports$deaths_hospital_pts / ON_mohreports$cases_hospital_pts) * 100 )
                ),
                            
      main = "Ontario Severity and Outcomes",
@@ -54,7 +55,7 @@ matplot(ON_mohreports$date, cbind(
      ylab = "Outcome (Percent)",
      type = "l",
      col = colours,
-     lty = c("solid", "solid", "solid", "solid"),
+     lty = c("solid", "solid", "solid", "solid", "solid"),
      ylim = c(0,20),
      ylog = TRUE,
      xaxt="n")
@@ -64,7 +65,8 @@ legend(x="top",
        legend = c("CFR", 
                   "Hospitalized", 
                   "ICU", 
-                  "CFR in LTC Residents"), 
+                  "CFR in LTC Residents",
+                  "CFR in Patients in Hospital Outbreaks"), 
        col = colours,
        lty = c("solid", "solid", "solid", "solid"), pch=18)
 
