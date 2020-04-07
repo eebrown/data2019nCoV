@@ -236,6 +236,7 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_bdi = Burundi,
     cases_sle =	SierraLeone,
     cases_mwi = Malawi,
+    cases_ssd = SouthSudan,
 
     cases_region_african = Region.African,
 
@@ -394,6 +395,8 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     deaths_geo = Georgia.deaths,
     deaths_kwt = Kuwait.deaths,
     deaths_lbr = Liberia.deaths,
+    deaths_tca = TurksandCaicos.deaths,
+    deaths_eth = Ethiopia.deaths,
 
     deaths_region_westernpacific = Region.WesternPacific.deaths,
     deaths_region_european = Region.European.deaths,
