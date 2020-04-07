@@ -86,9 +86,9 @@ ON_forplot <- rename(ON_mohreports,
     Eastern = cases_phu_easternontario, Porcupine = cases_phu_porcupine, 
     Sudbury = cases_phu_sudbury, Hastings... = cases_phu_hastingsprinceedward, 
     Grey... = cases_phu_greybruce, Southwestern = cases_phu_southwestern, 
-    Perth = cases_phu_perth, Chatham... = cases_phu_chathamkent, 
-    ThunderBay = cases_phu_thunderbay, Renfrew = cases_phu_renfrew, Algoma = cases_phu_algoma, 
-    Huron = cases_phu_huron, NorthBay... = cases_phu_northbayparrysound, 
+    Chatham... = cases_phu_chathamkent, ThunderBay = cases_phu_thunderbay, 
+    Renfrew = cases_phu_renfrew, Algoma = cases_phu_algoma, 
+    HuronPerth = cases_phu_huronperth, NorthBay... = cases_phu_northbayparrysound, 
     Northwestern = cases_phu_northwestern, Timiskaming = cases_phu_timiskaming)
 
 
@@ -97,8 +97,8 @@ gather(ON_forplot, key, value,
        Windsor..., Middlesex..., Halton, Niagara, Simcoe..., Haliburton...,
     Lambton, Wellington..., Kingston..., Haldimand..., Peterborough, 
     Leeds..., Brant, Eastern, Porcupine, Sudbury, Hastings..., 
-    Grey..., Southwestern, Perth, Chatham..., ThunderBay, Renfrew, Algoma, 
-    Huron, NorthBay..., Northwestern, Timiskaming
+    Grey..., Southwestern, Chatham..., ThunderBay, Renfrew, Algoma, 
+    HuronPerth, NorthBay..., Northwestern, Timiskaming
        ) %>%
   ggplot(aes(x=date, y=value, col=key)) +
   geom_path() +
