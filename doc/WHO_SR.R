@@ -326,56 +326,56 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,50000))
+      ylim = c(0,40000))
  
   plot(WHO_SR$Date[-1], daily_change(WHO_SR$UnitedStatesofAmerica.deaths),
       main = "United States - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,4000))
   
    plot(WHO_SR$Date[-1], daily_change(WHO_SR$Italy),
       main = "Italy - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,50000))
+      ylim = c(0,40000))
    
     plot(WHO_SR$Date[-1], daily_change(WHO_SR$Italy.deaths),
       main = "Italy - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,4000))
  
      plot(WHO_SR$Date[-1], daily_change(WHO_SR$Spain),
       main = "Spain - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,50000))
+      ylim = c(0,40000))
      
       plot(WHO_SR$Date[-1], daily_change(WHO_SR$Spain.deaths),
       main = "Spain - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,4000))
       
            plot(WHO_SR$Date[-1], daily_change(WHO_SR$France),
       main = "France - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,50000))
+      ylim = c(0,40000))
      
       plot(WHO_SR$Date[-1], daily_change(WHO_SR$France.deaths),
       main = "France - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,4000))
 
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
@@ -431,7 +431,7 @@ matplot(as.Date(WHO_SR$Date), cbind(
      type = "l",
      lty = "solid",
      col = c("black",   "blue",  "green", "magenta", "red", "brown"),
-     ylim = c(0,12),
+     ylim = c(0,14),
      xaxt="n")
 dates<-format(WHO_SR$Date,"%b-%d")
 axis(1, at=WHO_SR$Date, labels=dates)
@@ -460,16 +460,22 @@ matplot(as.Date(WHO_SR$Date[range]), cbind(
      type = "l",
      col = c("red",   "red",  "blue", "blue"),
      lty = c("solid", "dotted", "solid", "dotted"),
-     ylim = c(0,100),
+     ylim = c(0,200),
      ylog = TRUE,
      xaxt="n")
 dates<-format(WHO_SR$Date,"%b %d")
 axis(1, at=WHO_SR$Date, labels=dates)
 legend(x="top", 
-       legend = c("Canada Cases per 100k", "Canada Deaths per Million", "USA Cases per 100k", "USA Deaths per Million", "Approx. Annual Influenza Deaths per Million"), 
+       legend = c("Canada Cases per 100k", "Canada Deaths per Million", "USA Cases per 100k", "USA Deaths per Million", "Estimates of Annual Influenza Deaths per Million"), 
        col =    c("red",   "red",  "blue", "blue", "grey"),
        lty = c("solid", "dotted", "solid", "dotted", "dotted"),
        pch=18)
-abline(h = 20, col="grey", lty="dotted") #roughly, annual mortality from influenza per million
+#annual mortality from influenza per million (https://ipac-canada.org/influenza-resources.php)
+abline(h = 20, col="grey", lty="dotted") 
+#lower and upper annual mortality from influenza per million (CDC)
+abline(h = 36, col="grey", lty="dotted") 
+abline(h = 184, col="grey", lty="dotted") 
+# (https://www.ontario.ca/page/flu-facts)
+abline(h = 92, col="grey", lty="dotted") 
 
 

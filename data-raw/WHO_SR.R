@@ -237,6 +237,8 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_sle =	SierraLeone,
     cases_mwi = Malawi,
     cases_ssd = SouthSudan,
+    cases_stp = SaoTomeandPrincipe,
+
 
     cases_region_african = Region.African,
 
@@ -397,6 +399,13 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     deaths_lbr = Liberia.deaths,
     deaths_tca = TurksandCaicos.deaths,
     deaths_eth = Ethiopia.deaths,
+    deaths_svk = Slovakia.deaths,
+    deaths_vir = UnitedStatesVirginIslands.deaths,
+    deaths_sur = Suriname.deaths,
+    deaths_brb = Barbados.deaths,
+    deaths_hti = Haiti.deaths,
+    deaths_blz = Belize.deaths,
+    deaths_ben = Benin.deaths, 
 
     deaths_region_westernpacific = Region.WesternPacific.deaths,
     deaths_region_european = Region.European.deaths,
