@@ -14,13 +14,15 @@ Currently, this package contains 4 datasets.
 
 ### Ontario
 
-`ON_cumulative`: The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus) where possible. It has been updated as of 2020-04-07.
+`ON_cumulative`: The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus) where possible. It has been updated as of 2020-04-08.
 
-`ON_mohreports`: This object contains the data in the Public Health Ontario/Ontario Ministry of Health "Epidemiologic Summary" reports, published daily from 2020-03-29. It is updated as of 2020-04-07.
+`ON_mohreports`: This object contains the data in the Public Health Ontario/Ontario Ministry of Health "Epidemiologic Summary" reports, published daily from 2020-03-29. It is updated as of 2020-04-08.
 
 ### Canada
 
-`CAN_cumulative`: The source of this data is the official Canadian Government's [website](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html). Data is included from page updates that were captured by the Internet Archive where possible. It has been updated up to 2020-03-27. After this time, the government started releasing CSVs containing the full data. 
+`CAN_govcsv`: The government of Canada releases provincial cumulative totals including cases, deaths, and number tested, released as a `covid19.csv` file. This object contains data from that file transformed into a wide data frame. It is updated as of 2020-04-08.
+
+`CAN_cumulative` (not updated): The source of this data is the official Canadian Government's [website](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html). Data is included from page updates that were captured by the Internet Archive where possible. It has been updated up to 2020-03-27. After this time, the government started releasing a daily .csv containing the full data (see `CAN_govcsv` above).
 
 ## Demo
 

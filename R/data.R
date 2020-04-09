@@ -119,6 +119,17 @@
 #'  }
 "CAN_cumulative"
 
+#' Canada Public Health Coronavirus Cumulative Case Totals
+#'
+#' A dataset containing the data reported online by the Canadian government,
+#' which is published as a .csv file, titled covid19.csv. The data is
+#' transformed into wide format.
+#'
+#' @source \url{https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html}
+#' @docType data
+#' @format A data frame where each row represents a reporting date
+"CAN_govcsv"
+
 #' SARS-CoV-2 World Health Organization Situation Reports 2019 Outbreak (COVID-19)
 #'
 #' These data are transcribed from the WHO Situation Reports on the COVID-19

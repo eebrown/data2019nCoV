@@ -116,9 +116,9 @@ gather(ON_forplot, key, value,
        ) %>%
   ggplot(aes(x=date, y=value, col=key)) +
   geom_path() +
-  scale_y_continuous(trans = 'log10', labels = comma) +
+  #scale_y_continuous(trans = 'log10', labels = comma) +
   theme(legend.position="bottom") +
-  labs(title = "Ontario COVID-19 Cases by Public Health Unit (Semilog.)",
+  labs(title = "Ontario COVID-19 Cases by Public Health Unit",
        x = "Date", 
        y = "Confirmed Cases") +
   guides(shape = guide_legend(override.aes = list(size = 0.5))) +
@@ -129,14 +129,16 @@ gather(ON_forplot, key, value,
 gather(ON_mohreports, key, value, 
        cases,deaths,
        severity_hospitalized,severity_icu,
-       cases_ltc_residents, cases_ltc_staff
+       cases_ltc_residents, cases_ltc_staff,
+       cases_hospital_pts, deaths_hospital_pts,
+       deaths_ltc_residents, cases_hcp
        ) %>%
   ggplot(aes(x=date, y=value, col=key)) +
   geom_line() +
   guides(shape = guide_legend(override.aes = list(size = 0.5))) +
-  scale_y_continuous(trans = 'log10', labels = comma) +
+  #scale_y_continuous(trans = 'log10', labels = comma) +
   theme(legend.position="bottom") +
-  labs(title = "Ontario COVID-19 Cases (Semilog.)",
+  labs(title = "Ontario COVID-19 Cases",
        x = "Date", 
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
