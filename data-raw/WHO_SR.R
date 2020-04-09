@@ -105,6 +105,7 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_grd = Grenada,
     cases_bes = BonaireSintEustatiusandSaba,
     cases_flk = FalklandIslands,
+    cases_spm = SaintPierreandMiquelon,
     cases_region_americas = Region.Americas,
 
     cases_fin = Finland,
