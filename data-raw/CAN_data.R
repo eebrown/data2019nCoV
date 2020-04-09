@@ -37,7 +37,7 @@ can$prname <- revalue(can$prname, c("Alberta"="AB", "British Columbia" = "BC",
 	                  "Newfoundland and Labrador" = "NL",
 	                  "Northwest Territories" = "NT", "Nova Scotia" = "NS",
 	                  "Nunavut" = "NU", "Ontario" = "ON", 
-	                  "Prince Edward Island" = "PEI", "Quebec" = "QC",
+	                  "Prince Edward Island" = "PE", "Quebec" = "QC",
 	                  "Repatriated travellers" = "Repatriated", 
 	                  "Saskatchewan" = "SK", "Yukon" = "YT"))
 

@@ -28,21 +28,10 @@ library(lubridate)
 
 ```{r, fig.width=6, fig.height=6}
 
-gather(CAN_cumulative, key, value, 
-       bc_confirmed,
-       ab_confirmed,
-       sk_confirmed,
-       mb_confirmed,
-       on_confirmed,
-       qc_confirmed,
-       nl_confirmed,
-       nb_confirmed,
-       ns_confirmed,
-       pe_confirmed,
-       yt_confirmed,
-       nt_confirmed,
-       nu_confirmed,
-       repatriated_confirmed
+gather(CAN_govcsv, key, value, 
+       total_BC, total_AB, total_SK, total_MB, total_ON,
+       total_QC, total_NL, total_NB, total_NS,total_PE,
+       total_YT, total_NT, total_NU, total_Repatriated
        ) %>%
   ggplot(aes(x=date, y=value, col=key)) +
   geom_line() +
@@ -51,33 +40,6 @@ gather(CAN_cumulative, key, value,
        x = "Date", 
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
-
-CAN_cumulative$BC <- CAN_cumulative$bc_confirmed + CAN_cumulative$bc_probable
-CAN_cumulative$AB <- CAN_cumulative$ab_confirmed + CAN_cumulative$ab_probable
-CAN_cumulative$SK <- CAN_cumulative$sk_confirmed + CAN_cumulative$sk_probable
-CAN_cumulative$MB <- CAN_cumulative$mb_confirmed + CAN_cumulative$mb_probable
-CAN_cumulative$ON <- CAN_cumulative$on_confirmed + CAN_cumulative$on_probable
-CAN_cumulative$QC <- CAN_cumulative$qc_confirmed + CAN_cumulative$qc_probable
-CAN_cumulative$NL <- CAN_cumulative$nl_confirmed + CAN_cumulative$nl_probable
-CAN_cumulative$NB <- CAN_cumulative$nb_confirmed + CAN_cumulative$nb_probable
-CAN_cumulative$NS <- CAN_cumulative$ns_confirmed + CAN_cumulative$ns_probable
-CAN_cumulative$PE <- CAN_cumulative$pe_confirmed + CAN_cumulative$pe_probable
-CAN_cumulative$YT <- CAN_cumulative$yt_confirmed + CAN_cumulative$yt_probable
-CAN_cumulative$NT <- CAN_cumulative$nt_confirmed + CAN_cumulative$nt_probable
-CAN_cumulative$NU <- CAN_cumulative$nu_confirmed + CAN_cumulative$nu_probable
-CAN_cumulative$Repatriated <- CAN_cumulative$repatriated_confirmed + CAN_cumulative$repatriated_probable
-
-gather(CAN_cumulative, key, value, 
-       BC, AB, SK, MB, ON, QC, NL, NS, NB, PE, YT, NT, NU, Repatriated
-       ) %>%
-  ggplot(aes(x=date, y=value, col=key)) +
-  geom_line() +
-  theme(legend.position="right") +
-  labs(title = "Cases by Province and Territory in Canada",
-       x = "Date", 
-       y = "Cases (Confirmed and Probable)") +
-  theme(legend.title = element_blank())
-
 ```
 
 

@@ -6,7 +6,7 @@ This R package stores data about the 2019-2020 COVID-19 pandemic (SARS-CoV-2).
 
 The date is transcribed or compiled from official sources, but there is no guarantee as to the accuracy of the transcribed data or graphs in the vignettes. Please file an issue if any errors (discrepancies with official reports) are noticed.
 
-Currently, this package contains 4 datasets. 
+Currently, this package contains 4 updated datasets. 
 
 ### World Health Organization (WHO)
 
@@ -22,7 +22,7 @@ Currently, this package contains 4 datasets.
 
 `CAN_govcsv`: The government of Canada releases provincial cumulative totals including cases, deaths, and number tested, released as a `covid19.csv` file. This object contains data from that file transformed into a wide data frame. It is updated as of 2020-04-08.
 
-`CAN_cumulative` (not updated): The source of this data is the official Canadian Government's [website](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html). Data is included from page updates that were captured by the Internet Archive where possible. It has been updated up to 2020-03-27. After this time, the government started releasing a daily .csv containing the full data (see `CAN_govcsv` above).
+~~`CAN_cumulative`~~ (not updated): Prior to the government's release of data in `.csv`, this data was scraped from the Canadian Government's [website](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html), up to 2020-03-27. After this time, the government started releasing a daily .csv containing the full data (see `CAN_govcsv` above).
 
 ## Demo
 
