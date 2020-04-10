@@ -412,6 +412,8 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     deaths_mlt = Malta.deaths,
     deaths_som = Somalia.deaths,
     deaths_atg = AntiguaandBarbuda.deaths,
+    deaths_dji = Djibouti.deaths,
+    
 
     deaths_region_westernpacific = Region.WesternPacific.deaths,
     deaths_region_european = Region.European.deaths,

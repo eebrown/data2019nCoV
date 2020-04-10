@@ -129,3 +129,33 @@ gather(ON_mohreports, key, value,
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
 
+## ---- fig.width=6, fig.height=8-----------------------------------------------
+
+par(mfrow=c(2,2))
+
+plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases),
+     main = "Daily new cases in Ontario",
+     type = "b",
+     xlab = "Date",
+     ylab = "Daily new cases")
+
+plot(ON_mohreports$date[-1], daily_change(ON_mohreports$deaths),
+     main = "Daily new deaths in Ontario",
+     type = "b",
+     xlab = "Date",
+     ylab = "Daily new deats")
+
+plot(ON_mohreports$date[-1], daily_change(ON_mohreports$severity_hospitalized),
+     main = "Daily new hospitalized cases in Ontario",
+     type = "b",
+     xlab = "Date",
+     ylab = "Daily new hospitalized cases")
+
+plot(ON_mohreports$date[-1], daily_change(ON_mohreports$severity_icu),
+     main = "Daily new ICU cases in Ontario",
+     type = "b",
+     xlab = "Date",
+     ylab = "Daily new ICU cases")
+
+
+

@@ -275,7 +275,7 @@ plot(overx(WHO_SR$China, start_no), col="red", type="l",
      ylab= "Cases",
      main=paste0("Outbreak Progression from ", start_no, " Cases"),
      xlim=c(0,50),
-     ylim=c(1000,400000))
+     ylim=c(1000,500000))
 lines(overx(WHO_SR$Italy, start_no), col="green")
 lines(overx(WHO_SR$Iran, start_no), col="orange")
 lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
