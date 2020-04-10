@@ -1,6 +1,6 @@
 Package: data2019nCoV
 Title: Data on the COVID-19 Outbreak
-Version: 0.79.0
+Version: 0.79.1
 Authors@R: 
     person(given = "Eric",
            family = "Brown",

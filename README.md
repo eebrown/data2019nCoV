@@ -20,7 +20,7 @@ Currently, this package contains 4 updated datasets.
 
 ### Canada
 
-`CAN_govcsv`: The government of Canada releases provincial cumulative totals including cases, deaths, and number tested, released as a `covid19.csv` file. This object contains data from that file transformed into a wide data frame. It is updated as of 2020-04-08.
+`CAN_govcsv`: The government of Canada releases provincial cumulative totals including cases, deaths, and number tested, released as a `covid19.csv` file. This object contains data from that file transformed into a wide data frame. It is updated as of 2020-04-09.
 
 ~~`CAN_cumulative`~~ (not updated): Prior to the government's release of data in `.csv`, this data was scraped from the Canadian Government's [website](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html), up to 2020-03-27. After this time, the government started releasing a daily .csv containing the full data (see `CAN_govcsv` above).
 
