@@ -122,9 +122,9 @@ gather(ON_mohreports, key, value,
   ggplot(aes(x=date, y=value, col=key)) +
   geom_line() +
   guides(shape = guide_legend(override.aes = list(size = 0.5))) +
-  #scale_y_continuous(trans = 'log10', labels = comma) +
-  theme(legend.position="bottom") +
-  labs(title = "Ontario COVID-19 Cases",
+  scale_y_continuous(trans = 'log10', labels = comma) +
+  theme(legend.position="right") +
+  labs(title = "Ontario COVID-19 Cases (Semilog.)",
        x = "Date", 
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())

@@ -268,7 +268,7 @@ overx <- function(country, x) {
   return(over)
 }
 
-start_no <- 1000
+start_no <- 5000
 
 plot(overx(WHO_SR$China, start_no), col="red", type="l",
      xlab=paste0("Days Since ", start_no, " Cases"),
@@ -280,20 +280,24 @@ lines(overx(WHO_SR$Italy, start_no), col="green")
 lines(overx(WHO_SR$Iran, start_no), col="orange")
 lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
 lines(overx(WHO_SR$Spain, start_no), col="brown")
-lines(overx(WHO_SR$Germany, start_no), col="black")
-lines(overx(WHO_SR$France,  start_no), col="black")
+lines(overx(WHO_SR$Germany, start_no), col="coral")
+lines(overx(WHO_SR$France,  start_no), col="purple")
 lines(overx(WHO_SR$UnitedStatesofAmerica, start_no), col="blue")
 lines(overx(WHO_SR$Switzerland,  start_no), col="black")
 lines(overx(WHO_SR$Austria,  start_no), col="black")
-lines(overx(WHO_SR$UnitedKingdom,  start_no), col="yellow")
+lines(overx(WHO_SR$UnitedKingdom,  start_no), col="cornflowerblue")
 lines(overx(WHO_SR$Netherlands, start_no), col="black")
 lines(overx(WHO_SR$Norway, start_no), col="black")
 lines(overx(WHO_SR$Sweden, start_no), col="black")
 lines(overx(WHO_SR$Denmark, start_no), col="black")
 lines(overx(WHO_SR$Belgium, start_no), col="black")
 
-legend(x = "right", legend = c("China", "Italy", "Iran", "Korea", "USA", "Spain", "UK"), 
-       col =    c("red", "green",   "orange",  "magenta", "blue", "brown", "yellow"), 
+legend(x = "right", legend = c("USA", "Spain", "Germany", 
+                               "Italy", "China", "UK", 
+                               "France", "Iran", "Korea"),
+       col =    c("blue", "brown",   "coral",  
+                  "green", "red", "cornflowerblue", 
+                  "purple", "orange", "magenta"), 
        pch=18)
 
 
