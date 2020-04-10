@@ -12,7 +12,7 @@
 WHO_SR
 }
 \description{
-A dataset containing the data reported in the WHO 2019 novel
-coronavirus situation reports.
+A dataset containing the data reported in the WHO COVID-19
+situation reports.
 }
 \keyword{datasets}
