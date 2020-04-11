@@ -18,7 +18,7 @@ daily_change <- function(series) {
   return(change)
 }
 
-## ---- fig.width=6, fig.height=6-----------------------------------------------
+## ---- fig.width=6, fig.height=8-----------------------------------------------
 
 #par(mfrow=c(3,1))
 
@@ -62,11 +62,11 @@ matplot(ON_mohreports$date, cbind(
 dates<-format(ON_mohreports$date,"%b %d")
 axis(1, at=ON_mohreports$date, labels=dates)
 legend(x="top", 
-       legend = c("CFR", 
-                  "Hospitalized", 
-                  "ICU", 
-                  "CFR in LTC Residents",
-                  "CFR in Patients in Hospital Outbreaks"), 
+       legend = c("CFR (Overall)", 
+                  "Hospitalized (Cumulative)", 
+                  "ICU (Cumulative)", 
+                  "CFR (LTC Residents)",
+                  "CFR (Hospital Outbreak Patients)"), 
        col = colours,
        lty = c("solid", "solid", "solid", "solid"), pch=18)
 
