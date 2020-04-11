@@ -190,6 +190,7 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     cases_dji = Djibouti,
     cases_syr = SyrianArabRepublic,
     cases_lby = Libya,
+    cases_yem = Yemen,
     cases_region_easternmediterranean = Region.EasternMediterranean,
 
     cases_dza = Algeria,
@@ -413,7 +414,7 @@ sarscov2_who_2019 <- rename(sarscov2_who_2019,
     deaths_som = Somalia.deaths,
     deaths_atg = AntiguaandBarbuda.deaths,
     deaths_dji = Djibouti.deaths,
-    
+
 
     deaths_region_westernpacific = Region.WesternPacific.deaths,
     deaths_region_european = Region.European.deaths,
