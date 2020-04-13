@@ -10,7 +10,7 @@ library(data2019nCoV)
 library(tidyr)
 library(dplyr)
 library(ggplot2)
-#library(scales)
+library(scales)
 #library(lubridate)
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
@@ -28,6 +28,23 @@ gather(CAN_govcsv, key, value,
        y = "Confirmed Cases") +
   theme(legend.title = element_blank())
 
+
+gather(CAN_govcsv, key, value, 
+       total_BC, total_AB, total_SK, total_MB, total_ON,
+       total_QC, total_NL, total_NB, total_NS,total_PE,
+       total_YT, total_NT, total_NU, total_Repatriated
+       ) %>%
+  ggplot(aes(x=date, y=value, col=key)) +
+  geom_line() +
+  scale_y_continuous(trans = 'log10', labels = comma) +
+  theme(legend.position="right") +
+  labs(title = "Confirmed Cases by Province (Semilog.)",
+       x = "Date", 
+       y = "Confirmed Cases") +
+ theme(legend.title = element_blank())
+
+
+## ---- fig.width=6, fig.height=6-----------------------------------------------
 gather(CAN_govcsv, key, value, 
        deaths_BC, deaths_AB, deaths_SK, deaths_MB, deaths_ON,
        deaths_QC, deaths_NL, deaths_NB, deaths_NS, deaths_PE,
