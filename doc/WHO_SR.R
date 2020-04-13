@@ -270,12 +270,12 @@ overx <- function(country, x) {
 
 start_no <- 5000
 
-plot(overx(WHO_SR$China, start_no), col="red", type="l",
+plot(overx(WHO_SR$China, start_no), col="gray", type="l",
      xlab=paste0("Days Since ", start_no, " Cases"),
      ylab= "Cases",
      main=paste0("Outbreak Progression from ", start_no, " Cases"),
      xlim=c(0,50),
-     ylim=c(1000,500000))
+     ylim=c(1000,600000))
 lines(overx(WHO_SR$Italy, start_no), col="green")
 lines(overx(WHO_SR$Iran, start_no), col="orange")
 lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
@@ -291,13 +291,14 @@ lines(overx(WHO_SR$Norway, start_no), col="black")
 lines(overx(WHO_SR$Sweden, start_no), col="black")
 lines(overx(WHO_SR$Denmark, start_no), col="black")
 lines(overx(WHO_SR$Belgium, start_no), col="black")
+lines(overx(WHO_SR$Canada, start_no), col="red")
 
 legend(x = "right", legend = c("USA", "Spain", "Germany", 
                                "Italy", "China", "UK", 
-                               "France", "Iran", "Korea"),
+                               "France", "Iran", "Korea", "Canada"),
        col =    c("blue", "brown",   "coral",  
-                  "green", "red", "cornflowerblue", 
-                  "purple", "orange", "magenta"), 
+                  "green", "gray", "cornflowerblue", 
+                  "purple", "orange", "magenta", "red"), 
        pch=18)
 
 
