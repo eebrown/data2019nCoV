@@ -17,6 +17,8 @@
     \item{Cases}{"Number of confirmed cases reported to date in iPHIS by 34 Public Health Units, including resolved and deceased cases"}
     \item{Resolved}{"Patient is no longer infectious based on two consecutive negative tests performed"}
     \item{TotalTested}{"Total number of patients approved for COVID-19 testing to date"}
+    \item{TotalTests}{"Total number of tests completed by the COVID-19 Clinical Lab network"}
+    \item{PreviousDayTests}{"Total number of tests completed in the previous day"}
     \item{Male}{"Male cases"}
     \item{Female}{"Female cases"}
     \item{X19andunder}{"Cases age 19 and under"} 
