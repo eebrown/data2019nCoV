@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/237660917.svg)](https://zenodo.org/badge/latestdoi/237660917)
+[![DOI](https://zenodo.org/badge/237660917.svg)](https://zenodo.org/badge/latestdoi/237660917) ![R-CMD-check](https://github.com/eebrown/data2019nCoV/workflows/R-CMD-check/badge.svg)
 
 # COVID-19 Pandemic Data R Package
 
@@ -6,11 +6,13 @@ This R package stores data about the 2019-2020 COVID-19 pandemic (SARS-CoV-2).
 
 The date is transcribed or compiled from official sources, but there is no guarantee as to the accuracy of the transcribed data or graphs in the vignettes. Please file an issue if any errors (discrepancies with official reports) are noticed.
 
-Currently, this package contains 4 updated datasets. 
+Currently, this package contains 5 updated datasets. 
 
-### World Health Organization (WHO)
+### World 
 
-`WHO_SR`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) up to 2020-04-17 (Situation Reports # 1-88).
+`ECDC_owid` and `sarscov2_ecdc_2019`: The CSV file produced by [Our World In Data](https://ourworldindata.org/coronavirus-source-data), as a data.frame, including cumulative cases and deaths for all countries. The first is the untransformed long format, and `sarscov2_ecdc_2019` is transformed into long format, and renamed with ISO 3-letter country codes with systematic snake case naming. Updated to 2020-04-18.
+
+`WHO_SR` and `sarscov2_who_2019`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports). The first uses the wordy names from th Situation Reports, and `sarscov2_who_2019` uses systmatic ISO 3-letter country code names with systematic snake case naming. Updated up to 2020-04-17 (Situation Reports # 1-88). *Note I may not be able to keep this up to date.*
 
 ### Ontario
 
