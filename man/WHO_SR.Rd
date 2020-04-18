@@ -4,7 +4,9 @@
 \name{WHO_SR}
 \alias{WHO_SR}
 \title{World Health Organization situation reports data}
-\format{A data frame with a row for each situation report}
+\format{
+A data frame with a row for each situation report
+}
 \source{
 \url{https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports}
 }

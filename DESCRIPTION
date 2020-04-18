@@ -1,6 +1,6 @@
 Package: data2019nCoV
 Title: Data on the COVID-19 Outbreak
-Version: 0.85.0
+Version: 0.88.0
 Authors@R: 
     person(given = "Eric",
            family = "Brown",
@@ -15,7 +15,7 @@ Depends: R (>= 3.4.0)
 License: CC0
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Suggests: 
     knitr,
     rmarkdown,

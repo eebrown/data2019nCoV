@@ -4,7 +4,9 @@
 \name{CAN_govcsv}
 \alias{CAN_govcsv}
 \title{Canada Public Health Coronavirus Cumulative Case Totals}
-\format{A data frame where each row represents a reporting date}
+\format{
+A data frame where each row represents a reporting date
+}
 \source{
 \url{https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html}
 }

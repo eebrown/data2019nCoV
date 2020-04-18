@@ -303,8 +303,8 @@ plot(overx(WHO_SR$China, start_no), col="gray", type="l",
      xlab=paste0("Days Since ", start_no, " Cases"),
      ylab= "Cases",
      main=paste0("Outbreak Progression from ", start_no, " Cases"),
-     xlim=c(0,50),
-     ylim=c(1000,600000))
+     xlim=c(0,60),
+     ylim=c(1000,700000))
 lines(overx(WHO_SR$Italy, start_no), col="green")
 lines(overx(WHO_SR$Iran, start_no), col="orange")
 lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
@@ -505,7 +505,7 @@ matplot(as.Date(WHO_SR$Date[range]), cbind(
      type = "l",
      col = c("red",   "red",  "blue", "blue"),
      lty = c("solid", "dotted", "solid", "dotted"),
-     ylim = c(0,200),
+     ylim = c(0,250),
      ylog = TRUE,
      xaxt="n")
 dates<-format(WHO_SR$Date,"%b %d")

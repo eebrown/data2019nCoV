@@ -4,7 +4,8 @@
 \name{ON_cumulative}
 \alias{ON_cumulative}
 \title{Ontario Ministry of Health Coronavirus Cumulative Case Totals}
-\format{A data frame where each row represents a reporting time
+\format{
+A data frame where each row represents a reporting time
  \describe{
     \item{URL}{Internet Archive snapshot of URL for source data}
     \item{AsOf}{The results are updated to this date}
@@ -31,7 +32,8 @@
     \item{Hospitalized}{"Cases currently hospitalized"}
     \item{ICU}{"Cases currently in ICU"}
     \item{Ventilator}{"Cases currently in ICU and on ventilator"}
- }}
+ }
+}
 \source{
 \url{https://www.ontario.ca/page/2019-novel-coronavirus}
 }

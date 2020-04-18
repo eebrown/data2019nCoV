@@ -4,7 +4,9 @@
 \name{ON_mohreports}
 \alias{ON_mohreports}
 \title{Ontario Ministry of Health Epidemiologic Summaries (PDF reports)}
-\format{A data frame where each row represents a report}
+\format{
+A data frame where each row represents a report
+}
 \source{
 \url{https://www.ontario.ca/page/2019-novel-coronavirus}
 }

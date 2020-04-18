@@ -4,7 +4,8 @@
 \name{CAN_cumulative}
 \alias{CAN_cumulative}
 \title{Canada Public Health Coronavirus Cumulative Case Totals}
-\format{A data frame where each row represents a reporting time
+\format{
+A data frame where each row represents a reporting time
  \describe{
     \item{url}{Internet Archive snapshot of URL for source data}
     \item{date}{The date the of the data reported on the webpage}
@@ -59,7 +60,8 @@
     \item{proportion_hospitalized}{Proportion of cases that are in hospital}
     \item{proportion_travellers}{Proportion of cases that are trevellers}
     \item{proportion_contactoftravellers}{Proportion of cases that are close contacts of travellers}
- }}
+ }
+}
 \source{
 \url{https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html}
 }
