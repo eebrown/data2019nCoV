@@ -1,3 +1,22 @@
+#' European Centre for Disease Control cases and deaths data
+#'
+#' A dataset containing the data reported by the ECDC, as curated and released
+#' by Our World in Data. This object is in wide format with ISO 3-letter country
+#' code variable names.
+#'
+#' @format A data frame with a row for each date
+#' @source \url{https://ourworldindata.org/coronavirus-source-data}
+"sarscov2_ecdc_2019"
+
+#' European Centre for Disease Control cases and deaths data
+#'
+#' A dataset containing the data reported by the ECDC, as curated and released
+#' by Our World in Data. This object is in long format as presented by OWiD.
+#'
+#' @format A data frame with a row for each date
+#' @source \url{https://ourworldindata.org/coronavirus-source-data}
+"ECDC_owid"
+
 #' World Health Organization situation reports data
 #'
 #' A dataset containing the data reported in the WHO COVID-19
