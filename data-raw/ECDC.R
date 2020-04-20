@@ -11,7 +11,7 @@ ECDC_owid <- read.csv("data-raw/full_data.csv")
 
 ECDC_owid$date <- as.Date(ECDC_owid$date)
 
-usethis::use_data(ECDC_owid_raw, overwrite = TRUE)
+usethis::use_data(ECDC_owid, overwrite = TRUE)
 
 ECDC_owid$location <- tolower(countrycode(ECDC_owid$location, 
 	                              origin="country.name", destination="genc3c",
@@ -30,7 +30,6 @@ deaths <- pivot_wider(ECDC_owid, names_from = location,
 sarscov2_ecdc_2019 <- merge(cases, deaths, by = "date")
 
 usethis::use_data(sarscov2_ecdc_2019, overwrite = TRUE)
-usethis::use_data(ECDC_owid, overwrite = TRUE)
 
 devtools::document()
 devtools::build_vignettes()
