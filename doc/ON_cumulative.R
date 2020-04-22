@@ -35,10 +35,28 @@ plot(ON_cumulative$LastUpdated, all_cases,
      ylab = "Cases (Open, Resolved, Deceased)",
      type = "b")
 
-plot(ON_cumulative$LastUpdated[-1], daily_change(ON_cumulative$TotalTested), type="b",
-     main = "Change in Total Tested Between Report",
+plot(ON_cumulative$LastUpdated, all_cases,
+     main = "Cumulative Confirmed COVID-19 Cases in Ontario (Semilog.)",
      xlab = "Date",
-     ylab = "Change in Total Tested Between Report")
+     ylab = "Cases (Open, Resolved, Deceased)",
+     type = "b",
+     log = "y")
+
+par(mfrow=c(1,2))
+
+plot(ON_cumulative$LastUpdated[-1], daily_change(ON_cumulative$TotalTested), type="b",
+     main = "Total Tested",
+     xlab = "Date",
+     ylab = "Change in Total Tested Between Report",
+     ylim = c(0, 10000))
+
+plot(ON_cumulative$LastUpdated[-1], daily_change(ON_cumulative$TotalTests), type="b",
+     main = "Total Tests",
+     xlab = "Date",
+     ylab = "Change in Total Tests Between Report",
+     ylim = c(0, 10000))
+
+par(mfrow=c(1,1))
 
 colours <- c("red",   "blue",  "black", "magenta", "green")
 
@@ -56,7 +74,7 @@ matplot(ON_mohreports$date, cbind(
      type = "l",
      col = colours,
      lty = c("solid", "solid", "solid", "solid", "solid"),
-     ylim = c(0,20),
+     ylim = c(0,25),
      ylog = TRUE,
      xaxt="n")
 dates<-format(ON_mohreports$date,"%b %d")
@@ -134,28 +152,24 @@ gather(ON_mohreports, key, value,
 par(mfrow=c(2,2))
 
 plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases),
-     main = "Daily new cases in Ontario",
      type = "b",
      xlab = "Date",
-     ylab = "Daily new cases")
+     ylab = "New Cases")
 
 plot(ON_mohreports$date[-1], daily_change(ON_mohreports$deaths),
-     main = "Daily new deaths in Ontario",
      type = "b",
      xlab = "Date",
-     ylab = "Daily new deats")
+     ylab = "New Deaths")
 
 plot(ON_mohreports$date[-1], daily_change(ON_mohreports$severity_hospitalized),
-     main = "Daily new hospitalized cases in Ontario",
      type = "b",
      xlab = "Date",
-     ylab = "Daily new hospitalized cases")
+     ylab = "New Hospitalized Cases")
 
 plot(ON_mohreports$date[-1], daily_change(ON_mohreports$severity_icu),
-     main = "Daily new ICU cases in Ontario",
      type = "b",
      xlab = "Date",
-     ylab = "Daily new ICU cases")
+     ylab = "New ICU Cases")
 
 
 
