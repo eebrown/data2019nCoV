@@ -149,7 +149,7 @@ gather(ON_mohreports, key, value,
 
 ## ---- fig.width=6, fig.height=8-----------------------------------------------
 
-par(mfrow=c(2,2))
+par(mfrow=c(3,2))
 
 plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases),
      type = "b",
@@ -170,6 +170,16 @@ plot(ON_mohreports$date[-1], daily_change(ON_mohreports$severity_icu),
      type = "b",
      xlab = "Date",
      ylab = "New ICU Cases")
+
+plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_ltc),
+     type = "b",
+     xlab = "Date",
+     ylab = "Change LTC Cases")
+
+plot(ON_mohreports$date[-1], daily_change((ON_mohreports$cases - ON_mohreports$cases_ltc - ON_mohreports$cases_hospital_pts)),
+     type = "b",
+     xlab = "Date",
+     ylab = "Change Non-Outbreak Cases")
 
 
 
