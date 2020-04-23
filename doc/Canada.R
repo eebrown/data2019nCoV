@@ -13,6 +13,8 @@ library(ggplot2)
 library(scales)
 #library(lubridate)
 
+CAN_govcsv$date[length(CAN_govcsv$date)]
+
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 
 gather(CAN_govcsv, key, value, 

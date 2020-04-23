@@ -18,6 +18,10 @@ daily_change <- function(series) {
   return(change)
 }
 
+ON_cumulative$LastUpdated[length(ON_cumulative$LastUpdated)]
+
+ON_mohreports$date[length(ON_mohreports$date)]
+
 ## ---- fig.width=6, fig.height=8-----------------------------------------------
 
 #par(mfrow=c(3,1))

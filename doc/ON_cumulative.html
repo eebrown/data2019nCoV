@@ -312,7 +312,13 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <a class="sourceLine" id="cb1-9" data-line-number="9">  change &lt;-<span class="st"> </span>change[<span class="op">-</span><span class="dv">1</span>]</a>
 <a class="sourceLine" id="cb1-10" data-line-number="10">  change &lt;-<span class="st"> </span>change[<span class="op">-</span><span class="kw">length</span>(change)]</a>
 <a class="sourceLine" id="cb1-11" data-line-number="11">  <span class="kw">return</span>(change)</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">}</a></code></pre></div>
+<a class="sourceLine" id="cb1-12" data-line-number="12">}</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">ON_cumulative<span class="op">$</span>LastUpdated[<span class="kw">length</span>(ON_cumulative<span class="op">$</span>LastUpdated)]</a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="co">#&gt; [1] &quot;2020-04-23 10:30:00 EDT&quot;</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">ON_mohreports<span class="op">$</span>date[<span class="kw">length</span>(ON_mohreports<span class="op">$</span>date)]</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt; [1] &quot;2020-04-22 EDT&quot;</span></a></code></pre></div>
 <p>The source of this data is the official Ontario Government’s website (<a href="https://www.ontario.ca/page/2019-novel-coronavirus" class="uri">https://www.ontario.ca/page/2019-novel-coronavirus</a>). Data is included from page updates that were captured by the Internet Archive (<a href="https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus" class="uri">https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus</a>).</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#par(mfrow=c(3,1))</span></a>

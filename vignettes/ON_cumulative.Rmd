@@ -27,6 +27,10 @@ daily_change <- function(series) {
   change <- change[-length(change)]
   return(change)
 }
+
+ON_cumulative$LastUpdated[length(ON_cumulative$LastUpdated)]
+
+ON_mohreports$date[length(ON_mohreports$date)]
 ```
 
 The source of this data is the official Ontario Government's website (https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the Internet Archive (https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus).
