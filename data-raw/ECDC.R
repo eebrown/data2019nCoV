@@ -34,3 +34,5 @@ usethis::use_data(sarscov2_ecdc_2019, overwrite = TRUE)
 devtools::document()
 devtools::build_vignettes()
 devtools::check()
+
+save(sarscov2_ecdc_2019, file = "sarscov2_who_2019.RData", version = 2)
