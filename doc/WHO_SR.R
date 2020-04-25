@@ -12,6 +12,9 @@ library(dplyr)
 library(ggplot2)
 library(scales)
 
+WHO_SR$Date[length(WHO_SR$Date)]
+sarscov2_ecdc_2019$date[length(sarscov2_ecdc_2019$date)]
+
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 
 # Global Cases
@@ -22,6 +25,11 @@ plot(WHO_SR$Date, WHO_SR$Global.confirmed,
      ylab = "Confirmed Cases",
      type = "b")
 
+plot(sarscov2_ecdc_2019$date, sarscov2_ecdc_2019$cases_global, 
+     main = "Global COVID-19 Cases",
+     xlab = "Date",
+     ylab = "Confirmed Cases",
+     type = "b")
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 # A function to calculate the daily change
@@ -34,9 +42,15 @@ daily_change <- function(series) {
 
 # Remove the change introduced with SR 27, when the definition was expanded.
 change_cases <- daily_change(WHO_SR$Global.confirmed)
-change_cases[27] <- NA
+change_cases_ecdc <- daily_change(sarscov2_ecdc_2019$cases_global)
 
 plot(WHO_SR$Date[-1], change_cases,
+     main = "Change in Global Cases by Date",
+     ylab = "New Confirmed Cases",
+     xlab = "Date",
+     type = "b")
+
+plot(sarscov2_ecdc_2019$date[-1], change_cases_ecdc,
      main = "Change in Global Cases by Date",
      ylab = "New Confirmed Cases",
      xlab = "Date",
@@ -46,49 +60,10 @@ plot(WHO_SR$Date[-1], change_cases,
 ## ---- fig.width=7, fig.height=7-----------------------------------------------
 
 # Every country
-gather(WHO_SR, key, value, 
+gather(sarscov2_ecdc_2019, key, value, 
        
-       China,
-       
-       RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
-       Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea, Myanmar,
-       LaoPeoplesDemocraticRepublic,NorthernMarianaIslands,
-       
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
-       
-       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
-       Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
-       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
-       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
-       CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
-       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaarten,Haiti,Dominica,TurksandCaicos,SaintKittsandNevis,
-       Anguilla, BritishVirginIslands,
-       
-       Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
-       Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
-       Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
-       Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
-       Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
-       Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
-       Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
-       FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan, Kyrgyzstan,
-       Greenland, Montenegro, Kosovo,
-
-       Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
-       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,Libya,
-       
-       Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo, BurkinaFaso,
-       DemocraticRepublicoftheCongo, Reunion, Namibia, CentralAfricanRepublic,
-       Congo, EquatorialGuinea, Eswatini, Mauritania, Mayotte,Rwanda, Seychelles,
-       Benin, Liberia, UnitedRepublicofTanzania,Mauritius,Zambia,Gambia,
-       Chad, Niger,CaboVerde,Zimbabwe,
-       Madagascar, Angola, Eritrea, Uganda,Mozambique,GuineaBissau,Mali,
-       
-       InternationalConveyance) %>%
-  ggplot(aes(x=Date, y=value, col=key)) +
+       cases_afg, cases_alb, cases_dza, cases_and, cases_ago, cases_aia, cases_atg, cases_arg, cases_arm, cases_abw, cases_aus, cases_aut, cases_aze, cases_bhs, cases_bhr, cases_bgd, cases_brb, cases_blr, cases_bel, cases_blz, cases_ben, cases_bmu, cases_btn, cases_bol, cases_bes, cases_bih, cases_bwa, cases_bra, cases_vgb, cases_brn, cases_bgr, cases_bfa, cases_bdi, cases_khm, cases_cmr, cases_can, cases_cpv, cases_cym, cases_caf, cases_tcd, cases_chl, cases_chn, cases_col, cases_cog, cases_cri, cases_civ, cases_hrv, cases_cub, cases_cuw, cases_cyp, cases_cze, cases_cod, cases_dnk, cases_dji, cases_dma, cases_dom, cases_ecu, cases_egy, cases_slv, cases_gnq, cases_eri, cases_est, cases_eth, cases_fro, cases_flk, cases_fji, cases_fin, cases_fra, cases_pyf, cases_gab, cases_gmb, cases_geo, cases_deu, cases_gha, cases_gib, cases_grc, cases_grl, cases_grd, cases_gum, cases_gtm, cases_ggy, cases_gin, cases_gnb, cases_guy, cases_hti, cases_hnd, cases_hun, cases_isl, cases_ind, cases_idn, cases_international, cases_irn, cases_irq, cases_irl, cases_imn, cases_isr, cases_ita, cases_jam, cases_jpn, cases_jey, cases_jor, cases_kaz, cases_ken, cases_kosovo, cases_kwt, cases_kgz, cases_lao, cases_lva, cases_lbn, cases_lbr, cases_lby, cases_lie, cases_ltu, cases_lux, cases_mkd, cases_mdg, cases_mwi, cases_mys, cases_mdv, cases_mli, cases_mlt, cases_mrt, cases_mus, cases_mex, cases_mda, cases_mco, cases_mng, cases_mne, cases_msr, cases_mar, cases_moz, cases_mmr, cases_nam, cases_npl, cases_nld, cases_ncl, cases_nzl, cases_nic, cases_ner, cases_nga, cases_mnp, cases_nor, cases_omn, cases_pak, cases_xwb, cases_pan, cases_png, cases_pry, cases_per, cases_phl, cases_pol, cases_prt, cases_pri, cases_qat, cases_rou, cases_rus, cases_rwa, cases_kna, cases_lca, cases_vct, cases_smr, cases_stp, cases_sau, cases_sen, cases_srb, cases_syc, cases_sle, cases_sgp, cases_sxm, cases_svk, cases_svn, cases_som, cases_zaf, cases_kor, cases_ssd, cases_esp, cases_lka, cases_sdn, cases_sur, cases_swz, cases_swe, cases_che, cases_syr, cases_twn, cases_tza, cases_tha, cases_tls, cases_tgo, cases_tto, cases_tun, cases_tur, cases_tca, cases_uga, cases_ukr, cases_are, cases_gbr, cases_usa, cases_vir, cases_ury, cases_uzb, cases_vat, cases_ven, cases_vnm, cases_yem, cases_zmb, cases_zwe) %>%
+  ggplot(aes(x=date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="none") +
   labs(title = "Confirmed Cases by Region",
@@ -97,129 +72,6 @@ gather(WHO_SR, key, value,
   theme(legend.title = element_blank())
 
 ## ---- fig.width=7, fig.height=7-----------------------------------------------
-# Western Pacific and Southeast Asia
-gather(WHO_SR, key, value, 
-       
-       RepublicofKorea, Japan, Singapore, Australia, Malaysia, VietNam, 
-       Philippines, Cambodia, NewZealand, BruneiDarussalam,
-       Mongolia, Guam, Fiji,NewCaledonia,PapuaNewGuinea,Myanmar,
-       LaoPeoplesDemocraticRepublic,NorthernMarianaIslands,
-       
-       Thailand, India, Nepal, SriLanka, Indonesia, Bhutan, Maldives, TimorLeste,
-       
-       ) %>%
-  ggplot(aes(x=Date, y=value, col=key)) +
-  geom_line() +
-  theme(legend.position="bottom") +
-  labs(title = "Western Pacific and Southeast Asia (Excluding China)",
-       x = "Date", 
-       y = "Confirmed Cases") +
-  theme(legend.title = element_blank())
-
-# Europe
-gather(WHO_SR, key, value, 
-
-       Italy, Germany, France, UnitedKingdom, Spain, Croatia, Austria, 
-       Finland, Israel, RussianFederation, Sweden, Belgium, Denmark, 
-       Estonia, Georgia, Greece, NorthMacedonia, Norway, Romania, Switzerland, 
-       Belarus, Lithuania, Netherlands, SanMarino, Azerbaijan, Ireland, Monaco,
-       Czechia, Iceland, Armenia, Luxembourg, Portugal, Andorra, Latvia,
-       Poland, Ukraine, Liechtenstein, BosniaHerzegovina, Hungary, Slovenia, 
-       Gibraltar, Serbia, Slovakia, HolySee, Malta, Bulgaria, RepublicofMoldova,
-       FaroeIslands, Cyprus, Guernsey, Kazakhstan, Uzbekistan, Kyrgyzstan,
-       Greenland, Montenegro,  Kosovo
-       
-       ) %>%
-  ggplot(aes(x=Date, y=value, col=key)) +
-  geom_line() +
-  theme(legend.position="bottom") +
-  labs(title = "Europe",
-       x = "Date", 
-       y = "Confirmed Cases") +
-  theme(legend.title = element_blank())
-
-# Americas
-gather(WHO_SR, key, value, 
-       
-       UnitedStatesofAmerica, Canada, Brazil, Mexico, Ecuador, DominicanRepublic,
-       Argentina, Chile, Colombia, Peru, CostaRica, FrenchGuiana, Martinique,
-       Panama, Bolivia, Jamaica, Guyana, SaintVincentandtheGrenadines, Cuba, Jersey,
-       Venezuela, AntiguaandBarbuda, Guadeloupe, TrinidadandTobago, PuertoRico,
-       CaymanIslands, Curacao, Uruguay, SaintLucia, Guatemala, Suriname, Bahamas,
-       Aruba, UnitedStatesVirginIslands,Barbados,Montserrat,ElSalvador,
-       Nicaragua, SintMaarten, Haiti,Dominica,TurksandCaicos,SaintKittsandNevis,
-       Anguilla, BritishVirginIslands
-       
-       ) %>%
-  ggplot(aes(x=Date, y=value, col=key)) +
-  geom_line() +
-  theme(legend.position="bottom") +
-  labs(title = "Americas",
-       x = "Date", 
-       y = "Confirmed Cases") +
-  theme(legend.title = element_blank())
-
-# Eastern Mediterranean and Africa
-gather(WHO_SR, key, value, 
-       
-       Iran, Kuwait, Bahrain, UnitedArabEmirates, Iraq, Oman, Lebanon, Pakistan,
-       Afghanistan, Egypt, Qatar, Jordan, Morocco, SaudiArabia, Tunisia, Somalia,
-       OccupiedPalestinianTerritory, Djibouti,SyrianArabRepublic,Libya,
-       
-       ) %>%
-  ggplot(aes(x=Date, y=value, col=key)) +
-  geom_line() +
-  theme(legend.position="bottom") +
-  labs(title = "Eastern Mediterranean Region",
-       x = "Date", 
-       y = "Confirmed Cases") +
-  theme(legend.title = element_blank())
-
-# Eastern Mediterranean and Africa
-gather(WHO_SR, key, value, 
-      
-    Algeria, Nigeria, Senegal, Cameroon, SouthAfrica, Togo,
-    BurkinaFaso,DemocraticRepublicoftheCongo,CotedIvoire,
-    Ethiopia,Gabon,Ghana,Guinea,Kenya,Namibia,CentralAfricanRepublic,
-    Congo,EquatorialGuinea,Eswatini,Mauritania,Mayotte, Rwanda,
-    Seychelles,Benin,Liberia,UnitedRepublicofTanzania,Mauritius,
-    Zambia,  Gambia, Chad, Niger, Reunion, CaboVerde,  Zimbabwe, Madagascar,
-    Angola,  Eritrea, Uganda, Mozambique,GuineaBissau,Mali,
-    
-       ) %>%
-  ggplot(aes(x=Date, y=value, col=key)) +
-  geom_line() +
-  theme(legend.position="bottom") +
-  labs(title = "African Region",
-       x = "Date", 
-       y = "Confirmed Cases") +
-  theme(legend.title = element_blank())
-
-
-# Southern Hemisphere
-gather(WHO_SR, key, value, 
-       
-       Australia, NewZealand, Fiji, NewCaledonia, PapuaNewGuinea,
-       
-       Brazil, Ecuador, Argentina, Chile, Peru, Colombia,
-       DemocraticRepublicoftheCongo, Bolivia, Uruguay,TimorLeste,
-
-       SouthAfrica, Reunion, Gabon, Kenya, Namibia, Congo, 
-       Eswatini, Mayotte, Rwanda, Seychelles,
-       UnitedRepublicofTanzania,Mauritius,Zambia,Zimbabwe,Madagascar,
-       Angola, Uganda
-       
-       ) %>%
-  ggplot(aes(x=Date, y=value, col=key)) +
-  geom_line() +
-  theme(legend.position="bottom") +
-  labs(title = "Confirmed Cases in Southern Hemisphere",
-       x = "Date", 
-       y = "Confirmed Cases") +
-  theme(legend.title = element_blank())
-
-
-# Chinese Provinces
 gather(WHO_SR, key, value, China.Hubei,
        China.Guangdong, China.Beijing, China.Shanghai, China.Chongqing,        
        China.Zhejiang, China.Jiangxi, China.Sichuan, China.Tianjin, China.Henan,
@@ -240,21 +92,22 @@ gather(WHO_SR, key, value, China.Hubei,
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 # Major Outbreaks
 
-gather(WHO_SR, key, value, 
-       China, 
-       Italy,
-       Iran,
-       RepublicofKorea, 
-       Spain, 
-       Germany,
-       France, 
-       UnitedStatesofAmerica,
-       Switzerland, 
-       Netherlands, 
-       UnitedKingdom, 
-       Austria
+gather(sarscov2_ecdc_2019, key, value, 
+       cases_chn, 
+       cases_ita,
+       cases_irn,
+       cases_kor,
+       cases_esp, 
+       cases_deu, 
+       cases_fra,  
+       cases_usa,
+       cases_che, #Switzerland, 
+       cases_nld, #Netherlands, 
+       cases_gbr, #UnitedKingdom, 
+       cases_aut, #Austria
+       cases_tur,
        ) %>%
-  ggplot(aes(x=Date, y=value, col=key)) +
+  ggplot(aes(x=date, y=value, col=key)) +
   geom_line() +
   theme(legend.position="right", legend.title = element_blank()) +
   scale_y_continuous(trans = 'log10', labels = comma) +
@@ -450,26 +303,26 @@ legend(x="top",
 population_US <- 329968629
 population_CAN <- 37894799
 
-range <- 50:length(WHO_SR$Canada)
+range <- 60:length(sarscov2_ecdc_2019$cases_can)
 
-matplot(as.Date(WHO_SR$Date[range]), cbind( 
-                           ( (WHO_SR$Canada / population_CAN)[range] * 100000 ),
-                           ( (WHO_SR$Canada.deaths/ population_CAN)[range] * 1000000 ),
-                           ( (WHO_SR$UnitedStatesofAmerica/ population_US)[range] * 100000 ),
-                           ( (WHO_SR$UnitedStatesofAmerica.deaths/ population_US)[range] * 1000000 )
+matplot(as.Date(sarscov2_ecdc_2019$date[range]), cbind( 
+                           ( (sarscov2_ecdc_2019$cases_can / population_CAN)[range] * 100000 ),
+                           ( (sarscov2_ecdc_2019$deaths_can / population_CAN)[range] * 1000000 ),
+                           ( (sarscov2_ecdc_2019$cases_usa / population_US)[range] * 100000 ),
+                           ( (sarscov2_ecdc_2019$deaths_usa / population_US)[range] * 1000000 )
                            ),
                            
      main = "Cases and Deaths Per Capita",
      xlab = "Date (2020)",
-     ylab = "Cases Per 100k / Deaths per Million",
+     ylab = "Cases Per 100k; Deaths per Million",
      type = "l",
      col = c("red",   "red",  "blue", "blue"),
      lty = c("solid", "dotted", "solid", "dotted"),
-     ylim = c(0,250),
+     ylim = c(0,300),
      ylog = TRUE,
      xaxt="n")
-dates<-format(WHO_SR$Date,"%b %d")
-axis(1, at=WHO_SR$Date, labels=dates)
+dates<-format(sarscov2_ecdc_2019$date,"%b %d")
+axis(1, at=sarscov2_ecdc_2019$date, labels=dates)
 legend(x="top", 
        legend = c("Canada Cases per 100k", "Canada Deaths per Million", "USA Cases per 100k", "USA Deaths per Million", "Estimates of Annual Influenza Deaths per Million"), 
        col =    c("red",   "red",  "blue", "blue", "grey"),
