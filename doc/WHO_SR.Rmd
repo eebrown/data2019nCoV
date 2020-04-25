@@ -193,20 +193,20 @@ legend(x = "right", legend = c("USA", "Spain", "Germany",
 ### Outbreaks - Daily Cases
 
 ```{r, fig.width=6, fig.height=20}
-outbreaks <- list(China = WHO_SR$China, 
-                  Italy = WHO_SR$Italy,
-                  Canada = WHO_SR$Canada,
-                  Spain = WHO_SR$Spain,
-                  Germany = WHO_SR$Germany,
-                  Iran = WHO_SR$Iran,
-                  France = WHO_SR$France,
-                  Korea = WHO_SR$RepublicofKorea)
+outbreaks <- list(China = sarscov2_ecdc_2019$cases_chn, 
+                  Italy = sarscov2_ecdc_2019$cases_ita,
+                  Canada = sarscov2_ecdc_2019$cases_can,
+                  Spain = sarscov2_ecdc_2019$cases_esp,
+                  Germany = sarscov2_ecdc_2019$cases_deu,
+                  Iran = sarscov2_ecdc_2019$cases_irn,
+                  France = sarscov2_ecdc_2019$cases_fra,
+                  Korea = sarscov2_ecdc_2019$cases_kor)
 
 par(mfrow=c(4,2))
 
 for (i in 1:length(outbreaks)) {
   
- plot(WHO_SR$Date[-1], daily_change(outbreaks[[i]]),
+ plot(sarscov2_ecdc_2019$date[-1], daily_change(outbreaks[[i]]),
       main = names(outbreaks)[[i]],
       ylab = "Daily Cases",
       xlab = "Date",
@@ -216,56 +216,56 @@ for (i in 1:length(outbreaks)) {
 
  par(mfrow=c(4,2))
  
- plot(WHO_SR$Date[-1], daily_change(WHO_SR$UnitedStatesofAmerica),
+ plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_usa),
       main = "United States - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
       ylim = c(0,40000))
  
-  plot(WHO_SR$Date[-1], daily_change(WHO_SR$UnitedStatesofAmerica.deaths),
+  plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_usa),
       main = "United States - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
       ylim = c(0,4000))
   
-   plot(WHO_SR$Date[-1], daily_change(WHO_SR$Italy),
+   plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_ita),
       main = "Italy - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
       ylim = c(0,40000))
    
-    plot(WHO_SR$Date[-1], daily_change(WHO_SR$Italy.deaths),
+    plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_ita),
       main = "Italy - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
       ylim = c(0,4000))
  
-     plot(WHO_SR$Date[-1], daily_change(WHO_SR$Spain),
+     plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_esp),
       main = "Spain - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
       ylim = c(0,40000))
      
-      plot(WHO_SR$Date[-1], daily_change(WHO_SR$Spain.deaths),
+      plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_esp),
       main = "Spain - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
       ylim = c(0,4000))
       
-           plot(WHO_SR$Date[-1], daily_change(WHO_SR$France),
+      plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_fra),
       main = "France - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
       ylim = c(0,40000))
      
-      plot(WHO_SR$Date[-1], daily_change(WHO_SR$France.deaths),
+      plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_fra),
       main = "France - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
@@ -277,55 +277,35 @@ for (i in 1:length(outbreaks)) {
 ## Deaths
 
 ```{r, fig.width=6, fig.height=6}
-plot(WHO_SR$Date, WHO_SR$China.deaths,
-     main = "Cumulative COVID-19 Deaths in China",
-     xlab = "Date",
-     ylab = "Deaths",
-     type = "b")
 
 # Change in Cases Between Reports
-plot(WHO_SR$Date[-1], daily_change(WHO_SR$China.deaths),
-     main = "Change in Deaths in China by Date",
+plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_global),
+     main = "Change in Deaths by Date",
      ylab = "New Deaths",
      xlab = "Date",
      type = "b")
 
-Deaths.nonChina <- c(WHO_SR$Deaths.nonChina[1:56], 
-                      (WHO_SR$Region.WesternPacific.deaths[57:length(WHO_SR$Date)] + 
-                         WHO_SR$Region.European.deaths[57:length(WHO_SR$Date)] +
-                         WHO_SR$Region.SouthEastAsia.deaths[57:length(WHO_SR$Date)] +
-                         WHO_SR$Region.EasternMediterranean.deaths[57:length(WHO_SR$Date)] +
-                         WHO_SR$Region.Americas.deaths[57:length(WHO_SR$Date)] +
-                         WHO_SR$Region.African.deaths[57:length(WHO_SR$Date)] +
-                         WHO_SR$Region.Other.deaths[57:length(WHO_SR$Date)] -
-                         WHO_SR$China.deaths[57:length(WHO_SR$Date)]))
-
-plot(WHO_SR$Date, 
-     Deaths.nonChina,
-     main = "Cumulative COVID-19 Deaths Outside of China",
-     xlab = "Date",
-     ylab = "Deaths",
-     type = "b")
-
-plot(WHO_SR$Date[-1], daily_change(Deaths.nonChina),
-     main = "Change in Deaths Outside China by Date",
-     xlab = "Date",
+plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_global),
+     main = "Change in Deaths by Date (Semilog.)",
      ylab = "New Deaths",
-     type = "b")
+     xlab = "Date",
+     type = "b",
+     log = "y")
+
+
 ```
 
 ### Case Fatality Rate
 
 ```{r, fig.width=6, fig.height=6}
 
-matplot(as.Date(WHO_SR$Date), cbind( 
-                           (WHO_SR$China.deaths/ WHO_SR$China)*100,
-                           (WHO_SR$RepublicofKorea.deaths / WHO_SR$RepublicofKorea)*100,
-                           (WHO_SR$Italy.deaths / WHO_SR$Italy)*100,
-                           (WHO_SR$UnitedStatesofAmerica.deaths / 
-                                WHO_SR$UnitedStatesofAmerica)*100,
-                           (WHO_SR$Canada.deaths / WHO_SR$Canada)*100,
-                           (WHO_SR$Spain.deaths / WHO_SR$Spain)*100),
+matplot(as.Date(sarscov2_ecdc_2019$date), cbind( 
+                      (sarscov2_ecdc_2019$deaths_chn / sarscov2_ecdc_2019$cases_chn)*100,
+                      (sarscov2_ecdc_2019$deaths_kor / sarscov2_ecdc_2019$cases_kor)*100,
+                      (sarscov2_ecdc_2019$deaths_ita / sarscov2_ecdc_2019$cases_ita)*100,
+                      (sarscov2_ecdc_2019$deaths_usa / sarscov2_ecdc_2019$cases_usa)*100,
+                      (sarscov2_ecdc_2019$deaths_can / sarscov2_ecdc_2019$cases_can)*100,
+                      (sarscov2_ecdc_2019$deaths_esp / sarscov2_ecdc_2019$cases_esp)*100),
      main = "Case Fatality Rate",
      xlab = "Date",
      ylab = "Deaths / Confirmed Cases (%)",
@@ -334,11 +314,11 @@ matplot(as.Date(WHO_SR$Date), cbind(
      col = c("black",   "blue",  "green", "magenta", "red", "brown"),
      ylim = c(0,14),
      xaxt="n")
-dates<-format(WHO_SR$Date,"%b-%d")
-axis(1, at=WHO_SR$Date, labels=dates)
+dates<-format(sarscov2_ecdc_2019$date,"%b-%d")
+axis(1, at=sarscov2_ecdc_2019$date, labels=dates)
 legend(x="top", 
-       legend = c("China", "Korea", "Italy", "USA", "Canada", "Spain"), 
-       col =    c("black",   "blue",  "green", "magenta", "red", "brown"), 
+       legend = c("Italy", "Spain", "USA", "China", "Canada", "Korea"), 
+       col =    c("green", "brown", "magenta", "black", "red", "blue"), 
        pch=18)
 
 ```
