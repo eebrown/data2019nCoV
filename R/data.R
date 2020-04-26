@@ -74,6 +74,44 @@
 #' @format A data frame where each row represents a report
 "ON_mohreports"
 
+# #' Ontario Ministry of Health Coronavirus Cumulative Case Totals
+# #'
+# #' A dataset containing the data reported online by the Ontario Ministry of 
+# #' Health. For verification purposes, the data is retrieved from the Internet
+# #' Archive web archives, with the URL of the snapshot provided.
+# #'
+# #' @source \url{https://www.ontario.ca/page/2019-novel-coronavirus}
+# #' @docType data
+# #' @format A data frame where each row represents a reporting time
+# #'  \describe{
+# #'     \item{URL}{Internet Archive snapshot of URL for source data}
+# #'     \item{AsOf}{The results are updated to this date}
+# #'     \item{LastUpdated}{The date the data were reported on the webpage}
+# #'     \item{Negative}{Negative tests.}
+# #'     \item{UnderInvestigation}{Number of current pending tests.}
+# #'     \item{PresumptivePositive}{Awaiting confirmation at national laboratory.}
+# #'     \item{Deceased}{Confirmed deceased cases.}
+# #'     \item{ConfirmedPositive}{"Patient still testing positive and has not had two consecutive negative results greater than 24 hours apart"}
+# #'     \item{Cases}{"Number of confirmed cases reported to date in iPHIS by 34 Public Health Units, including resolved and deceased cases"}
+# #'     \item{Resolved}{"Patient is no longer infectious based on two consecutive negative tests performed"}
+# #'     \item{TotalTested}{"Total number of patients approved for COVID-19 testing to date"}
+# #'     \item{TotalTests}{"Total number of tests completed by the COVID-19 Clinical Lab network"}
+# #'     \item{PreviousDayTests}{"Total number of tests completed in the previous day"}
+# #'     \item{Male}{"Male cases"}
+# #'     \item{Female}{"Female cases"}
+# #'     \item{X19andunder}{"Cases age 19 and under"} 
+# #'     \item{X20to64}{"Cases age 20 to 64"}
+# #'     \item{X65andover}{"Cases age 65 and over"}
+# #'     \item{X20to39}{"Cases age 20 to 39"}
+# #'     \item{X40to59}{"Cases age 40 to 59"}
+# #'     \item{X60to79}{"Cases age 60 to 79"}
+# #'     \item{X80andover}{"Cases age 80 and over"}
+# #'     \item{Hospitalized}{"Cases currently hospitalized"}
+# #'     \item{ICU}{"Cases currently in ICU"}
+# #'     \item{Ventilator}{"Cases currently in ICU and on ventilator"}
+# #'  }
+# "sarscov2_ontario_2020"
+
 #' Canada Public Health Coronavirus Cumulative Case Totals
 #'
 #' A dataset containing the data reported online by the Canadian government.

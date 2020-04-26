@@ -10,7 +10,7 @@ Currently, this package contains 5 updated datasets.
 
 ### World 
 
-`ECDC_owid` and `sarscov2_ecdc_2019`: The CSV file produced by [Our World In Data](https://ourworldindata.org/coronavirus-source-data), as a data.frame, including cumulative cases and deaths for all countries. The first is the untransformed long format, and `sarscov2_ecdc_2019` is transformed into long format, and renamed with ISO 3-letter country codes with systematic snake case naming. Updated to 2020-04-24.
+`ECDC_owid` and `sarscov2_ecdc_2019`: The CSV file produced by [Our World In Data](https://ourworldindata.org/coronavirus-source-data), as a data.frame, including cumulative cases and deaths for all countries. The first is the untransformed long format, and `sarscov2_ecdc_2019` is transformed into long format, and renamed with ISO 3-letter country codes with systematic snake case naming. Updated to 2020-04-26.
 
 `WHO_SR` and `sarscov2_who_2019`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports). The first uses the wordy names from th Situation Reports, and `sarscov2_who_2019` uses systmatic ISO 3-letter country code names with systematic snake case naming. Updated up to 2020-04-21 (Situation Reports # 1-92). *Note I am not currently able able to keep the WHO Situation Report transcriptions up to date.*
 

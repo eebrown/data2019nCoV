@@ -138,7 +138,7 @@ gather(ON_forplot, key, value,
        ) %>%
   ggplot(aes(x=date, y=value, col=key)) +
   geom_path() +
-  #scale_y_continuous(trans = 'log10', labels = comma) +
+  scale_y_continuous(trans = 'log10', labels = comma) +
   theme(legend.position="bottom") +
   labs(title = "Ontario COVID-19 Cases by Public Health Unit",
        x = "Date", 

@@ -8,6 +8,7 @@ devtools::load_all()
 
 ON_cumulative <- read.csv("data-raw/ON_cumulative.csv")
 ON_cumulative$LastUpdated <- as.POSIXct(ON_cumulative$LastUpdated)
+ON_cumulative$AsOf <- as.POSIXct(ON_cumulative$AsOf)
 
 usethis::use_data(ON_cumulative, overwrite = TRUE)
 
@@ -18,6 +19,10 @@ ON_mohreports$date <- as.POSIXct(ON_mohreports$date)
 ON_mohreports$date_data <- as.POSIXct(ON_mohreports$date_data)
 
 usethis::use_data(ON_mohreports, overwrite = TRUE)
+
+## combine into clean object with systematic names WIP
+
+
 
 devtools::document()
 devtools::build_vignettes()
