@@ -40,25 +40,27 @@ plot(ON_cumulative$LastUpdated, all_cases,
      type = "b")
 
 plot(ON_cumulative$LastUpdated, all_cases,
-     main = "Cumulative Confirmed COVID-19 Cases in Ontario (Semilog.)",
+     main = "Cumulative COVID-19 Cases in Ontario (Semilog.)",
      xlab = "Date",
-     ylab = "Cases (Open, Resolved, Deceased)",
+     ylab = "Confirmed Cases (Open, Resolved, Deceased)",
      type = "b",
      log = "y")
 
 par(mfrow=c(1,2))
 
-plot(ON_cumulative$LastUpdated[-1], daily_change(ON_cumulative$TotalTested), type="b",
+plot(ON_cumulative$LastUpdated[2:61], daily_change(ON_cumulative$TotalTested)[1:60], type="b",
      main = "Total Tested",
      xlab = "Date",
      ylab = "Change in Total Tested Between Report",
-     ylim = c(0, 10000))
+     ylim = c(0, 15000))
 
-plot(ON_cumulative$LastUpdated[-1], daily_change(ON_cumulative$TotalTests), type="b",
+plot(ON_cumulative$LastUpdated[62:length(ON_cumulative$LastUpdated)], 
+     daily_change(ON_cumulative$TotalTests)[61:length(daily_change(ON_cumulative$TotalTests))], 
+     type="b",
      main = "Total Tests",
      xlab = "Date",
      ylab = "Change in Total Tests Between Report",
-     ylim = c(0, 10000))
+     ylim = c(0, 15000))
 
 par(mfrow=c(1,1))
 
