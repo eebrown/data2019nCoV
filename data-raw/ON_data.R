@@ -23,6 +23,9 @@ usethis::use_data(ON_mohreports, overwrite = TRUE)
 ## combine into clean object with systematic names WIP
 
 
+#covidtesting.csv
+#conposcovidloc.csv
+
 
 devtools::document()
 devtools::build_vignettes()
