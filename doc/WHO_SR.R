@@ -19,11 +19,11 @@ sarscov2_ecdc_2019$date[length(sarscov2_ecdc_2019$date)]
 
 # Global Cases
 options(scipen=5)
-plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
-     main = "Global COVID-19 Cases",
-     xlab = "Date",
-     ylab = "Confirmed Cases",
-     type = "b")
+#plot(WHO_SR$Date, WHO_SR$Global.confirmed, 
+#     main = "Global COVID-19 Cases",
+#     xlab = "Date",
+#     ylab = "Confirmed Cases",
+#     type = "b")
 
 plot(sarscov2_ecdc_2019$date, sarscov2_ecdc_2019$cases_global, 
      main = "Global COVID-19 Cases",
@@ -44,11 +44,11 @@ daily_change <- function(series) {
 change_cases <- daily_change(WHO_SR$Global.confirmed)
 change_cases_ecdc <- daily_change(sarscov2_ecdc_2019$cases_global)
 
-plot(WHO_SR$Date[-1], change_cases,
-     main = "Change in Global Cases by Date",
-     ylab = "New Confirmed Cases",
-     xlab = "Date",
-     type = "b")
+#plot(WHO_SR$Date[-1], change_cases,
+#     main = "Change in Global Cases by Date",
+#     ylab = "New Confirmed Cases",
+#     xlab = "Date",
+#     type = "b")
 
 plot(sarscov2_ecdc_2019$date[-1], change_cases_ecdc,
      main = "Change in Global Cases by Date",
@@ -298,7 +298,7 @@ matplot(as.Date(sarscov2_ecdc_2019$date[range]), cbind(
      type = "l",
      col = c("red",   "red",  "blue", "blue"),
      lty = c("solid", "dotted", "solid", "dotted"),
-     ylim = c(0,400),
+     ylim = c(0,500),
      ylog = TRUE,
      xaxt="n")
 dates<-format(sarscov2_ecdc_2019$date,"%b %d")

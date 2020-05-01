@@ -26,6 +26,29 @@ usethis::use_data(ON_mohreports, overwrite = TRUE)
 #covidtesting.csv
 #conposcovidloc.csv
 
+library(tidyverse)
+ON_linelist <- read.csv("data-raw/conposcovidloc.csv")
+ON_status <- read.csv("data-raw/covidtesting.csv")
+
+ON_status <- rename(ON_status,
+    date = Reported.Date,
+    negative = Confirmed.Negative,
+    positive = Confirmed.Positive,
+    presumptive = Presumptive.Positive,
+    resolved = Resolved,
+    deaths = Deaths,
+    cases = Total.Cases,
+    tested_patients = Total.patients.approved.for.testing.as.of.Reporting.Date,
+    tests_last_day = Total.tests.completed.in.the.last.day,
+    current_investigation = Under.Investigation,
+    current_hospitalized = Number.of.patients.hospitalized.with.COVID.19,
+    current_ICU = Number.of.patients.in.ICU.with.COVID.19,
+    current_ventilator = Number.of.patients.in.ICU.on.a.ventilator.with.COVID.19)
+
+ON_status$date <- as.POSIXct(ON_status$date)
+
+usethis::use_data(ON_status, overwrite = TRUE)
+usethis::use_data(ON_linelist, overwrite = TRUE)
 
 devtools::document()
 devtools::build_vignettes()

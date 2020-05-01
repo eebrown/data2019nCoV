@@ -10,19 +10,21 @@ Currently, this package contains 5 updated datasets.
 
 ### World 
 
-`ECDC_owid` and `sarscov2_ecdc_2019`: The CSV file produced by [Our World In Data](https://ourworldindata.org/coronavirus-source-data), as a data.frame, including cumulative cases and deaths for all countries. The first is the untransformed long format, and `sarscov2_ecdc_2019` is transformed into long format, and renamed with ISO 3-letter country codes with systematic snake case naming. Updated to 2020-04-29.
+`ECDC_owid` and `sarscov2_ecdc_2019`: The CSV file produced by [Our World In Data](https://ourworldindata.org/coronavirus-source-data), as a data.frame, including cumulative cases and deaths for all countries. The first is the untransformed long format, and `sarscov2_ecdc_2019` is transformed into long format, and renamed with ISO 3-letter country codes with systematic snake case naming. Updated to 2020-04-30.
 
 `WHO_SR` and `sarscov2_who_2019`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports). The first uses the wordy names from th Situation Reports, and `sarscov2_who_2019` uses systmatic ISO 3-letter country code names with systematic snake case naming. Updated up to 2020-04-21 (Situation Reports # 1-92). *Note I am not currently able able to keep the WHO Situation Report transcriptions up to date.*
 
 ### Ontario
 
-`ON_cumulative`: The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus) where possible. It has been updated as of 2020-04-29.
+`ON_status`: The government of Ontario updates the Ontario testing data (e.g. cumulative case count) and current hospitalization data daily in a .csv file, [covidtesting.csv](https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario), updated as of 2020-04-30.
 
-`ON_mohreports`: This object contains the data in the Public Health Ontario/Ontario Ministry of Health "Epidemiologic Summary" reports, published daily from 2020-03-29. It is updated as of 2020-04-29.
+`ON_mohreports`: This object contains the data in the Public Health Ontario/Ontario Ministry of Health "Epidemiologic Summary" reports, published daily from 2020-03-29. It is updated as of 2020-04-30.
+
+~~`ON_cumulative`~~ (replaced with ON_status) The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus) where possible. It has been updated to 2020-04-30.
 
 ### Canada
 
-`CAN_govcsv`: The government of Canada releases provincial cumulative totals including cases, deaths, and number tested, released as a `covid19.csv` file. This object contains data from that file transformed into a wide data frame. It is updated as of 2020-04-29.
+`CAN_govcsv`: The government of Canada releases provincial cumulative totals including cases, deaths, and number tested, released as a `covid19.csv` file. This object contains data from that file transformed into a wide data frame. It is updated as of 2020-04-30.
 
 ~~`CAN_cumulative`~~ (not updated): Prior to the government's release of data in `.csv`, this data was scraped from the Canadian Government's [website](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html), up to 2020-03-27. After this time, the government started releasing a daily .csv containing the full data (see `CAN_govcsv` above).
 
