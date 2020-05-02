@@ -26,8 +26,6 @@ ON_status$date[length(ON_status$date)]
 
 ## ---- fig.width=6, fig.height=8-----------------------------------------------
 
-#par(mfrow=c(3,1))
-
 plot(ON_status$date, ON_status$cases,
      main = "Cumulative Confirmed COVID-19 Cases in Ontario",
      xlab = "Date",

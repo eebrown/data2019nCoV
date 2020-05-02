@@ -126,67 +126,67 @@ gather(WHO_SR, key, value, China.Hubei,
 ```{r, fig.width=6, fig.height=6}
 # Major Outbreaks
 
-gather(sarscov2_ecdc_2019, key, value, 
-       cases_chn, 
-       cases_ita,
-       cases_irn,
-       cases_kor,
-       cases_esp, 
-       cases_deu, 
-       cases_fra,  
-       cases_usa,
-       cases_che, #Switzerland, 
-       cases_nld, #Netherlands, 
-       cases_gbr, #UnitedKingdom, 
-       cases_aut, #Austria
-       cases_tur,
-       ) %>%
-  ggplot(aes(x=date, y=value, col=key)) +
-  geom_line() +
-  theme(legend.position="right", legend.title = element_blank()) +
-  scale_y_continuous(trans = 'log10', labels = comma) +
-  labs(title = "Major COVID-19 Outbreaks (Semilogarithmic)",
-       x = "Date", 
-       y = "Confirmed Cases") 
+# gather(sarscov2_ecdc_2019, key, value, 
+#        cases_chn, 
+#        cases_ita,
+#        cases_irn,
+#        cases_kor,
+#        cases_esp, 
+#        cases_deu, 
+#        cases_fra,  
+#        cases_usa,
+#        cases_che, #Switzerland, 
+#        cases_nld, #Netherlands, 
+#        cases_gbr, #UnitedKingdom, 
+#        cases_aut, #Austria
+#        cases_tur,
+#        ) %>%
+#   ggplot(aes(x=date, y=value, col=key)) +
+#   geom_line() +
+#   theme(legend.position="right", legend.title = element_blank()) +
+#   scale_y_continuous(trans = 'log10', labels = comma) +
+#   labs(title = "Major COVID-19 Outbreaks (Semilogarithmic)",
+#        x = "Date", 
+#        y = "Confirmed Cases") 
+# 
+# overx <- function(country, x) {
+#   over <- country[country > x] 
+#   over <- c(over, rep(NA, length(WHO_SR$Date)))
+#   return(over)
+# }
 
-overx <- function(country, x) {
-  over <- country[country > x] 
-  over <- c(over, rep(NA, length(WHO_SR$Date)))
-  return(over)
-}
-
-start_no <- 5000
-
-plot(overx(WHO_SR$China, start_no), col="gray", type="l",
-     xlab=paste0("Days Since ", start_no, " Cases"),
-     ylab= "Cases",
-     main=paste0("Outbreak Progression from ", start_no, " Cases"),
-     xlim=c(0,60),
-     ylim=c(1000,700000))
-lines(overx(WHO_SR$Italy, start_no), col="green")
-lines(overx(WHO_SR$Iran, start_no), col="orange")
-lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
-lines(overx(WHO_SR$Spain, start_no), col="brown")
-lines(overx(WHO_SR$Germany, start_no), col="coral")
-lines(overx(WHO_SR$France,  start_no), col="purple")
-lines(overx(WHO_SR$UnitedStatesofAmerica, start_no), col="blue")
-lines(overx(WHO_SR$Switzerland,  start_no), col="black")
-lines(overx(WHO_SR$Austria,  start_no), col="black")
-lines(overx(WHO_SR$UnitedKingdom,  start_no), col="cornflowerblue")
-lines(overx(WHO_SR$Netherlands, start_no), col="black")
-lines(overx(WHO_SR$Norway, start_no), col="black")
-lines(overx(WHO_SR$Sweden, start_no), col="black")
-lines(overx(WHO_SR$Denmark, start_no), col="black")
-lines(overx(WHO_SR$Belgium, start_no), col="black")
-lines(overx(WHO_SR$Canada, start_no), col="red")
-
-legend(x = "right", legend = c("USA", "Spain", "Germany", 
-                               "Italy", "China", "UK", 
-                               "France", "Iran", "Korea", "Canada"),
-       col =    c("blue", "brown",   "coral",  
-                  "green", "gray", "cornflowerblue", 
-                  "purple", "orange", "magenta", "red"), 
-       pch=18)
+# start_no <- 5000
+# 
+# plot(overx(WHO_SR$China, start_no), col="gray", type="l",
+#      xlab=paste0("Days Since ", start_no, " Cases"),
+#      ylab= "Cases",
+#      main=paste0("Outbreak Progression from ", start_no, " Cases"),
+#      xlim=c(0,60),
+#      ylim=c(1000,700000))
+# lines(overx(WHO_SR$Italy, start_no), col="green")
+# lines(overx(WHO_SR$Iran, start_no), col="orange")
+# lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
+# lines(overx(WHO_SR$Spain, start_no), col="brown")
+# lines(overx(WHO_SR$Germany, start_no), col="coral")
+# lines(overx(WHO_SR$France,  start_no), col="purple")
+# lines(overx(WHO_SR$UnitedStatesofAmerica, start_no), col="blue")
+# lines(overx(WHO_SR$Switzerland,  start_no), col="black")
+# lines(overx(WHO_SR$Austria,  start_no), col="black")
+# lines(overx(WHO_SR$UnitedKingdom,  start_no), col="cornflowerblue")
+# lines(overx(WHO_SR$Netherlands, start_no), col="black")
+# lines(overx(WHO_SR$Norway, start_no), col="black")
+# lines(overx(WHO_SR$Sweden, start_no), col="black")
+# lines(overx(WHO_SR$Denmark, start_no), col="black")
+# lines(overx(WHO_SR$Belgium, start_no), col="black")
+# lines(overx(WHO_SR$Canada, start_no), col="red")
+# 
+# legend(x = "right", legend = c("USA", "Spain", "Germany", 
+#                                "Italy", "China", "UK", 
+#                                "France", "Iran", "Korea", "Canada"),
+#        col =    c("blue", "brown",   "coral",  
+#                   "green", "gray", "cornflowerblue", 
+#                   "purple", "orange", "magenta", "red"), 
+#        pch=18)
 
 ```
 
@@ -221,56 +221,56 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,40000))
+      ylim = c(0,50000))
  
   plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_usa),
       main = "United States - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,4000))
+      ylim = c(0,5000))
   
    plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_ita),
       main = "Italy - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,40000))
+      ylim = c(0,50000))
    
     plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_ita),
       main = "Italy - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,4000))
+      ylim = c(0,5000))
  
      plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_esp),
       main = "Spain - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,40000))
+      ylim = c(0,50000))
      
       plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_esp),
       main = "Spain - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,4000))
+      ylim = c(0,5000))
       
       plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_fra),
       main = "France - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,40000))
+      ylim = c(0,50000))
      
       plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_fra),
       main = "France - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,4000))
+      ylim = c(0,5000))
 
 ```
 
@@ -328,37 +328,37 @@ legend(x="top",
 population_US <- 329968629
 population_CAN <- 37894799
 
-range <- 60:length(sarscov2_ecdc_2019$cases_can)
+range <- 80:length(sarscov2_ecdc_2019$cases_can)
 
 matplot(as.Date(sarscov2_ecdc_2019$date[range]), cbind( 
-                           ( (sarscov2_ecdc_2019$cases_can / population_CAN)[range] * 100000 ),
-                           ( (sarscov2_ecdc_2019$deaths_can / population_CAN)[range] * 1000000 ),
-                           ( (sarscov2_ecdc_2019$cases_usa / population_US)[range] * 100000 ),
-                           ( (sarscov2_ecdc_2019$deaths_usa / population_US)[range] * 1000000 )
+                           ( (sarscov2_ecdc_2019$cases_can / population_CAN)[range] * 100 ),
+                           ( (sarscov2_ecdc_2019$deaths_can / population_CAN)[range] * 1000 ),
+                           ( (sarscov2_ecdc_2019$cases_usa / population_US)[range] * 100 ),
+                           ( (sarscov2_ecdc_2019$deaths_usa / population_US)[range] * 1000 )
                            ),
                            
      main = "Cases and Deaths Per Capita",
      xlab = "Date (2020)",
-     ylab = "Cases Per 100k; Deaths per Million",
+     ylab = "Cases (% population); Deaths (per 1000 population)",
      type = "l",
      col = c("red",   "red",  "blue", "blue"),
      lty = c("solid", "dotted", "solid", "dotted"),
-     ylim = c(0,500),
+     ylim = c(0,.5),
      ylog = TRUE,
      xaxt="n")
 dates<-format(sarscov2_ecdc_2019$date,"%b %d")
 axis(1, at=sarscov2_ecdc_2019$date, labels=dates)
 legend(x="top", 
-       legend = c("Canada Cases per 100k", "Canada Deaths per Million", "USA Cases per 100k", "USA Deaths per Million", "Estimates of Annual Influenza Deaths per Million"), 
+       legend = c("Canada Cases (%)", "Canada Deaths (per 1000)", "USA Cases (%)", "USA Deaths (per 1000)", "Estimates of Annual Influenza Deaths per 1000"), 
        col =    c("red",   "red",  "blue", "blue", "grey"),
        lty = c("solid", "dotted", "solid", "dotted", "dotted"),
        pch=18)
-#annual mortality from influenza per million (https://ipac-canada.org/influenza-resources.php)
-abline(h = 20, col="grey", lty="dotted") 
-#lower and upper annual mortality from influenza per million (CDC)
-abline(h = 36, col="grey", lty="dotted") 
-abline(h = 184, col="grey", lty="dotted") 
+#annual mortality from influenza per thousand (https://ipac-canada.org/influenza-resources.php)
+abline(h = .020, col="grey", lty="dotted") 
+#lower and upper annual mortality from influenza per thousand (CDC)
+abline(h = .036, col="grey", lty="dotted") 
+abline(h = .184, col="grey", lty="dotted") 
 # (https://www.ontario.ca/page/flu-facts)
-abline(h = 92, col="grey", lty="dotted") 
+abline(h = .092, col="grey", lty="dotted") 
 
 ```
