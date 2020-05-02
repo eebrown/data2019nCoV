@@ -1,3 +1,8 @@
+
+# Documentation of Data Objects
+
+## World
+
 #' European Centre for Disease Control cases and deaths data
 #'
 #' A dataset containing the data reported by the ECDC, as curated and released
@@ -17,6 +22,33 @@
 #' @source \url{https://ourworldindata.org/coronavirus-source-data}
 "ECDC_owid"
 
+#' SARS-CoV-2 World Health Organization Situation Reports 2019 Outbreak (COVID-19)
+#'
+#' These data are transcribed from the WHO Situation Reports on the COVID-19
+#' outbreak (SARS-CoV-2). Data was not available for all variables in all 
+#' reports. For full details, see the original Situation Reports as published 
+#' by WHO. Data were manually transcribed and errors are possible.
+#' 
+#' @docType data
+#' @format A data frame where each row represents a new Situation Report
+#'
+#' @rdname sarscov2_who_2019
+#'
+#' @author Data from World Health Organization (WHO), published as Sitation
+#' Reports. Transfer to R and documentation by Eric Brown.
+#'
+#' @source World Health Organization (2020)
+#'
+#' @references
+#'
+#' World Health Organization. 2020. <https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports>
+#'
+#' @examples
+#' ## show global cases
+#' sarscov2_who_2019$cases_global
+#'
+"sarscov2_who_2019"
+
 #' World Health Organization situation reports data
 #'
 #' A dataset containing the data reported in the WHO COVID-19
@@ -25,6 +57,9 @@
 #' @format A data frame with a row for each situation report
 #' @source \url{https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports}
 "WHO_SR"
+
+
+## Ontario
 
 #' Ontario Ministry of Health Coronavirus Cumulative Case Totals
 #'
@@ -74,43 +109,61 @@
 #' @format A data frame where each row represents a report
 "ON_mohreports"
 
-# #' Ontario Ministry of Health Coronavirus Cumulative Case Totals
-# #'
-# #' A dataset containing the data reported online by the Ontario Ministry of 
-# #' Health. For verification purposes, the data is retrieved from the Internet
-# #' Archive web archives, with the URL of the snapshot provided.
-# #'
-# #' @source \url{https://www.ontario.ca/page/2019-novel-coronavirus}
-# #' @docType data
-# #' @format A data frame where each row represents a reporting time
-# #'  \describe{
-# #'     \item{URL}{Internet Archive snapshot of URL for source data}
-# #'     \item{AsOf}{The results are updated to this date}
-# #'     \item{LastUpdated}{The date the data were reported on the webpage}
-# #'     \item{Negative}{Negative tests.}
-# #'     \item{UnderInvestigation}{Number of current pending tests.}
-# #'     \item{PresumptivePositive}{Awaiting confirmation at national laboratory.}
-# #'     \item{Deceased}{Confirmed deceased cases.}
-# #'     \item{ConfirmedPositive}{"Patient still testing positive and has not had two consecutive negative results greater than 24 hours apart"}
-# #'     \item{Cases}{"Number of confirmed cases reported to date in iPHIS by 34 Public Health Units, including resolved and deceased cases"}
-# #'     \item{Resolved}{"Patient is no longer infectious based on two consecutive negative tests performed"}
-# #'     \item{TotalTested}{"Total number of patients approved for COVID-19 testing to date"}
-# #'     \item{TotalTests}{"Total number of tests completed by the COVID-19 Clinical Lab network"}
-# #'     \item{PreviousDayTests}{"Total number of tests completed in the previous day"}
-# #'     \item{Male}{"Male cases"}
-# #'     \item{Female}{"Female cases"}
-# #'     \item{X19andunder}{"Cases age 19 and under"} 
-# #'     \item{X20to64}{"Cases age 20 to 64"}
-# #'     \item{X65andover}{"Cases age 65 and over"}
-# #'     \item{X20to39}{"Cases age 20 to 39"}
-# #'     \item{X40to59}{"Cases age 40 to 59"}
-# #'     \item{X60to79}{"Cases age 60 to 79"}
-# #'     \item{X80andover}{"Cases age 80 and over"}
-# #'     \item{Hospitalized}{"Cases currently hospitalized"}
-# #'     \item{ICU}{"Cases currently in ICU"}
-# #'     \item{Ventilator}{"Cases currently in ICU and on ventilator"}
-# #'  }
-# "sarscov2_ontario_2020"
+#' Ontario Ministry of Health Status of COVID-19 cases in Ontario
+#'
+#' A dataset containing the data reported online by the Ontario Ministry of 
+#' Health in its .csv file covidtesting.csv. Variable definitions from the
+#' Ministry's provided data dictionary (covidtesting_data_dictionary.xlsx).
+#'
+#' @source \url{https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario}
+#' @docType data
+#' @format A data frame where each row represents a date's data
+#'  \describe{
+#'     \item{date}{Reporting date of Ontario COVID-19 daily summary}
+#'     \item{negative}{Patients tested negative based on testing performed at both Public Health Ontario (PHO) Laboratory and National Microbiology Lab (NML)}
+#'     \item{negative_presumptive}{Patients tested negative at Public Health Ontario (PHO) Laboratory, but not yet tested by National Microbiology Lab (NML)}
+#'     \item{positive}{Number of active confirmed positive COVID-19 cases in Ontario as measured on "Reported Date"}
+#'     \item{positive_presumptive}{Patients tested positive at Public Health Ontario (PHO)  Laboratory, but not yet tested by National Microbiology Lab (NML)}
+#'     \item{resolved}{Cumulative number of resolved cases as measured on "Reported Date"}
+#'     \item{deaths}{Cumulative number of fatalities of people with COVID-19 as measured on "Reported Date"}
+#'     \item{cases}{Cumulative number of confirmed cases reported to date in the Integrated Public Health Information System (iPHIS) by Ontario’s 34 Public Health Units (PHUs), including resolved and deceased cases as measured on "Reported Date"}
+#'     \item{tested_patients}{Cumulative number of tests submitted to the COVID-19 Clinical Lab network (including PHO, hospital, academic and community laboratories) as measured on "Reported Date"}
+#'     \item{tests_last_day}{Number of tests processed and completed during the day before the "Reported Date" (the 24-hour period from 12:00 a.m. – 11:59 p.m.)}
+#'     \item{current_investigation}{Number of tests pending results as measured on "Reported Date"}
+#'     \item{current_hospitalized}{Number of patients currently hospitalized with COVID-19 as measured on "Reported Date"}
+#'     \item{current_ICU}{Number of patients currently in an Intensive Care Unit (ICU) with COVID-19 as measured on "Reported Date"}
+#'     \item{current_ventilator}{Number of patients currently in an Intensive Care Unit (ICU), on a ventilator with COVID-19 as measured on "Reported Date"}
+#'  }
+"ON_status"
+
+#' Ontario Ministry of Health Status of COVID-19 cases in Ontario
+#'
+#' A dataset containing the data reported online by the Ontario Ministry of 
+#' Health in its .csv file conposcovidloc.csv. Variable definitions from the
+#' Ministry's provided data dictionary (conposcovidloc_data_dictionary.xlsx).
+#'
+#' @source \url{https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario}
+#' @docType data
+#' @format A data frame where each row confirmed case
+#'  \describe{
+#'     \item{id}{Identifier for each individual row/record within the dataset}
+#'     \item{date}{A number of dates entered in the Integrated Public Health Information System (iPHIS) to provide an approximation of onset date}
+#'     \item{age_group}{Age group of the patient}
+#'     \item{gender}{Gender information of the patient}
+#'     \item{exposure}{Suspected method of exposure to COVID-19, if known}
+#'     \item{outcome}{Patient outcome}
+#'     \item{phu}{Public Health Unit (PHU) where confirmed positive case occurred}
+#'     \item{phu_address}{Official physical street address of Public Health Unit (PHU)}
+#'     \item{phu_city}{Official city of Public Health Unit (PHU)}
+#'     \item{phu_pc}{Official postal code of Public Health Unit (PHU)}
+#'     \item{phu_website}{Official website of Public Health Unit (PHU)}
+#'     \item{phu_lat}{Latitude of Public Health Unit (PHU) physical address for mapping purposes}
+#'     \item{phu_long}{Longitude of Public Health Unit (PHU) physical address for mapping purposes}
+#'  }
+"ON_linelist"
+
+
+## Canada
 
 #' Canada Public Health Coronavirus Cumulative Case Totals
 #'
@@ -188,30 +241,3 @@
 #' @docType data
 #' @format A data frame where each row represents a reporting date
 "CAN_govcsv"
-
-#' SARS-CoV-2 World Health Organization Situation Reports 2019 Outbreak (COVID-19)
-#'
-#' These data are transcribed from the WHO Situation Reports on the COVID-19
-#' outbreak (SARS-CoV-2). Data was not available for all variables in all 
-#' reports. For full details, see the original Situation Reports as published 
-#' by WHO. Data were manually transcribed and errors are possible.
-#' 
-#' @docType data
-#' @format A data frame where each row represents a new Situation Report
-#'
-#' @rdname sarscov2_who_2019
-#'
-#' @author Data from World Health Organization (WHO), published as Sitation
-#' Reports. Transfer to R and documentation by Eric Brown.
-#'
-#' @source World Health Organization (2020)
-#'
-#' @references
-#'
-#' World Health Organization. 2020. <https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports>
-#'
-#' @examples
-#' ## show global cases
-#' sarscov2_who_2019$cases_global
-#'
-"sarscov2_who_2019"

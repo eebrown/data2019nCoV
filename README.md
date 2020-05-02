@@ -18,6 +18,8 @@ Currently, this package contains 5 updated datasets.
 
 `ON_status`: The government of Ontario updates the Ontario testing data (e.g. cumulative case count) and current hospitalization data daily in a .csv file, [covidtesting.csv](https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario), updated as of 2020-05-01.
 
+`ON_linelist`: The list of [confirmed cases](https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario) provided by the Government of Ontario. Last updated 2020-05-01.
+
 `ON_mohreports`: This object contains the data in the Public Health Ontario/Ontario Ministry of Health "Epidemiologic Summary" reports, published daily from 2020-03-29. It is updated as of 2020-05-01.
 
 ~~`ON_cumulative`~~ (replaced with ON_status) The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus) where possible. It has been updated to 2020-05-01.

@@ -9,8 +9,9 @@ A data frame where each row represents a date's data
  \describe{
     \item{date}{Reporting date of Ontario COVID-19 daily summary}
     \item{negative}{Patients tested negative based on testing performed at both Public Health Ontario (PHO) Laboratory and National Microbiology Lab (NML)}
+    \item{negative_presumptive}{Patients tested negative at Public Health Ontario (PHO) Laboratory, but not yet tested by National Microbiology Lab (NML)}
     \item{positive}{Number of active confirmed positive COVID-19 cases in Ontario as measured on "Reported Date"}
-    \item{presumptive}{Patients tested positive at Public Health Ontario (PHO)  Laboratory, but not yet tested by National Microbiology Lab (NML)}
+    \item{positive_presumptive}{Patients tested positive at Public Health Ontario (PHO)  Laboratory, but not yet tested by National Microbiology Lab (NML)}
     \item{resolved}{Cumulative number of resolved cases as measured on "Reported Date"}
     \item{deaths}{Cumulative number of fatalities of people with COVID-19 as measured on "Reported Date"}
     \item{cases}{Cumulative number of confirmed cases reported to date in the Integrated Public Health Information System (iPHIS) by Ontario’s 34 Public Health Units (PHUs), including resolved and deceased cases as measured on "Reported Date"}

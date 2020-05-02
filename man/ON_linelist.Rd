@@ -6,6 +6,21 @@
 \title{Ontario Ministry of Health Status of COVID-19 cases in Ontario}
 \format{
 A data frame where each row confirmed case
+ \describe{
+    \item{id}{Identifier for each individual row/record within the dataset}
+    \item{date}{A number of dates entered in the Integrated Public Health Information System (iPHIS) to provide an approximation of onset date}
+    \item{age_group}{Age group of the patient}
+    \item{gender}{Gender information of the patient}
+    \item{exposure}{Suspected method of exposure to COVID-19, if known}
+    \item{outcome}{Patient outcome}
+    \item{phu}{Public Health Unit (PHU) where confirmed positive case occurred}
+    \item{phu_address}{Official physical street address of Public Health Unit (PHU)}
+    \item{phu_city}{Official city of Public Health Unit (PHU)}
+    \item{phu_pc}{Official postal code of Public Health Unit (PHU)}
+    \item{phu_website}{Official website of Public Health Unit (PHU)}
+    \item{phu_lat}{Latitude of Public Health Unit (PHU) physical address for mapping purposes}
+    \item{phu_long}{Longitude of Public Health Unit (PHU) physical address for mapping purposes}
+ }
 }
 \source{
 \url{https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario}

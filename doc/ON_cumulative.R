@@ -22,48 +22,44 @@ ON_cumulative$LastUpdated[length(ON_cumulative$LastUpdated)]
 
 ON_mohreports$date[length(ON_mohreports$date)]
 
+ON_status$date[length(ON_status$date)]
+
 ## ---- fig.width=6, fig.height=8-----------------------------------------------
 
 #par(mfrow=c(3,1))
 
-
-all_cases <- ( 
-          c((ON_cumulative$ConfirmedPositive+ON_cumulative$Resolved+ON_cumulative$Deceased)[1:44],
-                rep(0, length(ON_cumulative$Cases)-44))
-              + c(rep(0, 44), ON_cumulative$Cases[45:length(ON_cumulative$Cases)])
-              )
-
-plot(ON_cumulative$LastUpdated, all_cases,
+plot(ON_status$date, ON_status$cases,
      main = "Cumulative Confirmed COVID-19 Cases in Ontario",
      xlab = "Date",
-     ylab = "Cases (Open, Resolved, Deceased)",
+     ylab = "Cases",
      type = "b")
 
-plot(ON_cumulative$LastUpdated, all_cases,
+plot(ON_status$date, ON_status$cases,
      main = "Cumulative COVID-19 Cases in Ontario (Semilog.)",
      xlab = "Date",
-     ylab = "Confirmed Cases (Open, Resolved, Deceased)",
+     ylab = "Confirmed Cases",
      type = "b",
      log = "y")
 
-par(mfrow=c(1,2))
-
-plot(ON_cumulative$LastUpdated[2:61], daily_change(ON_cumulative$TotalTested)[1:60], type="b",
-     main = "Total Tested",
+plot(ON_status$date, ON_status$positive,
+     main = "Active COVID-19 Cases in Ontario",
      xlab = "Date",
-     ylab = "Change in Total Tested Between Report",
-     ylim = c(0, 15000))
+     ylab = "Confirmed Cases",
+     type = "b")
 
-plot(ON_cumulative$LastUpdated[62:length(ON_cumulative$LastUpdated)], 
-     daily_change(ON_cumulative$TotalTests)[61:length(daily_change(ON_cumulative$TotalTests))], 
-     type="b",
-     main = "Total Tests",
+plot(ON_status$date[-1], daily_change(ON_status$cases),
+     main = "Change in COVID-19 Cases in Ontario",
      xlab = "Date",
-     ylab = "Change in Total Tests Between Report",
-     ylim = c(0, 15000))
+     ylab = "Change in Confirmed Cases",
+     type = "b")
 
-par(mfrow=c(1,1))
+plot(ON_status$date[-1], daily_change(ON_status$tested_patients),
+     main = "Change in COVID-19 Patients Tested",
+     xlab = "Date",
+     ylab = "Change in Patients Tests",
+     type = "b")
 
+## ---- fig.width=6, fig.height=8-----------------------------------------------
 colours <- c("red",   "blue",  "black", "magenta", "green")
 
 matplot(ON_mohreports$date, cbind( 

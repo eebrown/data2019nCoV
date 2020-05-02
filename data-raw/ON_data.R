@@ -2,15 +2,8 @@
 ## Package users ignore this code.
 
 devtools::load_all()
+library(tidyverse)
 
-# Ontario cumulative data from 
-# https://www.ontario.ca/page/2019-novel-coronavirus
-
-ON_cumulative <- read.csv("data-raw/ON_cumulative.csv")
-ON_cumulative$LastUpdated <- as.POSIXct(ON_cumulative$LastUpdated)
-ON_cumulative$AsOf <- as.POSIXct(ON_cumulative$AsOf)
-
-usethis::use_data(ON_cumulative, overwrite = TRUE)
 
 # Ontario PHO/MOH data pdf reports
 
@@ -20,21 +13,16 @@ ON_mohreports$date_data <- as.POSIXct(ON_mohreports$date_data)
 
 usethis::use_data(ON_mohreports, overwrite = TRUE)
 
-## combine into clean object with systematic names WIP
+# ON Status covidtesting.csv https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario
 
-
-#covidtesting.csv
-#conposcovidloc.csv
-
-library(tidyverse)
-ON_linelist <- read.csv("data-raw/conposcovidloc.csv")
 ON_status <- read.csv("data-raw/covidtesting.csv")
 
 ON_status <- rename(ON_status,
     date = Reported.Date,
     negative = Confirmed.Negative,
+    negative_presumptive = Presumptive.Negative,
     positive = Confirmed.Positive,
-    presumptive = Presumptive.Positive,
+    positive_presumptive = Presumptive.Positive,
     resolved = Resolved,
     deaths = Deaths,
     cases = Total.Cases,
@@ -48,8 +36,39 @@ ON_status <- rename(ON_status,
 ON_status$date <- as.POSIXct(ON_status$date)
 
 usethis::use_data(ON_status, overwrite = TRUE)
+
+ON_linelist <- read.csv("data-raw/conposcovidloc.csv")
+
+ON_linelist <- rename(ON_linelist,
+	id = Row_ID,
+	date = Accurate_Episode_Date,
+	age_group = Age_Group,
+	gender = Client_Gender,
+    exposure = Case_AcquisitionInfo,
+    outcome = Outcome1,
+    phu = Reporting_PHU,
+    phu_address = Reporting_PHU_Address,
+    phu_city = Reporting_PHU_City,
+    phu_pc = Reporting_PHU_Postal_Code,
+    phu_website = Reporting_PHU_Website,
+    phu_lat = Reporting_PHU_Latitude,
+    phu_long = Reporting_PHU_Longitude)
+
 usethis::use_data(ON_linelist, overwrite = TRUE)
 
 devtools::document()
 devtools::build_vignettes()
 devtools::check()
+
+
+
+## Legacy
+
+# Ontario cumulative data from 
+# https://www.ontario.ca/page/2019-novel-coronavirus
+
+ON_cumulative <- read.csv("data-raw/ON_cumulative.csv")
+ON_cumulative$LastUpdated <- as.POSIXct(ON_cumulative$LastUpdated)
+ON_cumulative$AsOf <- as.POSIXct(ON_cumulative$AsOf)
+
+usethis::use_data(ON_cumulative, overwrite = TRUE)
