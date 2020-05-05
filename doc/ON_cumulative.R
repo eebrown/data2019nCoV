@@ -42,8 +42,13 @@ plot(ON_status$date, ON_status$cases,
 plot(ON_status$date, ON_status$positive,
      main = "Active COVID-19 Cases in Ontario",
      xlab = "Date",
-     ylab = "Confirmed Cases",
+     ylab = "Confirmed Cases (Active)",
      type = "b")
+abline(v = as.POSIXct("2020-03-24"), col = "red")
+abline(h = as.POSIXct("2020-05-04"), col = "green")
+
+# Red lines reflect government mandated closures/restrictions
+# Green lines reflect government loosinging of closures/restrictions
 
 plot(ON_status$date[-1], daily_change(ON_status$cases),
      main = "Change in COVID-19 Cases in Ontario",
