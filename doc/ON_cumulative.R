@@ -45,7 +45,7 @@ plot(ON_status$date, ON_status$positive,
      ylab = "Confirmed Cases (Active)",
      type = "b")
 abline(v = as.POSIXct("2020-03-24"), col = "red")
-abline(h = as.POSIXct("2020-05-04"), col = "green")
+abline(v = as.POSIXct("2020-05-04"), col = "green")
 
 # Red lines reflect government mandated closures/restrictions
 # Green lines reflect government loosinging of closures/restrictions
@@ -79,7 +79,7 @@ matplot(ON_mohreports$date, cbind(
      type = "l",
      col = colours,
      lty = c("solid", "solid", "solid", "solid", "solid"),
-     ylim = c(0,25),
+     ylim = c(0,30),
      ylog = TRUE,
      xaxt="n")
 dates<-format(ON_mohreports$date,"%b %d")
