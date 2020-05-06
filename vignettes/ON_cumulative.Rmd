@@ -68,6 +68,8 @@ plot(ON_status$date[-1], daily_change(ON_status$cases),
      xlab = "Date",
      ylab = "Change in Confirmed Cases",
      type = "b")
+abline(v = as.POSIXct("2020-03-24"), col = "red")
+abline(v = as.POSIXct("2020-05-04"), col = "green")
 
 plot(ON_status$date[-1], daily_change(ON_status$tested_patients),
      main = "Change in COVID-19 Patients Tested",
