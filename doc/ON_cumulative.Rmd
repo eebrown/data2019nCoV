@@ -39,6 +39,27 @@ The source of this data is the official Ontario Government's website (https://ww
 
 ```{r, fig.width=6, fig.height=8}
 
+# Red lines reflect government mandated closures/restrictions
+# Green lines reflect government loosinging of closures/restrictions
+
+openings <- function() {
+  
+  # Banning gatherings over 250 people https://news.ontario.ca/mtc/en/2020/03/statement-from-minister-elliott-and-minister-macleod-on-the-2019-novel-coronavirus-covid-19-1.html
+  abline(v = as.POSIXct("2020-03-13"), col = "orangered")
+  
+  # Schools remain closed after march break https://news.ontario.ca/opo/en/2020/03/title.html
+  abline(v = as.POSIXct("2020-03-14"), col = "red")
+  
+  # Provincial closure of non-essential businesses
+  abline(v = as.POSIXct("2020-03-24"), col = "red")
+  
+  # https://news.ontario.ca/opo/en/2020/05/certain-businesses-allowed-to-reopen-under-strict-safety-guidelines.html
+  abline(v = as.POSIXct("2020-05-04"), col = "green") # many businesses opening
+  
+  #https://news.ontario.ca/mtc/en/2020/05/ontario-eases-restrictions-on-professional-sports-training-facilities.html
+  abline(v = as.POSIXct("2020-05-08"), col = "green") #pro sports
+}
+
 plot(ON_status$date, ON_status$cases,
      main = "Cumulative Confirmed COVID-19 Cases in Ontario",
      xlab = "Date",
@@ -52,30 +73,29 @@ plot(ON_status$date, ON_status$cases,
      type = "b",
      log = "y")
 
+plot(ON_status$date[-1], daily_change(ON_status$tested_patients),
+     main = "Change in COVID-19 Patients Tested",
+     xlab = "Date",
+     ylab = "Change in Patients Tests",
+     type = "b")
+
+par(mfrow=c(2,1))
+
 plot(ON_status$date, ON_status$positive,
      main = "Active COVID-19 Cases in Ontario",
      xlab = "Date",
      ylab = "Confirmed Cases (Active)",
      type = "b")
-abline(v = as.POSIXct("2020-03-24"), col = "red")
-abline(v = as.POSIXct("2020-05-04"), col = "green")
-
-# Red lines reflect government mandated closures/restrictions
-# Green lines reflect government loosinging of closures/restrictions
+openings()
 
 plot(ON_status$date[-1], daily_change(ON_status$cases),
      main = "Change in COVID-19 Cases in Ontario",
      xlab = "Date",
      ylab = "Change in Confirmed Cases",
      type = "b")
-abline(v = as.POSIXct("2020-03-24"), col = "red")
-abline(v = as.POSIXct("2020-05-04"), col = "green")
+openings()
 
-plot(ON_status$date[-1], daily_change(ON_status$tested_patients),
-     main = "Change in COVID-19 Patients Tested",
-     xlab = "Date",
-     ylab = "Change in Patients Tests",
-     type = "b")
+
 ```
 
 ```{r, fig.width=6, fig.height=8}
