@@ -7,32 +7,34 @@ library(tidyr)
 library(plyr)
 library(countrycode)
 
-ECDC_owid <- read.csv("data-raw/full_data.csv")
+update_data_ecdc <- function() {
 
-ECDC_owid$date <- as.Date(ECDC_owid$date)
+	download.file("https://covid.ourworldindata.org/data/ecdc/full_data.csv",
+		          destfile = "data-raw/full_data.csv")
+	ECDC_owid <- read.csv("data-raw/full_data.csv")
 
-usethis::use_data(ECDC_owid, overwrite = TRUE)
+	ECDC_owid$date <- as.Date(ECDC_owid$date)
 
-ECDC_owid$location <- tolower(countrycode(ECDC_owid$location, 
-	                              origin="country.name", destination="genc3c",
-	                              custom_match=c(International="international", 
-	                              	Timor="TLS", Kosovo="Kosovo", 
-	                              	World="global")))
+	usethis::use_data(ECDC_owid, overwrite = TRUE)
 
-cases <- pivot_wider(ECDC_owid, names_from = location, 
-	                 values_from = total_cases, 
-	                 id_cols = date, names_prefix = "cases_")
+	ECDC_owid$location <- tolower(countrycode(ECDC_owid$location, 
+		                              origin="country.name", destination="genc3c",
+		                              custom_match=c(International="international", 
+		                              	Timor="TLS", Kosovo="Kosovo", 
+		                              	World="global")))
 
-deaths <- pivot_wider(ECDC_owid, names_from = location, 
-	                  values_from = total_deaths, 
-	                  id_cols = date, names_prefix = "deaths_")
+	cases <- pivot_wider(ECDC_owid, names_from = location, 
+		                 values_from = total_cases, 
+		                 id_cols = date, names_prefix = "cases_")
 
-sarscov2_ecdc_2019 <- merge(cases, deaths, by = "date")
+	deaths <- pivot_wider(ECDC_owid, names_from = location, 
+		                  values_from = total_deaths, 
+		                  id_cols = date, names_prefix = "deaths_")
 
-usethis::use_data(sarscov2_ecdc_2019, overwrite = TRUE)
+	sarscov2_ecdc_2019 <- merge(cases, deaths, by = "date")
 
-devtools::document()
-devtools::build_vignettes()
-devtools::check()
+	usethis::use_data(sarscov2_ecdc_2019, overwrite = TRUE)
+
+}
 
 save(sarscov2_ecdc_2019, file = "sarscov2_who_2019.RData", version = 2)

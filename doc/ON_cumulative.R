@@ -45,6 +45,9 @@ openings <- function() {
   
   #https://news.ontario.ca/mtc/en/2020/05/ontario-eases-restrictions-on-professional-sports-training-facilities.html
   abline(v = as.POSIXct("2020-05-08"), col = "green") #pro sports
+  
+ # http://www.ontarioparks.com/covid19 Reopening parks May 11, 2020
+  abline(v = as.POSIXct("2020-05-11"), col = "green") #parks
 }
 
 plot(ON_status$date, ON_status$cases,

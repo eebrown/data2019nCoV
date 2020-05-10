@@ -24,48 +24,48 @@ usethis::use_data(CAN_cumulative, overwrite = TRUE)
 # Once the data in the CSV is updated, run the above code, update the package 
 # version, followed by:
 
-library(tidyr)
-library(plyr)
-#new can data
-can <- read.csv("data-raw/covid19.csv", stringsAsFactors=FALSE)
-can$date <- as.Date(can$date, format = "%d-%m-%y")
+update_data_canada <- function() {
+
+	library(tidyr)
+	library(plyr)
+	#new can data
+	download.file("https://health-infobase.canada.ca/src/data/covidLive/covid19.csv",
+		          destfile = "data-raw/covid19.csv")
+	can <- read.csv("data-raw/covid19.csv", stringsAsFactors=FALSE)
+	can$date <- as.Date(can$date, format = "%d-%m-%y")
 
 
-can$prname <- revalue(can$prname, c("Alberta"="AB", "British Columbia" = "BC", 
-	                  "Canada" = "CAN", "Manitoba" = "MB", 
-	                  "New Brunswick" = "NB",
-	                  "Newfoundland and Labrador" = "NL",
-	                  "Northwest Territories" = "NT", "Nova Scotia" = "NS",
-	                  "Nunavut" = "NU", "Ontario" = "ON", 
-	                  "Prince Edward Island" = "PE", "Quebec" = "QC",
-	                  "Repatriated travellers" = "Repatriated", 
-	                  "Saskatchewan" = "SK", "Yukon" = "YT"))
+	can$prname <- revalue(can$prname, c("Alberta"="AB", "British Columbia" = "BC", 
+		                  "Canada" = "CAN", "Manitoba" = "MB", 
+		                  "New Brunswick" = "NB",
+		                  "Newfoundland and Labrador" = "NL",
+		                  "Northwest Territories" = "NT", "Nova Scotia" = "NS",
+		                  "Nunavut" = "NU", "Ontario" = "ON", 
+		                  "Prince Edward Island" = "PE", "Quebec" = "QC",
+		                  "Repatriated travellers" = "Repatriated", 
+		                  "Saskatchewan" = "SK", "Yukon" = "YT"))
 
-can_cases <- pivot_wider(can, names_from = prname, values_from = numconf, 
-	                     id_cols = date, names_prefix = "cases_")
-can_deaths <- pivot_wider(can, names_from = prname, values_from = numdeaths, 
-	                      id_cols = date, names_prefix = "deaths_")
-can_prob <- pivot_wider(can, names_from = prname, values_from = numprob, 
-	                      id_cols = date, names_prefix = "probable_")
-can_tested <- pivot_wider(can, names_from = prname, values_from = numtested, 
-	                      id_cols = date, names_prefix = "tested_")
-can_recovered <- pivot_wider(can, names_from = prname, values_from = numrecover, 
-	                      id_cols = date, names_prefix = "recovered_")
-can_total <- pivot_wider(can, names_from = prname, values_from = numtotal, 
-	                      id_cols = date, names_prefix = "total_")
+	can_cases <- pivot_wider(can, names_from = prname, values_from = numconf, 
+		                     id_cols = date, names_prefix = "cases_")
+	can_deaths <- pivot_wider(can, names_from = prname, values_from = numdeaths, 
+		                      id_cols = date, names_prefix = "deaths_")
+	can_prob <- pivot_wider(can, names_from = prname, values_from = numprob, 
+		                      id_cols = date, names_prefix = "probable_")
+	can_tested <- pivot_wider(can, names_from = prname, values_from = numtested, 
+		                      id_cols = date, names_prefix = "tested_")
+	can_recovered <- pivot_wider(can, names_from = prname, values_from = numrecover, 
+		                      id_cols = date, names_prefix = "recovered_")
+	can_total <- pivot_wider(can, names_from = prname, values_from = numtotal, 
+		                      id_cols = date, names_prefix = "total_")
 
-can2 <- merge(as.data.frame(can_cases), as.data.frame(can_deaths), by = "date")
-can2 <- merge(as.data.frame(can2), as.data.frame(can_prob), by = "date")
-can2 <- merge(as.data.frame(can2), as.data.frame(can_tested), by = "date")
-can2 <- merge(as.data.frame(can2), as.data.frame(can_recovered), by = "date")
-can2 <- merge(as.data.frame(can2), as.data.frame(can_total), by = "date")
+	can2 <- merge(as.data.frame(can_cases), as.data.frame(can_deaths), by = "date")
+	can2 <- merge(as.data.frame(can2), as.data.frame(can_prob), by = "date")
+	can2 <- merge(as.data.frame(can2), as.data.frame(can_tested), by = "date")
+	can2 <- merge(as.data.frame(can2), as.data.frame(can_recovered), by = "date")
+	can2 <- merge(as.data.frame(can2), as.data.frame(can_total), by = "date")
 
-CAN_govcsv <- can2
+	CAN_govcsv <- can2
 
-usethis::use_data(CAN_govcsv, overwrite = TRUE)
+	usethis::use_data(CAN_govcsv, overwrite = TRUE)
 
-#dcast(can, date ~ prname, value.var="numconf")
-
-devtools::document()
-devtools::build_vignettes()
-devtools::check()
+}
