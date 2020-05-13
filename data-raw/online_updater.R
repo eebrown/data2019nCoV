@@ -78,7 +78,7 @@ update_data_ontario <- function() {
 	download.file("https://data.ontario.ca/dataset/f4f86e54-872d-43f8-8a86-3892fd3cb5e6/resource/ed270bb8-340b-41f9-a7c6-e8ef587e6d11/download/covidtesting.csv",
 		          destfile = "data-raw/covidtesting.csv")
 	ON_status_raw <- read.csv("data-raw/covidtesting.csv")
-	print(names(ON_status_raw))
+
 	ON_status <- rename(ON_status_raw,
 	    date = Reported.Date,
 	    negative = Confirmed.Negative,

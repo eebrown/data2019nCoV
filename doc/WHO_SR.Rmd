@@ -305,20 +305,21 @@ matplot(as.Date(sarscov2_ecdc_2019$date), cbind(
                       (sarscov2_ecdc_2019$deaths_ita / sarscov2_ecdc_2019$cases_ita)*100,
                       (sarscov2_ecdc_2019$deaths_usa / sarscov2_ecdc_2019$cases_usa)*100,
                       (sarscov2_ecdc_2019$deaths_can / sarscov2_ecdc_2019$cases_can)*100,
-                      (sarscov2_ecdc_2019$deaths_esp / sarscov2_ecdc_2019$cases_esp)*100),
+                      (sarscov2_ecdc_2019$deaths_esp / sarscov2_ecdc_2019$cases_esp)*100,
+                      (sarscov2_ecdc_2019$deaths_deu / sarscov2_ecdc_2019$cases_deu)*100),
      main = "Case Fatality Rate",
      xlab = "Date",
      ylab = "Deaths / Confirmed Cases (%)",
      type = "l",
      lty = "solid",
-     col = c("black",   "blue",  "green", "magenta", "red", "brown"),
+     col = c("black",   "blue",  "green", "magenta", "red", "brown", "orange"),
      ylim = c(0,14),
      xaxt="n")
 dates<-format(sarscov2_ecdc_2019$date,"%b-%d")
 axis(1, at=sarscov2_ecdc_2019$date, labels=dates)
 legend(x="top", 
-       legend = c("Italy", "Spain", "USA", "China", "Canada", "Korea"), 
-       col =    c("green", "brown", "magenta", "black", "red", "blue"), 
+       legend = c("Italy", "Spain", "USA", "China", "Canada", "Korea", "Germany"), 
+       col =    c("green", "brown", "magenta", "black", "red", "blue", "orange"), 
        pch=18)
 
 ```
