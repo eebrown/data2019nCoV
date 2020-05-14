@@ -41,13 +41,16 @@ openings <- function() {
   abline(v = as.POSIXct("2020-03-24"), col = "red")
   
   # https://news.ontario.ca/opo/en/2020/05/certain-businesses-allowed-to-reopen-under-strict-safety-guidelines.html
-  abline(v = as.POSIXct("2020-05-04"), col = "green") # many businesses opening
+  abline(v = as.POSIXct("2020-05-04"), col = "yellow") # many businesses opening
   
   #https://news.ontario.ca/mtc/en/2020/05/ontario-eases-restrictions-on-professional-sports-training-facilities.html
-  abline(v = as.POSIXct("2020-05-08"), col = "green") #pro sports
+  abline(v = as.POSIXct("2020-05-08"), col = "yellow") #pro sports
   
  # http://www.ontarioparks.com/covid19 Reopening parks May 11, 2020
-  abline(v = as.POSIXct("2020-05-11"), col = "green") #parks
+  abline(v = as.POSIXct("2020-05-11"), col = "yellow") #parks
+
+ # Phase 1 opening
+  abline(v = as.POSIXct("2020-05-19"), col = "green") # phase 1
 }
 
 plot(ON_status$date, ON_status$cases,
