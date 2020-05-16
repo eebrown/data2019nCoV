@@ -48,6 +48,9 @@ openings <- function() {
   
  # http://www.ontarioparks.com/covid19 Reopening parks May 11, 2020
   abline(v = as.POSIXct("2020-05-11"), col = "yellow") #parks
+  
+  # pre-phase 1 (marinas, golf courses...)
+  abline(v = as.POSIXct("2020-05-16"), col = "yellow") #parks 
 
  # Phase 1 opening
   abline(v = as.POSIXct("2020-05-19"), col = "green") # phase 1
