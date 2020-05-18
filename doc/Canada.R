@@ -45,6 +45,12 @@ gather(CAN_govcsv, key, value,
        y = "Confirmed Cases") +
  theme(legend.title = element_blank())
 
+daily_change <- function(series) {
+  change <- c(series, NA) - c(NA, series)
+  change <- change[-1]
+  change <- change[-length(change)]
+  return(change)
+}
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 gather(CAN_govcsv, key, value, 

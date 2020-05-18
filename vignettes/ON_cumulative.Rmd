@@ -20,6 +20,7 @@ library(ggplot2)
 library(tidyr)
 library(dplyr)
 library(scales)
+library(data.table)
 
 daily_change <- function(series) {
   change <- c(series, NA) - c(NA, series)
@@ -233,5 +234,13 @@ plot(ON_mohreports$date[-1], daily_change((ON_mohreports$cases - ON_mohreports$c
      xlab = "Date",
      ylab = "Change Non-Outbreak Cases")
 
+```
 
+```{r}
+plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_phu_toronto),
+     type = "p",
+     xlab = "Date",
+     ylab = "New Cases in Toronto",
+     ylim = c(0, 300))
+lines(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases_phu_toronto), 7), col="red")
 ```

@@ -115,23 +115,32 @@ gather(WHO_SR, key, value, China.Hubei,
 #        x = "Date", 
 #        y = "Confirmed Cases") 
 # 
-# overx <- function(country, x) {
-#   over <- country[country > x] 
-#   over <- c(over, rep(NA, length(WHO_SR$Date)))
-#   return(over)
-# }
+ overx <- function(country, x) {
+   over <- country[country > x] 
+   over <- c(over, rep(NA, length(WHO_SR$Date)))
+   return(over)
+ }
 
-# start_no <- 5000
-# 
-# plot(overx(WHO_SR$China, start_no), col="gray", type="l",
-#      xlab=paste0("Days Since ", start_no, " Cases"),
-#      ylab= "Cases",
-#      main=paste0("Outbreak Progression from ", start_no, " Cases"),
-#      xlim=c(0,60),
+ start_no <- 100
+ 
+
+library(data.table)
+ 
+change_ita <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_ita, start_no)) / 60461826, 7) *100000
+change_usa <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_usa, start_no)) / 331002651, 7)*100000
+change_deu <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_deu, start_no)) / 83783942, 7)*100000
+change_can <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_can, start_no)) / 37742154, 7)*100000
+ 
+matplot(cbind(change_ita, change_usa, change_deu, change_can), 
+        col=c("blue", "orange", "red", "green"), type="l",
+      xlab=paste0("Days since each region's 100th case"),
+      ylab= "Cases",
+      #main=paste0("Outbreak Progression from ", start_no, " Cases"),
+      xlim=c(0,80))
 #      ylim=c(1000,700000))
-# lines(overx(WHO_SR$Italy, start_no), col="green")
-# lines(overx(WHO_SR$Iran, start_no), col="orange")
-# lines(overx(WHO_SR$RepublicofKorea, start_no), col="magenta")
+# lines(change_usa, col="orange")
+# lines(change_deu, col="red")
+# lines(change_can, col="green")
 # lines(overx(WHO_SR$Spain, start_no), col="brown")
 # lines(overx(WHO_SR$Germany, start_no), col="coral")
 # lines(overx(WHO_SR$France,  start_no), col="purple")
