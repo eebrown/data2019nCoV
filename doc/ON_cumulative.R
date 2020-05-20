@@ -86,9 +86,9 @@ plot(ON_status$date, ON_status$positive,
 openings()
 
 plot(ON_status$date[-1], daily_change(ON_status$cases),
-     main = "Change in COVID-19 Cases in Ontario",
+     main = "New COVID-19 Cases in Ontario",
      xlab = "Date",
-     ylab = "Change in Confirmed Cases",
+     ylab = "New Confirmed Cases",
      type = "b")
 openings()
 
@@ -111,7 +111,7 @@ matplot(ON_mohreports$date, cbind(
      type = "l",
      col = colours,
      lty = c("solid", "solid", "solid", "solid", "solid"),
-     ylim = c(0,30),
+     ylim = c(0,40),
      ylog = TRUE,
      xaxt="n")
 dates<-format(ON_mohreports$date,"%b %d")
@@ -219,7 +219,7 @@ plot(ON_mohreports$date[-1], daily_change((ON_mohreports$cases - ON_mohreports$c
      ylab = "Change Non-Outbreak Cases")
 
 
-## -----------------------------------------------------------------------------
+## ---- fig.width=6, fig.height=8-----------------------------------------------
 plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_phu_toronto),
      type = "p",
      xlab = "Date",
