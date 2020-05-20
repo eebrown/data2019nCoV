@@ -225,12 +225,12 @@ for (i in 1:length(outbreaks)) {
 
  par(mfrow=c(4,2))
  
- # plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_usa),
- #      main = "United States - Cases",
- #      ylab = "Daily Cases",
- #      xlab = "Date",
- #      type = "l",
- #      ylim = c(0,50000))
+  plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_usa),
+       main = "United States - Cases",
+       ylab = "Daily Cases",
+       xlab = "Date",
+       type = "l",
+       ylim = c(0,50000))
  # lines(sarscov2_ecdc_2019$date[-1], frollmean(sarscov2_ecdc_2019$cases_usa, 7)[-1], col="green")
  
   plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_usa),

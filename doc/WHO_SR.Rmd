@@ -158,19 +158,19 @@ gather(WHO_SR, key, value, China.Hubei,
  start_no <- 100
  
 
-library(data.table)
- 
-change_ita <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_ita, start_no)) / 60461826, 7) *100000
-change_usa <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_usa, start_no)) / 331002651, 7)*100000
-change_deu <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_deu, start_no)) / 83783942, 7)*100000
-change_can <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_can, start_no)) / 37742154, 7)*100000
- 
-matplot(cbind(change_ita, change_usa, change_deu, change_can), 
-        col=c("blue", "orange", "red", "green"), type="l",
-      xlab=paste0("Days since each region's 100th case"),
-      ylab= "Cases",
-      #main=paste0("Outbreak Progression from ", start_no, " Cases"),
-      xlim=c(0,80))
+# library(data.table)
+#  
+# change_ita <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_ita, start_no)) / 60461826, 7) *100000
+# change_usa <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_usa, start_no)) / 331002651, 7)*100000
+# change_deu <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_deu, start_no)) / 83783942, 7)*100000
+# change_can <- frollmean(daily_change(overx(sarscov2_ecdc_2019$cases_can, start_no)) / 37742154, 7)*100000
+#  
+# matplot(cbind(change_ita, change_usa, change_deu, change_can), 
+#         col=c("blue", "orange", "red", "green"), type="l",
+#       xlab=paste0("Days since each region's 100th case"),
+#       ylab= "Cases",
+#       #main=paste0("Outbreak Progression from ", start_no, " Cases"),
+#       xlim=c(0,80))
 #      ylim=c(1000,700000))
 # lines(change_usa, col="orange")
 # lines(change_deu, col="red")
@@ -225,12 +225,12 @@ for (i in 1:length(outbreaks)) {
 
  par(mfrow=c(4,2))
  
- # plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_usa),
- #      main = "United States - Cases",
- #      ylab = "Daily Cases",
- #      xlab = "Date",
- #      type = "l",
- #      ylim = c(0,50000))
+  plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_usa),
+       main = "United States - Cases",
+       ylab = "Daily Cases",
+       xlab = "Date",
+       type = "l",
+       ylim = c(0,50000))
  # lines(sarscov2_ecdc_2019$date[-1], frollmean(sarscov2_ecdc_2019$cases_usa, 7)[-1], col="green")
  
   plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_usa),
