@@ -82,14 +82,14 @@ plot(ON_status$date, ON_status$positive,
      main = "Active COVID-19 Cases in Ontario",
      xlab = "Date",
      ylab = "Confirmed Cases (Active)",
-     type = "b")
+     type = "l")
 openings()
 
 plot(ON_status$date[-1], daily_change(ON_status$cases),
      main = "New COVID-19 Cases in Ontario",
      xlab = "Date",
      ylab = "New Confirmed Cases",
-     type = "b")
+     type = "l")
 openings()
 
 
