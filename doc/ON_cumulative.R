@@ -127,6 +127,17 @@ legend(x="top",
 
 ## ---- fig.width=6, fig.height=8-----------------------------------------------
 
+plot(ON_mohreports$date, 
+     ON_mohreports$cases_female / 
+       (ON_mohreports$cases_male + ON_mohreports$cases_female),
+     main = "Ontario COVID-19 Cases - Gender",
+     ylab = "Proportion of Female Cases",
+     xlab = "Date",
+     type = "l")
+
+
+## ---- fig.width=6, fig.height=8-----------------------------------------------
+
 ON_forplot <- rename(ON_mohreports,
     Ontario = cases, Toronto = cases_phu_toronto, Peel = cases_phu_peel, 
     York = cases_phu_york, Ottawa = cases_phu_ottawa, Durham = cases_phu_durham, 
