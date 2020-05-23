@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+For additional data and details please see this R package's [GitHub repository](https://github.com/eebrown/data2019nCoV).
+
 ```{r setup}
 library(data2019nCoV)
 
