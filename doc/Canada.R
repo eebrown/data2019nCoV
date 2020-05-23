@@ -84,8 +84,7 @@ CAN_govcsv$cfr_Repatriated <- (CAN_govcsv$deaths_Repatriated / CAN_govcsv$total_
 
 gather(CAN_govcsv, key, value, 
        cfr_BC, cfr_AB, cfr_SK, cfr_MB, cfr_ON,
-       cfr_QC, cfr_NL, cfr_NB, cfr_NS, cfr_PE,
-       cfr_YT, cfr_NT, cfr_NU, cfr_Repatriated
+       cfr_QC, cfr_NL, cfr_NB, cfr_NS, cfr_PE
        ) %>%
   ggplot(aes(x=date, y=value, col=key)) +
   geom_line() +
