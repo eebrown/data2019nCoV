@@ -238,9 +238,19 @@ plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_phu_toronto),
      ylim = c(0, 300))
 lines(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases_phu_toronto), 7), col="red")
 
-## ---- fig.width=6, fig.height=8-----------------------------------------------
+## ---- fig.width=6, fig.height=5-----------------------------------------------
 
-gendercount <- ON_linelist %>% filter(Outbreak_Related != "Yes")  %>% select(date, gender) %>% group_by(date, gender) %>% summarise(count=n()) %>% pivot_wider(names_from = gender, values_from = count) %>% mutate(ratio = FEMALE/MALE) %>% mutate(smoothratio = frollmean(ratio, 7, na.rm = T))
+gendercount <- ON_linelist %>% 
+  filter(Outbreak_Related != "Yes") %>% 
+  select(date, gender) %>% 
+  group_by(date, gender) %>% 
+  summarise(count=n()) %>% 
+  pivot_wider(names_from = gender, values_from = count) %>% 
+  mutate(ratio = FEMALE/MALE)
 
-plot(as.Date(gendercount$date), gendercount$ratio, type="l", xlab="Date", ylab="Ratio F:M", main = "Gender Ratio of Non-Outbreak Cases in Ontario", xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)]))
+plot(as.Date(gendercount$date), 
+     gendercount$ratio, 
+     type="l", xlab="Date", ylab="Ratio F:M", 
+     main = "Gender Ratio of Non-Outbreak Cases in Ontario", 
+     xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)]))
 
