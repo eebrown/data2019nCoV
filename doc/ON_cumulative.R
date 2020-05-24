@@ -240,17 +240,20 @@ lines(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases_phu_tor
 
 ## ---- fig.width=6, fig.height=5-----------------------------------------------
 
-gendercount <- ON_linelist %>% 
-  filter(Outbreak_Related != "Yes") %>% 
-  select(date, gender) %>% 
-  group_by(date, gender) %>% 
-  summarise(count=n()) %>% 
-  pivot_wider(names_from = gender, values_from = count) %>% 
-  mutate(ratio = FEMALE/MALE)
+# Commented out as Outbreak_Related stopped being reported May 24.
 
-plot(as.Date(gendercount$date), 
-     gendercount$ratio, 
-     type="l", xlab="Date", ylab="Ratio F:M", 
-     main = "Gender Ratio of Non-Outbreak Cases in Ontario", 
-     xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)]))
+# gendercount <- ON_linelist %>% 
+#   filter(Outbreak_Related != "Yes") %>% 
+#   filter(age_group != "<20") %>% 
+#   select(date, gender) %>% 
+#   group_by(date, gender) %>% 
+#   summarise(count=n()) %>% 
+#   pivot_wider(names_from = gender, values_from = count) %>% 
+#   mutate(ratio = FEMALE/MALE)
+# 
+# plot(as.Date(gendercount$date), 
+#      gendercount$ratio, 
+#      type="l", xlab="Date", ylab="Ratio F:M", 
+#      main = "Gender Ratio of ON Cases (Non-Outbreak, Age >= 20)", 
+#      xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)]))
 
