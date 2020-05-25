@@ -278,3 +278,9 @@ plot(as.Date(gendercount$date),
 lines(as.Date(gendercount$date), frollmean(gendercount$ratio, 7), col="tomato1")
 abline(h=1, col="grey")
 
+## ---- fig.width=6, fig.height=8-----------------------------------------------
+weekdays <- as.factor(as.numeric(as.Date(ON_status$date))%% 7)
+levels(weekdays) <- c("Thurs", "Fri", "Sat", "Sun", "Mon", "Tues", "Wed")
+plot(weekdays, ON_status$tests_last_day,
+     ylab="Tests reported", xlab="Day of Report (by 4 pm)")
+
