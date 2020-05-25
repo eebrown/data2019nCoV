@@ -238,22 +238,43 @@ plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_phu_toronto),
      ylim = c(0, 300))
 lines(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases_phu_toronto), 7), col="red")
 
-## ---- fig.width=6, fig.height=5-----------------------------------------------
+## ---- fig.width=6, fig.height=8-----------------------------------------------
 
-# Commented out as Outbreak_Related stopped being reported May 24.
+gendercount <- ON_linelist %>%
+  filter(Outbreak_Related != "Yes") %>%
+  filter(age_group != "<20") %>%
+  select(date, gender) %>%
+  group_by(date, gender) %>%
+  summarise(count=n()) %>%
+  pivot_wider(names_from = gender, values_from = count) %>%
+  mutate(ratio = FEMALE/MALE)
 
-# gendercount <- ON_linelist %>% 
-#   filter(Outbreak_Related != "Yes") %>% 
-#   filter(age_group != "<20") %>% 
-#   select(date, gender) %>% 
-#   group_by(date, gender) %>% 
-#   summarise(count=n()) %>% 
-#   pivot_wider(names_from = gender, values_from = count) %>% 
-#   mutate(ratio = FEMALE/MALE)
-# 
-# plot(as.Date(gendercount$date), 
-#      gendercount$ratio, 
-#      type="l", xlab="Date", ylab="Ratio F:M", 
-#      main = "Gender Ratio of ON Cases (Non-Outbreak, Age >= 20)", 
-#      xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)]))
+par(mfrow=c(2,1))
+
+matplot(as.Date(gendercount$date), cbind(gendercount$MALE, gendercount$FEMALE),
+     main = "ON Non-Outbreak Adult Cases",
+     xlab = "Date (2020)",
+     ylab = "Cases",
+     type = "l",
+     col = c("blue",   "pink"),
+     lty = c("solid", "solid"),
+     #ylim = c(0,1),
+     xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)]),
+     #ylog = TRUE,
+     xaxt="n")
+dates<-format(as.Date(gendercount$date),"%b %d")
+axis(1, at=as.Date(gendercount$date), labels=dates)
+legend(x="left", 
+       legend = c("Male", "Female"), 
+       col =    c("blue",   "pink"),
+       lty = c("solid", "solid"),
+       pch=18)
+
+plot(as.Date(gendercount$date),
+     gendercount$ratio,
+     type="l", xlab="Date", ylab="Ratio F:M",
+     main = "Gender Ratio of ON Cases (Non-Outbreak, Age >= 20)",
+     xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)]))
+lines(as.Date(gendercount$date), frollmean(gendercount$ratio, 7), col="tomato1")
+abline(h=1, col="grey")
 

@@ -20,6 +20,7 @@ A data frame where each row confirmed case
     \item{phu_website}{Official website of Public Health Unit (PHU)}
     \item{phu_lat}{Latitude of Public Health Unit (PHU) physical address for mapping purposes}
     \item{phu_long}{Longitude of Public Health Unit (PHU) physical address for mapping purposes}
+    \item{Outbreak_Related}{"Cases related to a declared outbreak."}
  }
 }
 \source{
