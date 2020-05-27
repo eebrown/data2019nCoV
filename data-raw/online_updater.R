@@ -133,3 +133,10 @@ update_data <- function() {
 	message("Updating ECDC data...")
 	update_data_ecdc()
 }
+
+# potential
+
+# http://www.bccdc.ca/Health-Info-Site/Documents/BCCDC_COVID19_Dashboard_Case_Details.csv
+# http://www.bccdc.ca/Health-Info-Site/Documents/BCCDC_COVID19_Dashboard_Lab_Information.csv
+
+
