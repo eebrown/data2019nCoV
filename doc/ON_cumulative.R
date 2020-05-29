@@ -274,13 +274,15 @@ plot(as.Date(gendercount$date[1:(length(gendercount$ratio)-2)]),
      gendercount$ratio[1:(length(gendercount$ratio)-2)],
      type="l", xlab="Date", ylab="Ratio F:M",
      main = "Gender Ratio of ON Cases (Non-Outbreak, Age >= 20)",
-     xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)-2]))
+     xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)-2]),
+     ylim=c(0,2))
 lines(as.Date(gendercount$date)[1:(length(gendercount$ratio)-2)], frollmean(gendercount$ratio[1:(length(gendercount$ratio)-2)], 14), col="tomato1")
 lines(as.Date(gendercount$date)[1:(length(gendercount$ratio)-2)],
 frollmean(gendercount$ratio[1:(length(gendercount$ratio)-2)], 2), col="green")
 abline(h=1, col="grey")
 abline(v=as.Date("2020-05-10"), col="pink")
-abline(v=as.Date("2020-05-22"), col="pink")
+polygon(c(as.Date("2020-05-24"), as.Date("2020-05-11"), as.Date("2020-05-11"), as.Date("2020-05-24")), c(2, 2, 0, 0),
+        col=rgb(1, 0, 0,0.1), border=NA)
 
 ## ---- fig.width=6, fig.height=8-----------------------------------------------
 weekdays <- as.factor(as.numeric(as.Date(ON_status$date))%% 7)
