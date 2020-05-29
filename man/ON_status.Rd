@@ -21,6 +21,10 @@ A data frame where each row represents a date's data
     \item{current_hospitalized}{Number of patients currently hospitalized with COVID-19 as measured on "Reported Date"}
     \item{current_ICU}{Number of patients currently in an Intensive Care Unit (ICU) with COVID-19 as measured on "Reported Date"}
     \item{current_ventilator}{Number of patients currently in an Intensive Care Unit (ICU), on a ventilator with COVID-19 as measured on "Reported Date"}
+    \item{deaths_ltc_hcw}{"Cumulative deaths of Long Term Care home health care workers (HCW) as measured on "Reported Date""}
+   \item{deaths_ltc_residents}{"Cumulative number of resident deaths in Long Term Care homes as measured on "Reported Date"."} = Total.LTC.Resident.Deaths,
+    \item{cases_ltc_hcw}{"Cumulative COVID-19 positive cases among Long Term Care home health care workers (HCW) as measured on "Reported Date"."}
+    \item{cases_ltc_residents}{"Cumulative COVID-19 positive cases among residents of Long Term Care homes as measured on "Reported Date"."}
  }
 }
 \source{

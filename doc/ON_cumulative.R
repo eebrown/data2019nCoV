@@ -288,3 +288,6 @@ levels(weekdays) <- c("Thurs", "Fri", "Sat", "Sun", "Mon", "Tues", "Wed")
 plot(weekdays, ON_status$tests_last_day,
      ylab="Tests reported", xlab="Day of Report (by 4 pm)")
 
+plot(weekdays, ON_status$cases,
+     ylab="Cases", xlab="Day of Report (by 4 pm)")
+

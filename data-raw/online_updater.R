@@ -93,7 +93,11 @@ update_data_ontario <- function() {
 	    current_investigation = Under.Investigation,
 	    current_hospitalized = Number.of.patients.hospitalized.with.COVID.19,
 	    current_ICU = Number.of.patients.in.ICU.with.COVID.19,
-	    current_ventilator = Number.of.patients.in.ICU.on.a.ventilator.with.COVID.19)
+	    current_ventilator = Number.of.patients.in.ICU.on.a.ventilator.with.COVID.19,
+	    deaths_ltc_hcw = Total.LTC.HCW.Deaths,
+	    deaths_ltc_residents = Total.LTC.Resident.Deaths,
+        cases_ltc_hcw = Total.Positive.LTC.HCW.Cases,
+        cases_ltc_residents = Total.Positive.LTC.Resident.Cases)
 
 	ON_status$date <- as.POSIXct(ON_status$date)
 
