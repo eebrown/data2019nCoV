@@ -140,6 +140,52 @@ legend(x="top",
                   "CFR (Hospital Outbreak Patients)"), 
        col = colours,
        lty = c("solid", "solid", "solid", "solid"), pch=18)
+
+
+colours <- c("red",   "blue",  "black", "magenta", "green", "brown", "orange", "purple", "pink",
+             "tomato1", "yellow")
+
+matplot(ON_mohreports$date, cbind( 
+                ( (ON_mohreports$deaths_80andover / ON_mohreports$age_80plus) * 100 ),
+                ( (ON_mohreports$deaths_ltc_residents / ON_mohreports$cases_ltc_residents) * 100 ),
+                ( (ON_mohreports$deaths_rh_residents / ON_mohreports$rh_residents) * 100 ),         
+                ( (ON_mohreports$deaths_hospital_pts / ON_mohreports$cases_hospital_pts) * 100 ),
+                ( (ON_mohreports$deaths_60to79 / ON_mohreports$age_60to79) * 100 ),
+                ( (ON_mohreports$deaths / ON_mohreports$cases) * 100 ),
+                ( (ON_mohreports$deaths_40to59 / ON_mohreports$age_40to59) * 100 ),
+                ( (ON_mohreports$deaths_20to39 / ON_mohreports$age_20to39) * 100 ),
+                ( (ON_mohreports$deaths_hospital_staff / ON_mohreports$cases_hospital_staff) * 100 ),
+                ( (ON_mohreports$deaths_ltc_staff / ON_mohreports$cases_ltc_staff) * 100 ),
+                ( (ON_mohreports$deaths_19under / ON_mohreports$age_19under) * 100 )
+               ),
+                           
+     main = "Ontario Case Fatality Rates",
+     xlab = "Date (2020)",
+     ylab = "CFR (Percent)",
+     type = "l",
+     col = colours,
+     lty = c("solid"),
+     ylim = c(0,30),
+     ylog = FALSE,
+     xaxt="n")
+dates<-format(ON_mohreports$date,"%b %d")
+axis(1, at=ON_mohreports$date, labels=dates)
+legend(x="left", 
+       legend = c("Age 80+",
+                  "LTC residents",
+                  "RH residents",
+                  "Hospital outbreak patients",
+                  "Age 60-79",
+                  "CFR (Overall)", 
+                  "Age 40-59",
+                  "Age 20-39", 
+                  "Hospital staff",
+                  "LTC staff",
+                  "Age 19 and under"
+                  ), 
+       col = colours,
+       lty = c("solid"), pch=18)
+
 ```
 
 ```{r, fig.width=6, fig.height=8}
@@ -316,6 +362,4 @@ levels(weekdays) <- c("Thurs", "Fri", "Sat", "Sun", "Mon", "Tues", "Wed")
 plot(weekdays, ON_status$tests_last_day,
      ylab="Tests reported", xlab="Day of Report (by 4 pm)")
 
-plot(weekdays, ON_status$cases,
-     ylab="Cases", xlab="Day of Report (by 4 pm)")
 ```
