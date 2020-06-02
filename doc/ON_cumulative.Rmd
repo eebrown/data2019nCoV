@@ -170,7 +170,7 @@ matplot(ON_mohreports$date, cbind(
      xaxt="n")
 dates<-format(ON_mohreports$date,"%b %d")
 axis(1, at=ON_mohreports$date, labels=dates)
-legend(x="left", 
+legend(x="topleft", 
        legend = c("Age 80+",
                   "LTC residents",
                   "RH residents",
