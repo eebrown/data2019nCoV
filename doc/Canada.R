@@ -52,6 +52,8 @@ daily_change <- function(series) {
   return(change)
 }
 
+
+
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
 gather(CAN_govcsv, key, value, 
        deaths_BC, deaths_AB, deaths_SK, deaths_MB, deaths_ON,

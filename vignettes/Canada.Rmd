@@ -66,6 +66,8 @@ daily_change <- function(series) {
   change <- change[-length(change)]
   return(change)
 }
+
+
 ```
 
 ```{r, fig.width=6, fig.height=6}

@@ -99,7 +99,7 @@ update_data_ontario <- function() {
         cases_ltc_hcw = Total.Positive.LTC.HCW.Cases,
         cases_ltc_residents = Total.Positive.LTC.Resident.Cases)
 
-	ON_status$date <- as.POSIXct(ON_status$date)
+	ON_status$date <- as.POSIXct(ON_status$date) # , format="%m/%d/%Y"
 
 	usethis::use_data(ON_status, overwrite = TRUE)
 
