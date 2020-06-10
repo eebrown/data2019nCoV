@@ -70,6 +70,9 @@ openings <- function() {
 
  # Phase 1 opening
   abline(v = as.POSIXct("2020-05-19"), col = "green") # phase 1
+  
+  # Phase 2 opening
+  abline(v = as.POSIXct("2020-06-12"), col = "green") # phase 2 (with exceptions)
 }
 
 plot(ON_status$date, ON_status$cases,
@@ -183,6 +186,37 @@ legend(x="topleft",
                   "LTC staff",
                   "Age 19 and under"
                   ), 
+       col = colours,
+       lty = c("solid"), pch=18)
+
+
+# by age
+matplot(ON_mohreports$date[-1], cbind( 
+                ( frollmean(daily_change(ON_mohreports$age_19under), 7) ),
+                ( frollmean(daily_change(ON_mohreports$age_20to39), 7) ),
+                ( frollmean(daily_change(ON_mohreports$age_40to59), 7) ),
+                ( frollmean(daily_change(ON_mohreports$age_60to79), 7) ),
+                ( frollmean(daily_change(ON_mohreports$age_80plus), 7) )
+               ),
+                           
+     main = "Ontario New Cases by Age",
+     xlab = "Date (2020)",
+     ylab = "New Cases",
+     type = "l",
+     col = colours,
+     lty = c("solid"),
+     #ylim = c(0,30),
+     ylog = FALSE,
+     xaxt="n")
+dates<-format(ON_mohreports$date[-1],"%b %d")
+axis(1, at=ON_mohreports$date[-1], labels=dates)
+ legend(x="topleft", 
+        legend = c("<20",
+                   "20-39",
+                   "40-59",
+                   "60-79",
+                   ">79"
+                   ), 
        col = colours,
        lty = c("solid"), pch=18)
 
