@@ -21,6 +21,9 @@ A data frame where each row confirmed case
     \item{phu_lat}{Latitude of Public Health Unit (PHU) physical address for mapping purposes}
     \item{phu_long}{Longitude of Public Health Unit (PHU) physical address for mapping purposes}
     \item{Outbreak_Related}{"Cases related to a declared outbreak."}
+    \item{date_case}{"The date that the case was reported to the local public health unit (PHU)."}
+    \item{date_specimen}{"Set to the earliest specimen date on record for the case, as indicated on the laboratory slip."}
+    \item{date_test}{"The test reported date as indicated on the laboratory slip."}
  }
 }
 \source{
