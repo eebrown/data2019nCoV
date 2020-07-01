@@ -343,49 +343,49 @@ The following plot is to test the hypothesis that Mother's Day gatherings on May
 
 ```{r, fig.width=6, fig.height=8}
 
-gendercount <- ON_linelist %>%
-  filter(Outbreak_Related != "Yes") %>%
-  filter(age_group != "<20") %>%
-  select(date, gender) %>%
-  group_by(date, gender) %>%
-  summarise(count=n()) %>%
-  pivot_wider(names_from = gender, values_from = count) %>%
-  mutate(ratio = FEMALE/MALE)
-
-par(mfrow=c(2,1))
-
-matplot(as.Date(gendercount$date), cbind(gendercount$MALE, gendercount$FEMALE),
-     main = "ON Non-Outbreak Adult Cases",
-     xlab = "Date (2020)",
-     ylab = "Cases",
-     type = "l",
-     col = c("blue",   "pink"),
-     lty = c("solid", "solid"),
-     #ylim = c(0,1),
-     xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)-2]),
-     #ylog = TRUE,
-     xaxt="n")
-dates<-format(as.Date(gendercount$date),"%b %d")
-axis(1, at=as.Date(gendercount$date), labels=dates)
-legend(x="left", 
-       legend = c("Male", "Female"), 
-       col =    c("blue",   "pink"),
-       lty = c("solid", "solid"),
-       pch=18)
-
-plot(as.Date(gendercount$date[1:(length(gendercount$ratio)-2)]),
-     gendercount$ratio[1:(length(gendercount$ratio)-2)],
-     type="l", xlab="Date", ylab="Ratio F:M",
-     main = "Gender Ratio of ON Cases (Non-Outbreak, Age >= 20)",
-     xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)-2]),
-     ylim=c(0,2))
-lines(as.Date(gendercount$date)[1:(length(gendercount$ratio)-2)], frollmean(gendercount$ratio[1:(length(gendercount$ratio)-2)], 14), col="tomato1")
-lines(as.Date(gendercount$date)[1:(length(gendercount$ratio)-2)],
-frollmean(gendercount$ratio[1:(length(gendercount$ratio)-2)], 2), col="green")
-abline(h=1, col="grey")
-abline(v=as.Date("2020-05-10"), col="pink")
-polygon(c(as.Date("2020-05-24"), as.Date("2020-05-11"), as.Date("2020-05-11"), as.Date("2020-05-24")), c(2, 2, 0, 0),
-        col=rgb(1, 0, 0,0.1), border=NA)
+# gendercount <- ON_linelist %>%
+#   filter(Outbreak_Related != "Yes") %>%
+#   filter(age_group != "<20") %>%
+#   select(date, gender) %>%
+#   group_by(date, gender) %>%
+#   summarise(count=n()) %>%
+#   pivot_wider(names_from = gender, values_from = count) %>%
+#   mutate(ratio = FEMALE/MALE)
+# 
+# par(mfrow=c(2,1))
+# 
+# matplot(as.Date(gendercount$date), cbind(gendercount$MALE, gendercount$FEMALE),
+#      main = "ON Non-Outbreak Adult Cases",
+#      xlab = "Date (2020)",
+#      ylab = "Cases",
+#      type = "l",
+#      col = c("blue",   "pink"),
+#      lty = c("solid", "solid"),
+#      #ylim = c(0,1),
+#      xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)-2]),
+#      #ylog = TRUE,
+#      xaxt="n")
+# dates<-format(as.Date(gendercount$date),"%b %d")
+# axis(1, at=as.Date(gendercount$date), labels=dates)
+# legend(x="left", 
+#        legend = c("Male", "Female"), 
+#        col =    c("blue",   "pink"),
+#        lty = c("solid", "solid"),
+#        pch=18)
+# 
+# plot(as.Date(gendercount$date[1:(length(gendercount$ratio)-2)]),
+#      gendercount$ratio[1:(length(gendercount$ratio)-2)],
+#      type="l", xlab="Date", ylab="Ratio F:M",
+#      main = "Gender Ratio of ON Cases (Non-Outbreak, Age >= 20)",
+#      xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)-2]),
+#      ylim=c(0,2))
+# lines(as.Date(gendercount$date)[1:(length(gendercount$ratio)-2)], frollmean(gendercount$ratio[1:(length(gendercount$ratio)-2)], 14), col="tomato1")
+# lines(as.Date(gendercount$date)[1:(length(gendercount$ratio)-2)],
+# frollmean(gendercount$ratio[1:(length(gendercount$ratio)-2)], 2), col="green")
+# abline(h=1, col="grey")
+# abline(v=as.Date("2020-05-10"), col="pink")
+# polygon(c(as.Date("2020-05-24"), as.Date("2020-05-11"), as.Date("2020-05-11"), as.Date("2020-05-24")), c(2, 2, 0, 0),
+#         col=rgb(1, 0, 0,0.1), border=NA)
 ```
 
 Which days of the week do tests get reported?
