@@ -272,6 +272,20 @@ for (i in 1:length(outbreaks)) {
       xlab = "Date",
       type = "l",
       ylim = c(0,5000))
+      
+      plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_ind),
+      main = "India - Cases",
+      ylab = "Daily Cases",
+      xlab = "Date",
+      type = "l",
+      ylim = c(0,50000))
+     
+      plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_ind),
+      main = "India - Deaths",
+      ylab = "Daily Cases",
+      xlab = "Date",
+      type = "l",
+      ylim = c(0,5000))
 
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
@@ -337,7 +351,7 @@ matplot(as.Date(sarscov2_ecdc_2019$date[range]), cbind(
      type = "l",
      col = c("red",   "red",  "blue", "blue"),
      lty = c("solid", "dotted", "solid", "dotted"),
-     ylim = c(0,1),
+     ylim = c(0,1.2),
      ylog = TRUE,
      xaxt="n")
 dates<-format(sarscov2_ecdc_2019$date,"%b %d")
