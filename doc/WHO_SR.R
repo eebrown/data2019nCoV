@@ -193,7 +193,7 @@ for (i in 1:length(outbreaks)) {
        ylab = "Daily Cases",
        xlab = "Date",
        type = "l",
-       ylim = c(0,50000))
+       ylim = c(0,60000))
  # lines(sarscov2_ecdc_2019$date[-1], frollmean(sarscov2_ecdc_2019$cases_usa, 7)[-1], col="green")
  
   plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_usa),
@@ -201,91 +201,91 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,6000))
   
    plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_ita),
       main = "Italy - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,50000))
+      ylim = c(0,60000))
    
     plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_ita),
       main = "Italy - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,6000))
  
      plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_esp),
       main = "Spain - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,50000))
+      ylim = c(0,60000))
      
       plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_esp),
       main = "Spain - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,6000))
       
       plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_fra),
       main = "France - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,50000))
+      ylim = c(0,60000))
      
       plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_fra),
       main = "France - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,6000))
       
       plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_rus),
       main = "Russia - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,50000))
+      ylim = c(0,60000))
      
       plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_rus),
       main = "Russia - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,6000))
       
             plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_bra),
       main = "Brazil - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,50000))
+      ylim = c(0,60000))
      
       plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_bra),
       main = "Brazil - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,6000))
       
       plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_ind),
       main = "India - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,50000))
+      ylim = c(0,60000))
      
       plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_ind),
       main = "India - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,5000))
+      ylim = c(0,6000))
 
 
 ## ---- fig.width=6, fig.height=6-----------------------------------------------
