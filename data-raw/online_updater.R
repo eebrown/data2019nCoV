@@ -129,10 +129,20 @@ update_data_ontario <- function() {
 
 }
 
+update_data_toronto <- function() {
+
+  download.file("https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/e5bf35bc-e681-43da-b2ce-0242d00922ad?format=csv",
+	destfile = "data-raw/toronto_open_data.csv")
+
+
+}
+
 update_data <- function() {
 	library(plyr)
 	library(tidyverse)
     library(countrycode)
+    message("Updating Toronto data...")
+	update_data_toronto()
     message("Updating Ontario data...")
 	update_data_ontario()
 	message("Updating Canada data...")
