@@ -232,7 +232,7 @@ for (i in 1:length(outbreaks)) {
        ylab = "Daily Cases",
        xlab = "Date",
        type = "l",
-       ylim = c(0,60000))
+       ylim = c(0,80000))
  # lines(sarscov2_ecdc_2019$date[-1], frollmean(sarscov2_ecdc_2019$cases_usa, 7)[-1], col="green")
  
   plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_usa),
@@ -240,7 +240,7 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,6000))
+      ylim = c(0,8000))
   
    plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$cases_ita),
       main = "Italy - Cases",
@@ -398,7 +398,7 @@ matplot(as.Date(sarscov2_ecdc_2019$date[range]), cbind(
      type = "l",
      col = c("red",   "red",  "blue", "blue"),
      lty = c("solid", "dotted", "solid", "dotted"),
-     ylim = c(0,1.2),
+     ylim = c(0,1.4),
      ylog = TRUE,
      xaxt="n")
 dates<-format(sarscov2_ecdc_2019$date,"%b %d")
