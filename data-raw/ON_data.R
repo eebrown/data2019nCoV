@@ -10,7 +10,7 @@ library(tidyverse)
 
 ON_mohreports <- read.csv("data-raw/ON_mohreports.csv")
 ON_mohreports$date <- as.POSIXct(ON_mohreports$date)
-ON_mohreports$date_data <- as.POSIXct(ON_mohreports$date_data)
+ON_mohreports$date_data <- as.POSIXct(ON_mohreports$date_data, format="%Y-%m-%d %H:%M:%OS")
 
 usethis::use_data(ON_mohreports, overwrite = TRUE)
 
