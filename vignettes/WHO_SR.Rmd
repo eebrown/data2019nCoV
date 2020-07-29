@@ -398,7 +398,7 @@ matplot(as.Date(sarscov2_ecdc_2019$date[range]), cbind(
      type = "l",
      col = c("red",   "red",  "blue", "blue"),
      lty = c("solid", "dotted", "solid", "dotted"),
-     ylim = c(0,1.4),
+     ylim = c(0,2),
      ylog = TRUE,
      xaxt="n")
 dates<-format(sarscov2_ecdc_2019$date,"%b %d")
