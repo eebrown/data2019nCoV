@@ -19,17 +19,17 @@ Plots of the Canada data can be found in the [Canada vignette](https://htmlprevi
 
 ### World 
 
-`ECDC_owid` and `sarscov2_ecdc_2019`: The `fulldata.csv` file produced by [Our World In Data](https://ourworldindata.org/coronavirus-source-data), loaded as a data.frame, including cumulative cases and deaths for all countries. The first is the untransformed long format, and `sarscov2_ecdc_2019` is transformed into wide format similar to `sarscov2_who_2019`, and renamed with ISO 3-letter country codes with systematic snake case naming. Updated to 2020-07-28.
+`ECDC_owid` and `sarscov2_ecdc_2019`: The `fulldata.csv` file produced by [Our World In Data](https://ourworldindata.org/coronavirus-source-data), loaded as a data.frame, including cumulative cases and deaths for all countries. The first is the untransformed long format, and `sarscov2_ecdc_2019` is transformed into wide format similar to `sarscov2_who_2019`, and renamed with ISO 3-letter country codes with systematic snake case naming. Updated to 2020-07-29.
 
 `WHO_SR` and `sarscov2_who_2019`: The transcribed WHO [situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports). The first uses the wordy names from the Situation Reports, and `sarscov2_who_2019` uses systmatic ISO 3-letter country code names with systematic snake case naming. Updated up to 2020-04-21 (Situation Reports # 1-92). *Note I am not currently able able to keep the WHO Situation Report transcriptions up to date.*
 
 ### Ontario
 
-`ON_status`: The government of Ontario updates the Ontario testing data (e.g. cumulative case count) and current hospitalization data daily in a .csv file, [covidtesting.csv](https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario). This object contains that data, with variables renamed. updated as of 2020-07-28.
+`ON_status`: The government of Ontario updates the Ontario testing data (e.g. cumulative case count) and current hospitalization data daily in a .csv file, [covidtesting.csv](https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario). This object contains that data, with variables renamed. updated as of 2020-07-29.
 
-`ON_linelist`: The list of [confirmed cases](https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario) provided by the Government of Ontario. Last updated 2020-07-28.
+`ON_linelist`: The list of [confirmed cases](https://data.ontario.ca/dataset/confirmed-positive-cases-of-covid-19-in-ontario) provided by the Government of Ontario. Last updated 2020-07-29.
 
-`ON_mohreports`: This object contains data transcribed from the Public Health Ontario/Ontario Ministry of Health "Epidemiologic Summary" reports, published daily as PDFs from 2020-03-29. It is updated as of 2020-07-28 (with some previous dates missing/to be added).
+`ON_mohreports`: This object contains data transcribed from the Public Health Ontario/Ontario Ministry of Health "Epidemiologic Summary" reports, published daily as PDFs from 2020-03-29. It is updated as of 2020-07-29 (with some previous dates missing/to be added).
 
 ~~`ON_cumulative`~~ (not updated, replaced with `ON_status`) The source of this data is the official Ontario Government's [website](https://www.ontario.ca/page/2019-novel-coronavirus). Data is included from page updates that were captured by the [Internet Archive](https://web.archive.org/web/*/https://www.ontario.ca/page/2019-novel-coronavirus) where possible. It has been updated to 2020-05-01.
 

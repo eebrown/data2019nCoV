@@ -296,6 +296,8 @@ plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_global)
      ylab = "New Deaths",
      xlab = "Date",
      type = "b")
+lines(sarscov2_ecdc_2019$date[-1],
+frollmean(daily_change(sarscov2_ecdc_2019$deaths_global), 7), col="red")
 
 plot(sarscov2_ecdc_2019$date[-1], daily_change(sarscov2_ecdc_2019$deaths_global),
      main = "Change in Deaths by Date (Semilog.)",
@@ -326,7 +328,7 @@ matplot(as.Date(sarscov2_ecdc_2019$date), cbind(
      xaxt="n")
 dates<-format(sarscov2_ecdc_2019$date,"%b-%d")
 axis(1, at=sarscov2_ecdc_2019$date, labels=dates)
-legend(x="top", 
+legend(x="left", 
        legend = c("Italy", "France", "USA", "China", "Canada", "Korea", "Germany"), 
        col =    c("green", "brown", "magenta", "black", "red", "blue", "orange"), 
        pch=18)
@@ -351,7 +353,7 @@ matplot(as.Date(sarscov2_ecdc_2019$date[range]), cbind(
      type = "l",
      col = c("red",   "red",  "blue", "blue"),
      lty = c("solid", "dotted", "solid", "dotted"),
-     ylim = c(0,1.4),
+     ylim = c(0,2),
      ylog = TRUE,
      xaxt="n")
 dates<-format(sarscov2_ecdc_2019$date,"%b %d")
