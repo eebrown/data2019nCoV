@@ -82,6 +82,7 @@ openings <- function() {
   
   # PHase 3 opening
     abline(v = as.POSIXct("2020-07-17"), col = "green") # phase 3 except GTA
+    abline(v = as.POSIXct("2020-07-31"), col = "green") # phase 3 GTA
 }
 
 plot(ON_status$date, ON_status$cases,
