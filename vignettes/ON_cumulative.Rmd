@@ -328,15 +328,10 @@ plot(ON_mohreports$date[-1], daily_change(ON_mohreports$severity_icu),
      xlab = "Date",
      ylab = "New ICU Cases")
 
-plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_ltc),
+plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_ltc_residents),
      type = "b",
      xlab = "Date",
      ylab = "Change LTC Cases")
-
-plot(ON_mohreports$date[-1], daily_change((ON_mohreports$cases - ON_mohreports$cases_ltc - ON_mohreports$cases_hospital_pts)),
-     type = "b",
-     xlab = "Date",
-     ylab = "Change Non-Outbreak Cases")
 
 ```
 

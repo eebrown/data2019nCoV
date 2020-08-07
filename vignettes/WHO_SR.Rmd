@@ -19,6 +19,7 @@ For additional data and details please see this R package's [GitHub repository](
 ```{r setup}
 library(data2019nCoV)
 
+library(data.table)
 library(tidyr)
 library(dplyr)
 library(ggplot2)

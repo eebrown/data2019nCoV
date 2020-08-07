@@ -7,6 +7,7 @@ knitr::opts_chunk$set(
 ## ----setup--------------------------------------------------------------------
 library(data2019nCoV)
 
+library(data.table)
 library(tidyr)
 library(dplyr)
 library(ggplot2)
