@@ -23,6 +23,7 @@ library(tidyr)
 library(dplyr)
 library(ggplot2)
 library(scales)
+library(data.table)
 #library(lubridate)
 
 CAN_govcsv$date[length(CAN_govcsv$date)]
@@ -111,6 +112,46 @@ gather(CAN_govcsv, key, value,
        x = "Date", 
        y = "Case Fatality Rate") +
   theme(legend.title = element_blank())
+
+```
+
+```{r, fig.width=8, fig.height=6}
+# start from March 11, when reports were daily, consistently
+range <- 17:length(CAN_govcsv$date)-1
+
+# merge the provinces into the regions used in the manuscript
+Ontario <- frollmean(daily_change(CAN_govcsv$total_ON), 7)
+Prairie <- frollmean((daily_change(CAN_govcsv$total_AB)+
+                         daily_change(CAN_govcsv$total_SK)+
+                         daily_change(CAN_govcsv$total_MB)), 7)
+Atlantic <- frollmean((daily_change(CAN_govcsv$total_NS)+
+                         daily_change(CAN_govcsv$total_NB)+
+                         daily_change(CAN_govcsv$total_NL)+
+                         daily_change(CAN_govcsv$total_PE)), 7)
+BritishColumbia <- frollmean(daily_change(CAN_govcsv$total_BC), 7)
+Quebec <- frollmean(daily_change(CAN_govcsv$total_QC), 7)
+
+#plot the data
+
+matplot(as.Date(CAN_govcsv$date[range]), cbind( 
+                      Ontario[range],
+                      Quebec[range],
+                      Prairie[range],
+                      Atlantic[range],
+                      BritishColumbia[range]),
+     main = "",
+     xlab = "Date",
+     ylab = "Daily Change in Reported Cases",
+     type = "l",
+     lty = "solid",
+     col = c("green", "blue", "orange", "purple", "red"),
+     xaxt="n")
+dates<-format(CAN_govcsv$date,"%b-%d")
+axis(1, at=CAN_govcsv$date, labels=dates)
+legend(x="topright", 
+       legend = c("Ontario", "Quebec", "Prairie", "Atlantic", "British Columbia"), 
+       col =    c("green", "blue", "orange", "purple", "red"), 
+       pch=18)
 
 ```
 
