@@ -122,7 +122,7 @@ matplot(as.Date(CAN_govcsv$date[range]), cbind(
                       Prairie[range],
                       Atlantic[range],
                       BritishColumbia[range]),
-     main = "",
+     main = "7-day rolling average of daily new COVID-19 cases",
      xlab = "Date",
      ylab = "Daily Change in Reported Cases",
      type = "l",
