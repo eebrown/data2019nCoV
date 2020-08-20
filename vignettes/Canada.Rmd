@@ -133,6 +133,13 @@ Quebec <- frollmean(daily_change(CAN_govcsv$total_QC), 7)
 
 #plot the data
 
+ON_pop <- 14745040
+QC_pop <- 8552362
+Pra_pop <- 4428247 + 1181987 + 1379121
+Atl_pop <- 978274 + 780890 + 520437 + 158717
+BC_pop <- 5120184
+
+
 matplot(as.Date(CAN_govcsv$date[range]), cbind( 
                       Ontario[range],
                       Quebec[range],
@@ -140,6 +147,26 @@ matplot(as.Date(CAN_govcsv$date[range]), cbind(
                       Atlantic[range],
                       BritishColumbia[range]),
      main = "7-day rolling average of daily new COVID-19 cases",
+     xlab = "Date",
+     ylab = "Daily Change in Reported Cases",
+     type = "l",
+     lty = "solid",
+     col = c("green", "blue", "orange", "purple", "red"),
+     xaxt="n")
+dates<-format(CAN_govcsv$date,"%b-%d")
+axis(1, at=CAN_govcsv$date, labels=dates)
+legend(x="topright", 
+       legend = c("Ontario", "Quebec", "Prairie", "Atlantic", "British Columbia"), 
+       col =    c("green", "blue", "orange", "purple", "red"), 
+       pch=18)
+
+matplot(as.Date(CAN_govcsv$date[range]), cbind( 
+                      (Ontario[range]/ON_pop)*1000000,
+                      (Quebec[range]/QC_pop)*1000000,
+                      (Prairie[range]/Pra_pop)*1000000,
+                      (Atlantic[range]/Atl_pop)*1000000,
+                      (BritishColumbia[range]/BC_pop)*1000000),
+     main = "7-day rolling average of daily new COVID-19 cases per million",
      xlab = "Date",
      ylab = "Daily Change in Reported Cases",
      type = "l",
