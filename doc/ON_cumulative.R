@@ -289,28 +289,28 @@ gather(ON_mohreports, key, value,
 
 par(mfrow=c(3,2))
 
-plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases),
-     type = "b",
+plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases), 7),
+     type = "l",
      xlab = "Date",
      ylab = "New Cases")
 
-plot(ON_mohreports$date[-1], daily_change(ON_mohreports$deaths),
-     type = "b",
+plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$deaths), 7),
+     type = "l",
      xlab = "Date",
      ylab = "New Deaths")
 
-plot(ON_mohreports$date[-1], daily_change(ON_mohreports$severity_hospitalized),
-     type = "b",
+plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$severity_hospitalized), 7),
+     type = "l",
      xlab = "Date",
      ylab = "New Hospitalized Cases")
 
-plot(ON_mohreports$date[-1], daily_change(ON_mohreports$severity_icu),
-     type = "b",
+plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$severity_icu), 7),
+     type = "l",
      xlab = "Date",
      ylab = "New ICU Cases")
 
-plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_ltc_residents),
-     type = "b",
+plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases_ltc_residents), 7),
+     type = "l",
      xlab = "Date",
      ylab = "Change LTC Cases")
 
