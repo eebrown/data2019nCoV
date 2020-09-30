@@ -340,7 +340,7 @@ plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_phu_toronto),
      type = "p",
      xlab = "Date",
      ylab = "New Cases in Toronto",
-     ylim = c(0, 300))
+     ylim = c(0, 400))
 lines(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases_phu_toronto), 7), col="red")
 ```
 
