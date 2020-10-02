@@ -48,7 +48,7 @@ The source of this data is the official Ontario Government's website (https://ww
 openings <- function() {
   
   # Banning gatherings over 250 people https://news.ontario.ca/mtc/en/2020/03/statement-from-minister-elliott-and-minister-macleod-on-the-2019-novel-coronavirus-covid-19-1.html
-  abline(v = as.POSIXct("2020-03-13"), col = "orangered")
+  abline(v = as.POSIXct("2020-03-13"), col = "orange")
   
   # Schools remain closed after march break https://news.ontario.ca/opo/en/2020/03/title.html
   abline(v = as.POSIXct("2020-03-14"), col = "red")
@@ -83,6 +83,12 @@ openings <- function() {
   # PHase 3 opening
     abline(v = as.POSIXct("2020-07-17"), col = "green") # phase 3 except GTA
     abline(v = as.POSIXct("2020-07-31"), col = "green") # phase 3 GTA
+    
+  # Phase 3 - surgical measures
+    
+    abline(v = as.POSIXct("2020-09-19"), col = "orange") # lowered limits of private gatherings
+      abline(v = as.POSIXct("2020-09-25"), col = "orange") #tighter hours on bars and restaurants
+    
 }
 
 plot(ON_status$date, ON_status$cases,
@@ -344,63 +350,12 @@ plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_phu_toronto),
 lines(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases_phu_toronto), 7), col="red")
 ```
 
-The following plot is to test the hypothesis that Mother's Day gatherings on May 10 led to a spike in cases. Here we look at the ratio of F:M in non-outbreak cases in non-teenagers. Presumably mother's day gatherings involve more females if we assume it is celebrated equally by sons and daughters (or at least not moreso by sons), and that fathers are not always present. Shading on graph reflects 1-14 days after event, which reflects incubation period (this uses episode date, not reported date).
-
-```{r, fig.width=6, fig.height=8}
-
-# gendercount <- ON_linelist %>%
-#   filter(Outbreak_Related != "Yes") %>%
-#   filter(age_group != "<20") %>%
-#   select(date, gender) %>%
-#   group_by(date, gender) %>%
-#   summarise(count=n()) %>%
-#   pivot_wider(names_from = gender, values_from = count) %>%
-#   mutate(ratio = FEMALE/MALE)
-# 
-# gendercount$date[[1]] <- NA
-# 
-# par(mfrow=c(2,1))
-# 
-# matplot(as.Date(gendercount$date), cbind(gendercount$MALE, gendercount$FEMALE),
-#      main = "ON Non-Outbreak Adult Cases",
-#      xlab = "Date (2020)",
-#      ylab = "Cases",
-#      type = "l",
-#      col = c("blue",   "pink"),
-#      lty = c("solid", "solid"),
-#      #ylim = c(0,1),
-#      xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)-2]),
-#      #ylog = TRUE,
-#      xaxt="n")
-# dates<-format(as.Date(gendercount$date),"%b %d")
-# axis(1, at=as.Date(gendercount$date), labels=dates)
-# legend(x="left",
-#        legend = c("Male", "Female"),
-#        col =    c("blue",   "pink"),
-#        lty = c("solid", "solid"),
-#        pch=18)
-# 
-# plot(as.Date(gendercount$date[1:(length(gendercount$ratio)-2)]),
-#      gendercount$ratio[1:(length(gendercount$ratio)-2)],
-#      type="l", xlab="Date", ylab="Ratio F:M",
-#      main = "Gender Ratio of ON Cases (Non-Outbreak, Age >= 20)",
-#      xlim=c(as.Date("2020-03-01"), as.Date(gendercount$date)[length(gendercount$date)-2]),
-#      ylim=c(0,2))
-# lines(as.Date(gendercount$date)[1:(length(gendercount$ratio)-2)], frollmean(gendercount$ratio[1:(length(gendercount$ratio)-2)], 14), col="tomato1")
-# lines(as.Date(gendercount$date)[1:(length(gendercount$ratio)-2)],
-# frollmean(gendercount$ratio[1:(length(gendercount$ratio)-2)], 2), col="green")
-# abline(h=1, col="grey")
-# abline(v=as.Date("2020-05-10"), col="pink")
-# polygon(c(as.Date("2020-05-24"), as.Date("2020-05-11"), as.Date("2020-05-11"), as.Date("2020-05-24")), c(2, 2, 0, 0),
-#         col=rgb(1, 0, 0,0.1), border=NA)
-```
-
 Which days of the week do tests get reported?
 
 ```{r, fig.width=6, fig.height=8}
 weekdays <- as.factor(as.numeric(as.Date(ON_status$date))%% 7)
 levels(weekdays) <- c("Thurs", "Fri", "Sat", "Sun", "Mon", "Tues", "Wed")
 plot(weekdays, ON_status$tests_last_day,
-     ylab="Tests reported", xlab="Day of Report (by 4 pm)")
+     ylab="Tests reported", xlab="Day of Report (by 3/4 pm)")
 
 ```
