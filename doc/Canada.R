@@ -138,7 +138,7 @@ matplot(as.Date(CAN_govcsv$date[range]), cbind(
      xaxt="n")
 dates<-format(CAN_govcsv$date,"%b-%d")
 axis(1, at=CAN_govcsv$date, labels=dates)
-legend(x="topright", 
+legend(x="topleft", 
        legend = c("Ontario", "Quebec", "Prairie", "Atlantic", "British Columbia"), 
        col =    c("green", "blue", "orange", "purple", "red"), 
        pch=18)
@@ -151,14 +151,14 @@ matplot(as.Date(CAN_govcsv$date[range]), cbind(
                       (BritishColumbia[range]/BC_pop)*1000000),
      main = "7-day rolling average of daily new COVID-19 cases per million",
      xlab = "Date",
-     ylab = "Daily Change in Reported Cases",
+     ylab = "Daily Change in Reported Cases per Million (7-day avg.)",
      type = "l",
      lty = "solid",
      col = c("green", "blue", "orange", "purple", "red"),
      xaxt="n")
 dates<-format(CAN_govcsv$date,"%b-%d")
 axis(1, at=CAN_govcsv$date, labels=dates)
-legend(x="topright", 
+legend(x="topleft", 
        legend = c("Ontario", "Quebec", "Prairie", "Atlantic", "British Columbia"), 
        col =    c("green", "blue", "orange", "purple", "red"), 
        pch=18)
