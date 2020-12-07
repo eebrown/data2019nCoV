@@ -121,9 +121,9 @@ range <- 17:length(CAN_govcsv$date)-1
 
 # merge the provinces into the regions used in the manuscript
 Ontario <- frollmean(daily_change(CAN_govcsv$total_ON), 7)
-Prairie <- frollmean((daily_change(CAN_govcsv$total_AB)+
-                         daily_change(CAN_govcsv$total_SK)+
-                         daily_change(CAN_govcsv$total_MB)), 7)
+Alberta <- frollmean(daily_change(CAN_govcsv$total_AB), 7)
+Saskatchewan <- frollmean(daily_change(CAN_govcsv$total_SK), 7)
+Manitoba <- frollmean(daily_change(CAN_govcsv$total_MB), 7)
 Atlantic <- frollmean((daily_change(CAN_govcsv$total_NS)+
                          daily_change(CAN_govcsv$total_NB)+
                          daily_change(CAN_govcsv$total_NL)+
@@ -131,19 +131,34 @@ Atlantic <- frollmean((daily_change(CAN_govcsv$total_NS)+
 BritishColumbia <- frollmean(daily_change(CAN_govcsv$total_BC), 7)
 Quebec <- frollmean(daily_change(CAN_govcsv$total_QC), 7)
 
+NovaScotia <- frollmean(daily_change(CAN_govcsv$total_NS), 7)
+NewBrunswick <- frollmean(daily_change(CAN_govcsv$total_NB), 7)
+Newfoundland <- frollmean(daily_change(CAN_govcsv$total_NL), 7)
+PEI <- frollmean(daily_change(CAN_govcsv$total_PE), 7)
+
+
+
 #plot the data
 
 ON_pop <- 14745040
 QC_pop <- 8552362
-Pra_pop <- 4428247 + 1181987 + 1379121
+AB_pop <- 4428247 
+SK_pop <- 1181987
+MB_pop <- 1379121
 Atl_pop <- 978274 + 780890 + 520437 + 158717
 BC_pop <- 5120184
 
+NS_pop <- 978274
+NB_pop <- 780890
+NL_pop <- 520437
+PEI_pop <- 158717
 
 matplot(as.Date(CAN_govcsv$date[range]), cbind( 
                       Ontario[range],
                       Quebec[range],
-                      Prairie[range],
+                      Alberta[range],
+                      Manitoba[range],
+                      Saskatchewan[range],
                       Atlantic[range],
                       BritishColumbia[range]),
      main = "7-day rolling average of daily new COVID-19 cases",
@@ -151,19 +166,24 @@ matplot(as.Date(CAN_govcsv$date[range]), cbind(
      ylab = "Daily Change in Reported Cases",
      type = "l",
      lty = "solid",
-     col = c("green", "blue", "orange", "purple", "red"),
+     col =    c("green", "blue", "orange", "black", "yellow", 
+                  "purple", "red"),
      xaxt="n")
 dates<-format(CAN_govcsv$date,"%b-%d")
 axis(1, at=CAN_govcsv$date, labels=dates)
 legend(x="topleft", 
-       legend = c("Ontario", "Quebec", "Prairie", "Atlantic", "British Columbia"), 
-       col =    c("green", "blue", "orange", "purple", "red"), 
+       legend = c("Ontario", "Quebec", "Alberta", "Manitoba", 
+                  "Saskatechewan", "Atlantic", "British Columbia"), 
+       col =    c("green", "blue", "orange", "black", "yellow", 
+                  "purple", "red"), 
        pch=18)
 
 matplot(as.Date(CAN_govcsv$date[range]), cbind( 
                       (Ontario[range]/ON_pop)*1000000,
                       (Quebec[range]/QC_pop)*1000000,
-                      (Prairie[range]/Pra_pop)*1000000,
+                      (Alberta[range]/AB_pop)*1000000,
+                      (Manitoba[range]/MB_pop)*1000000,
+                      (Saskatchewan[range]/SK_pop)*1000000,
                       (Atlantic[range]/Atl_pop)*1000000,
                       (BritishColumbia[range]/BC_pop)*1000000),
      main = "7-day rolling average of daily new COVID-19 cases per million",
@@ -171,13 +191,46 @@ matplot(as.Date(CAN_govcsv$date[range]), cbind(
      ylab = "Daily Change in Reported Cases per Million (7-day avg.)",
      type = "l",
      lty = "solid",
-     col = c("green", "blue", "orange", "purple", "red"),
+     col =    c("green", "blue", "orange", "black", "yellow", 
+                  "purple", "red"),
      xaxt="n")
 dates<-format(CAN_govcsv$date,"%b-%d")
 axis(1, at=CAN_govcsv$date, labels=dates)
 legend(x="topleft", 
-       legend = c("Ontario", "Quebec", "Prairie", "Atlantic", "British Columbia"), 
-       col =    c("green", "blue", "orange", "purple", "red"), 
+       legend = c("Ontario", "Quebec", "Alberta", "Manitoba", 
+                  "Saskatechewan", "Atlantic", "British Columbia"), 
+       col =    c("green", "blue", "orange", "black", "yellow", 
+                  "purple", "red"), 
+       pch=18)
+
+matplot(as.Date(CAN_govcsv$date[range]), cbind( 
+                      (Ontario[range]/ON_pop)*1000000,
+                      (Quebec[range]/QC_pop)*1000000,
+                      (Alberta[range]/AB_pop)*1000000,
+                      (Manitoba[range]/MB_pop)*1000000,
+                      (Saskatchewan[range]/SK_pop)*1000000,
+                      (NovaScotia[range]/NS_pop)*1000000,
+                      (NewBrunswick[range]/NB_pop)*1000000,
+                      (Newfoundland[range]/NL_pop)*1000000,
+                      (PEI[range]/PEI_pop)*1000000,
+                      (BritishColumbia[range]/BC_pop)*1000000),
+     main = "7-day rolling average of daily new COVID-19 cases per million",
+     xlab = "Date",
+     ylab = "Daily Change in Reported Cases per Million (7-day avg.)",
+     type = "l",
+     lty = "solid",
+     col =    c("blue", "blue", "blue", "blue", 
+                  "blue", "red", "red", "blue", "blue", "red"),
+     xaxt="n")
+dates<-format(CAN_govcsv$date,"%b-%d")
+axis(1, at=CAN_govcsv$date, labels=dates)
+legend(x="topleft", 
+       legend = c("Ontario", "Quebec", "Alberta", "Manitoba", 
+                  "Saskatechewan", "Nova Scotia", "New Brunswick", 
+                  "Newfoundland", 
+                  "Prince Edward Island", "British Columbia"), 
+       col =    c("blue", "blue", "blue", "blue", 
+                  "blue", "red", "red", "blue", "blue", "red"), 
        pch=18)
 
 ```

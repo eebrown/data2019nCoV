@@ -149,6 +149,7 @@ update_data <- function() {
 	update_data_canada()
 	message("Updating ECDC data...")
 	update_data_ecdc()
+	devtools::build_vignettes()
 }
 
 # potential

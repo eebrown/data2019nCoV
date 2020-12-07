@@ -114,220 +114,220 @@ openings()
 
 
 ## ---- fig.width=6, fig.height=8-----------------------------------------------
-colours <- c("red",   "blue",  "black", "magenta", "green")
-
-matplot(ON_mohreports$date, cbind( 
-                ( (ON_mohreports$deaths / ON_mohreports$cases) * 100 ),
-                ( (ON_mohreports$severity_hospitalized / ON_mohreports$cases) * 100 ),
-                ( (ON_mohreports$severity_icu / ON_mohreports$cases) * 100 ),
-                ( (ON_mohreports$deaths_ltc_residents / ON_mohreports$cases_ltc_residents) * 100 ),
-                ( (ON_mohreports$deaths_hospital_pts / ON_mohreports$cases_hospital_pts) * 100 )
-               ),
-                           
-     main = "Ontario Severity and Outcomes",
-     xlab = "Date (2020)",
-     ylab = "Outcome (Percent)",
-     type = "l",
-     col = colours,
-     lty = c("solid", "solid", "solid", "solid", "solid"),
-     ylim = c(0,40),
-     ylog = TRUE,
-     xaxt="n")
-dates<-format(ON_mohreports$date,"%b %d")
-axis(1, at=ON_mohreports$date, labels=dates)
-legend(x="top", 
-       legend = c("CFR (Overall)", 
-                  "Hospitalized (Cumulative)", 
-                  "ICU (Cumulative)", 
-                  "CFR (LTC Residents)",
-                  "CFR (Hospital Outbreak Patients)"), 
-       col = colours,
-       lty = c("solid", "solid", "solid", "solid"), pch=18)
-
-
-colours <- c("red",   "blue",  "black", "magenta", "green", "brown", "orange", "purple", "pink",
-             "tomato1", "yellow")
-
-matplot(ON_mohreports$date, cbind( 
-                ( (ON_mohreports$deaths_80andover / ON_mohreports$age_80plus) * 100 ),
-                ( (ON_mohreports$deaths_ltc_residents / ON_mohreports$cases_ltc_residents) * 100 ),
-                ( (ON_mohreports$deaths_rh_residents / ON_mohreports$rh_residents) * 100 ),         
-                ( (ON_mohreports$deaths_hospital_pts / ON_mohreports$cases_hospital_pts) * 100 ),
-                ( (ON_mohreports$deaths_60to79 / ON_mohreports$age_60to79) * 100 ),
-                ( (ON_mohreports$deaths / ON_mohreports$cases) * 100 ),
-                ( (ON_mohreports$deaths_40to59 / ON_mohreports$age_40to59) * 100 ),
-                ( (ON_mohreports$deaths_20to39 / ON_mohreports$age_20to39) * 100 ),
-                ( (ON_mohreports$deaths_hospital_staff / ON_mohreports$cases_hospital_staff) * 100 ),
-                ( (ON_mohreports$deaths_ltc_staff / ON_mohreports$cases_ltc_staff) * 100 ),
-                ( (ON_mohreports$deaths_19under / ON_mohreports$age_19under) * 100 )
-               ),
-                           
-     main = "Ontario Case Fatality Rates",
-     xlab = "Date (2020)",
-     ylab = "CFR (Percent)",
-     type = "l",
-     col = colours,
-     lty = c("solid"),
-     ylim = c(0,40),
-     ylog = FALSE,
-     xaxt="n")
-dates<-format(ON_mohreports$date,"%b %d")
-axis(1, at=ON_mohreports$date, labels=dates)
-legend(x="topleft", 
-       legend = c("Age 80+",
-                  "LTC residents",
-                  "RH residents",
-                  "Hospital outbreak patients",
-                  "Age 60-79",
-                  "CFR (Overall)", 
-                  "Age 40-59",
-                  "Age 20-39", 
-                  "Hospital staff",
-                  "LTC staff",
-                  "Age 19 and under"
-                  ), 
-       col = colours,
-       lty = c("solid"), pch=18)
-
-
-# by age
-matplot(ON_mohreports$date[-1], cbind( 
-                ( frollmean(daily_change(ON_mohreports$age_19under), 7) ),
-                ( frollmean(daily_change(ON_mohreports$age_20to39), 7) ),
-                ( frollmean(daily_change(ON_mohreports$age_40to59), 7) ),
-                ( frollmean(daily_change(ON_mohreports$age_60to79), 7) ),
-                ( frollmean(daily_change(ON_mohreports$age_80plus), 7) )
-               ),
-                           
-     main = "Ontario New Cases by Age",
-     xlab = "Date (2020)",
-     ylab = "New Cases",
-     type = "l",
-     col = colours,
-     lty = c("solid"),
-     #ylim = c(0,30),
-     ylog = FALSE,
-     xaxt="n")
-dates<-format(ON_mohreports$date[-1],"%b %d")
-axis(1, at=ON_mohreports$date[-1], labels=dates)
- legend(x="topleft", 
-        legend = c("<20",
-                   "20-39",
-                   "40-59",
-                   "60-79",
-                   ">79"
-                   ), 
-       col = colours,
-       lty = c("solid"), pch=18)
-
-
-## ---- fig.width=6, fig.height=8-----------------------------------------------
-
-plot(ON_mohreports$date, 
-     ON_mohreports$cases_female / 
-       (ON_mohreports$cases_male + ON_mohreports$cases_female),
-     main = "Ontario COVID-19 Cases - Gender",
-     ylab = "Proportion of Female Cases",
-     xlab = "Date",
-     type = "l")
+# colours <- c("red",   "blue",  "black", "magenta", "green")
+# 
+# matplot(ON_mohreports$date, cbind( 
+#                 ( (ON_mohreports$deaths / ON_mohreports$cases) * 100 ),
+#                 ( (ON_mohreports$severity_hospitalized / ON_mohreports$cases) * 100 ),
+#                 ( (ON_mohreports$severity_icu / ON_mohreports$cases) * 100 ),
+#                 ( (ON_mohreports$deaths_ltc_residents / ON_mohreports$cases_ltc_residents) * 100 ),
+#                 ( (ON_mohreports$deaths_hospital_pts / ON_mohreports$cases_hospital_pts) * 100 )
+#                ),
+#                            
+#      main = "Ontario Severity and Outcomes",
+#      xlab = "Date (2020)",
+#      ylab = "Outcome (Percent)",
+#      type = "l",
+#      col = colours,
+#      lty = c("solid", "solid", "solid", "solid", "solid"),
+#      ylim = c(0,40),
+#      ylog = TRUE,
+#      xaxt="n")
+# dates<-format(ON_mohreports$date,"%b %d")
+# axis(1, at=ON_mohreports$date, labels=dates)
+# legend(x="top", 
+#        legend = c("CFR (Overall)", 
+#                   "Hospitalized (Cumulative)", 
+#                   "ICU (Cumulative)", 
+#                   "CFR (LTC Residents)",
+#                   "CFR (Hospital Outbreak Patients)"), 
+#        col = colours,
+#        lty = c("solid", "solid", "solid", "solid"), pch=18)
+# 
+# 
+# colours <- c("red",   "blue",  "black", "magenta", "green", "brown", "orange", "purple", "pink",
+#              "tomato1", "yellow")
+# 
+# matplot(ON_mohreports$date, cbind( 
+#                 ( (ON_mohreports$deaths_80andover / ON_mohreports$age_80plus) * 100 ),
+#                 ( (ON_mohreports$deaths_ltc_residents / ON_mohreports$cases_ltc_residents) * 100 ),
+#                 ( (ON_mohreports$deaths_rh_residents / ON_mohreports$rh_residents) * 100 ),         
+#                 ( (ON_mohreports$deaths_hospital_pts / ON_mohreports$cases_hospital_pts) * 100 ),
+#                 ( (ON_mohreports$deaths_60to79 / ON_mohreports$age_60to79) * 100 ),
+#                 ( (ON_mohreports$deaths / ON_mohreports$cases) * 100 ),
+#                 ( (ON_mohreports$deaths_40to59 / ON_mohreports$age_40to59) * 100 ),
+#                 ( (ON_mohreports$deaths_20to39 / ON_mohreports$age_20to39) * 100 ),
+#                 ( (ON_mohreports$deaths_hospital_staff / ON_mohreports$cases_hospital_staff) * 100 ),
+#                 ( (ON_mohreports$deaths_ltc_staff / ON_mohreports$cases_ltc_staff) * 100 ),
+#                 ( (ON_mohreports$deaths_19under / ON_mohreports$age_19under) * 100 )
+#                ),
+#                            
+#      main = "Ontario Case Fatality Rates",
+#      xlab = "Date (2020)",
+#      ylab = "CFR (Percent)",
+#      type = "l",
+#      col = colours,
+#      lty = c("solid"),
+#      ylim = c(0,40),
+#      ylog = FALSE,
+#      xaxt="n")
+# dates<-format(ON_mohreports$date,"%b %d")
+# axis(1, at=ON_mohreports$date, labels=dates)
+# legend(x="topleft", 
+#        legend = c("Age 80+",
+#                   "LTC residents",
+#                   "RH residents",
+#                   "Hospital outbreak patients",
+#                   "Age 60-79",
+#                   "CFR (Overall)", 
+#                   "Age 40-59",
+#                   "Age 20-39", 
+#                   "Hospital staff",
+#                   "LTC staff",
+#                   "Age 19 and under"
+#                   ), 
+#        col = colours,
+#        lty = c("solid"), pch=18)
+# 
+# 
+# # by age
+# matplot(ON_mohreports$date[-1], cbind( 
+#                 ( frollmean(daily_change(ON_mohreports$age_19under), 7) ),
+#                 ( frollmean(daily_change(ON_mohreports$age_20to39), 7) ),
+#                 ( frollmean(daily_change(ON_mohreports$age_40to59), 7) ),
+#                 ( frollmean(daily_change(ON_mohreports$age_60to79), 7) ),
+#                 ( frollmean(daily_change(ON_mohreports$age_80plus), 7) )
+#                ),
+#                            
+#      main = "Ontario New Cases by Age",
+#      xlab = "Date (2020)",
+#      ylab = "New Cases",
+#      type = "l",
+#      col = colours,
+#      lty = c("solid"),
+#      #ylim = c(0,30),
+#      ylog = FALSE,
+#      xaxt="n")
+# dates<-format(ON_mohreports$date[-1],"%b %d")
+# axis(1, at=ON_mohreports$date[-1], labels=dates)
+#  legend(x="topleft", 
+#         legend = c("<20",
+#                    "20-39",
+#                    "40-59",
+#                    "60-79",
+#                    ">79"
+#                    ), 
+#        col = colours,
+#        lty = c("solid"), pch=18)
 
 
 ## ---- fig.width=6, fig.height=8-----------------------------------------------
 
-ON_forplot <- rename(ON_mohreports,
-    Ontario = cases, Toronto = cases_phu_toronto, Peel = cases_phu_peel, 
-    York = cases_phu_york, Ottawa = cases_phu_ottawa, Durham = cases_phu_durham, 
-    Waterloo = cases_phu_waterloo, Hamilton = cases_phu_hamilton, 
-    Windsor... = cases_phu_windsoressex, Middlesex... = cases_phu_middlesexlondon, 
-    Halton = cases_phu_halton, Niagara = cases_phu_niagara, 
-    Simcoe... = cases_phu_simcoemuskoka, Haliburton... = cases_phu_haliburtonkawarthapineridge,
-    Lambton = cases_phu_lambton, Wellington... = cases_phu_wellingtondufferinguelph, 
-    Kingston... = cases_phu_kingstonfrontenaclennoxaddington, 
-    Haldimand... = cases_phu_haldimandnorfolk, Peterborough = cases_phu_peterborough, 
-    Leeds... = cases_phu_leedsgrenvillelanark, Brant = cases_phu_brant, 
-    Eastern = cases_phu_easternontario, Porcupine = cases_phu_porcupine, 
-    Sudbury = cases_phu_sudbury, Hastings... = cases_phu_hastingsprinceedward, 
-    Grey... = cases_phu_greybruce, Southwestern = cases_phu_southwestern, 
-    Chatham... = cases_phu_chathamkent, ThunderBay = cases_phu_thunderbay, 
-    Renfrew = cases_phu_renfrew, Algoma = cases_phu_algoma, 
-    HuronPerth = cases_phu_huronperth, NorthBay... = cases_phu_northbayparrysound, 
-    Northwestern = cases_phu_northwestern, Timiskaming = cases_phu_timiskaming)
-
-
-gather(ON_forplot, key, value, 
-       Ontario, Toronto, Peel, York, Ottawa, Durham, Waterloo, Hamilton,
-       Windsor..., Middlesex..., Halton, Niagara, Simcoe..., Haliburton...,
-    Lambton, Wellington..., Kingston..., Haldimand..., Peterborough, 
-    Leeds..., Brant, Eastern, Porcupine, Sudbury, Hastings..., 
-    Grey..., Southwestern, Chatham..., ThunderBay, Renfrew, Algoma, 
-    HuronPerth, NorthBay..., Northwestern, Timiskaming
-       ) %>%
-  ggplot(aes(x=date, y=value, col=key)) +
-  geom_path() +
-  scale_y_continuous(trans = 'log10', labels = comma) +
-  theme(legend.position="bottom") +
-  labs(title = "Ontario COVID-19 Cases by Public Health Unit",
-       x = "Date", 
-       y = "Confirmed Cases") +
-  guides(shape = guide_legend(override.aes = list(size = 0.5))) +
-  guides(color = guide_legend(override.aes = list(size = 0.5))) +
-  theme(legend.text = element_text(size = 7)) +
-  theme(legend.title = element_blank())
-
-gather(ON_mohreports, key, value, 
-       cases,deaths,
-       severity_hospitalized,severity_icu,
-       cases_ltc_residents, cases_ltc_staff,
-       cases_hospital_pts, deaths_hospital_pts,
-       deaths_ltc_residents, cases_hcp
-       ) %>%
-  ggplot(aes(x=date, y=value, col=key)) +
-  geom_line() +
-  guides(shape = guide_legend(override.aes = list(size = 0.5))) +
-  scale_y_continuous(trans = 'log10', labels = comma) +
-  theme(legend.position="right") +
-  labs(title = "Ontario COVID-19 Cases (Semilog.)",
-       x = "Date", 
-       y = "Confirmed Cases") +
-  theme(legend.title = element_blank())
-
-## ---- fig.width=6, fig.height=8-----------------------------------------------
-
-par(mfrow=c(3,2))
-
-plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases), 7),
-     type = "l",
-     xlab = "Date",
-     ylab = "New Cases")
-
-plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$deaths), 7),
-     type = "l",
-     xlab = "Date",
-     ylab = "New Deaths")
-
-plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$severity_hospitalized), 7),
-     type = "l",
-     xlab = "Date",
-     ylab = "New Hospitalized Cases")
-
-plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$severity_icu), 7),
-     type = "l",
-     xlab = "Date",
-     ylab = "New ICU Cases")
-
-plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases_ltc_residents), 7),
-     type = "l",
-     xlab = "Date",
-     ylab = "Change LTC Cases")
+# plot(ON_mohreports$date, 
+#      ON_mohreports$cases_female / 
+#        (ON_mohreports$cases_male + ON_mohreports$cases_female),
+#      main = "Ontario COVID-19 Cases - Gender",
+#      ylab = "Proportion of Female Cases",
+#      xlab = "Date",
+#      type = "l")
 
 
 ## ---- fig.width=6, fig.height=8-----------------------------------------------
-plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_phu_toronto),
-     type = "p",
-     xlab = "Date",
-     ylab = "New Cases in Toronto",
-     ylim = c(0, 400))
-lines(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases_phu_toronto), 7), col="red")
+
+# ON_forplot <- rename(ON_mohreports,
+#     Ontario = cases, Toronto = cases_phu_toronto, Peel = cases_phu_peel, 
+#     York = cases_phu_york, Ottawa = cases_phu_ottawa, Durham = cases_phu_durham, 
+#     Waterloo = cases_phu_waterloo, Hamilton = cases_phu_hamilton, 
+#     Windsor... = cases_phu_windsoressex, Middlesex... = cases_phu_middlesexlondon, 
+#     Halton = cases_phu_halton, Niagara = cases_phu_niagara, 
+#     Simcoe... = cases_phu_simcoemuskoka, Haliburton... = cases_phu_haliburtonkawarthapineridge,
+#     Lambton = cases_phu_lambton, Wellington... = cases_phu_wellingtondufferinguelph, 
+#     Kingston... = cases_phu_kingstonfrontenaclennoxaddington, 
+#     Haldimand... = cases_phu_haldimandnorfolk, Peterborough = cases_phu_peterborough, 
+#     Leeds... = cases_phu_leedsgrenvillelanark, Brant = cases_phu_brant, 
+#     Eastern = cases_phu_easternontario, Porcupine = cases_phu_porcupine, 
+#     Sudbury = cases_phu_sudbury, Hastings... = cases_phu_hastingsprinceedward, 
+#     Grey... = cases_phu_greybruce, Southwestern = cases_phu_southwestern, 
+#     Chatham... = cases_phu_chathamkent, ThunderBay = cases_phu_thunderbay, 
+#     Renfrew = cases_phu_renfrew, Algoma = cases_phu_algoma, 
+#     HuronPerth = cases_phu_huronperth, NorthBay... = cases_phu_northbayparrysound, 
+#     Northwestern = cases_phu_northwestern, Timiskaming = cases_phu_timiskaming)
+# 
+# 
+# gather(ON_forplot, key, value, 
+#        Ontario, Toronto, Peel, York, Ottawa, Durham, Waterloo, Hamilton,
+#        Windsor..., Middlesex..., Halton, Niagara, Simcoe..., Haliburton...,
+#     Lambton, Wellington..., Kingston..., Haldimand..., Peterborough, 
+#     Leeds..., Brant, Eastern, Porcupine, Sudbury, Hastings..., 
+#     Grey..., Southwestern, Chatham..., ThunderBay, Renfrew, Algoma, 
+#     HuronPerth, NorthBay..., Northwestern, Timiskaming
+#        ) %>%
+#   ggplot(aes(x=date, y=value, col=key)) +
+#   geom_path() +
+#   scale_y_continuous(trans = 'log10', labels = comma) +
+#   theme(legend.position="bottom") +
+#   labs(title = "Ontario COVID-19 Cases by Public Health Unit",
+#        x = "Date", 
+#        y = "Confirmed Cases") +
+#   guides(shape = guide_legend(override.aes = list(size = 0.5))) +
+#   guides(color = guide_legend(override.aes = list(size = 0.5))) +
+#   theme(legend.text = element_text(size = 7)) +
+#   theme(legend.title = element_blank())
+# 
+# gather(ON_mohreports, key, value, 
+#        cases,deaths,
+#        severity_hospitalized,severity_icu,
+#        cases_ltc_residents, cases_ltc_staff,
+#        cases_hospital_pts, deaths_hospital_pts,
+#        deaths_ltc_residents, cases_hcp
+#        ) %>%
+#   ggplot(aes(x=date, y=value, col=key)) +
+#   geom_line() +
+#   guides(shape = guide_legend(override.aes = list(size = 0.5))) +
+#   scale_y_continuous(trans = 'log10', labels = comma) +
+#   theme(legend.position="right") +
+#   labs(title = "Ontario COVID-19 Cases (Semilog.)",
+#        x = "Date", 
+#        y = "Confirmed Cases") +
+#   theme(legend.title = element_blank())
+
+## ---- fig.width=6, fig.height=8-----------------------------------------------
+
+# par(mfrow=c(3,2))
+# 
+# plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases), 7),
+#      type = "l",
+#      xlab = "Date",
+#      ylab = "New Cases")
+# 
+# plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$deaths), 7),
+#      type = "l",
+#      xlab = "Date",
+#      ylab = "New Deaths")
+# 
+# plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$severity_hospitalized), 7),
+#      type = "l",
+#      xlab = "Date",
+#      ylab = "New Hospitalized Cases")
+# 
+# plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$severity_icu), 7),
+#      type = "l",
+#      xlab = "Date",
+#      ylab = "New ICU Cases")
+# 
+# plot(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases_ltc_residents), 7),
+#      type = "l",
+#      xlab = "Date",
+#      ylab = "Change LTC Cases")
+
+
+## ---- fig.width=6, fig.height=8-----------------------------------------------
+# plot(ON_mohreports$date[-1], daily_change(ON_mohreports$cases_phu_toronto),
+#      type = "p",
+#      xlab = "Date",
+#      ylab = "New Cases in Toronto",
+#      ylim = c(0, 400))
+# lines(ON_mohreports$date[-1], frollmean(daily_change(ON_mohreports$cases_phu_toronto), 7), col="red")
 
 ## ---- fig.width=6, fig.height=8-----------------------------------------------
 weekdays <- as.factor(as.numeric(as.Date(ON_status$date))%% 7)

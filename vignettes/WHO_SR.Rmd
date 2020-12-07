@@ -223,7 +223,7 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,15000))
+      ylim = c(0,60000))
 }
 
  par(mfrow=c(4,2))
@@ -233,7 +233,7 @@ for (i in 1:length(outbreaks)) {
        ylab = "Daily Cases",
        xlab = "Date",
        type = "l",
-       ylim = c(0,80000))
+       ylim = c(0,300000))
  # lines(sarscov2_ecdc_2019$date[-1], frollmean(sarscov2_ecdc_2019$cases_usa, 7)[-1], col="green")
  
   plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$deaths_usa), 7),
@@ -241,91 +241,91 @@ for (i in 1:length(outbreaks)) {
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,8000))
+      ylim = c(0,5000))
   
    plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$cases_ita), 7),
       main = "Italy - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,60000))
+      ylim = c(0,100000))
    
     plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$deaths_ita), 7),
       main = "Italy - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,6000))
+      ylim = c(0,3000))
  
      plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$cases_esp), 7),
       main = "Spain - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,60000))
+      ylim = c(0,100000))
      
       plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$deaths_esp), 7),
       main = "Spain - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,6000))
+      ylim = c(0,3000))
       
       plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$cases_fra), 7),
       main = "France - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,60000))
+      ylim = c(0,100000))
      
       plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$deaths_fra), 7),
       main = "France - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,6000))
+      ylim = c(0,3000))
       
       plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$cases_rus), 7),
       main = "Russia - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,60000))
+      ylim = c(0,100000))
      
       plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$deaths_rus), 7),
       main = "Russia - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,6000))
+      ylim = c(0,3000))
       
             plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$cases_bra), 7),
       main = "Brazil - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,60000))
+      ylim = c(0,100000))
      
       plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$deaths_bra), 7),
       main = "Brazil - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,6000))
+      ylim = c(0,3000))
       
       plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$cases_ind), 7),
       main = "India - Cases",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,80000))
+      ylim = c(0,100000))
      
       plot(sarscov2_ecdc_2019$date[-1], frollmean(daily_change(sarscov2_ecdc_2019$deaths_ind), 7),
       main = "India - Deaths",
       ylab = "Daily Cases",
       xlab = "Date",
       type = "l",
-      ylim = c(0,8000))
+      ylim = c(0,3000))
 
 ```
 
@@ -401,7 +401,7 @@ matplot(as.Date(sarscov2_ecdc_2019$date[range]), cbind(
      type = "l",
      col = c("red",   "red",  "blue", "blue"),
      lty = c("solid", "dotted", "solid", "dotted"),
-     ylim = c(0,3),
+     ylim = c(0,4),
      ylog = TRUE,
      xaxt="n")
 dates<-format(sarscov2_ecdc_2019$date,"%b %d")
